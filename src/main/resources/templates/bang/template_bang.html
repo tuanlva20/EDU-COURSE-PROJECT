@@ -1,0 +1,91 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+<script th:src="@{https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js}"></script>
+</head>
+
+<body style="margin: 0;" ng-app="bang" ng-controller="export">
+<input type="hidden" th:value="${username}" id="username"><input type="hidden" th:value="${idkhoahoc}" id="idproduct">
+<div id="p1" style="overflow: hidden; position: relative; background-color: white; width: 2008px; height: 1419px;">
+
+<!-- Begin shared CSS values -->
+<style class="shared-css" type="text/css" >
+.t {
+	transform-origin: bottom left;
+	z-index: 2;
+	position: absolute;
+	white-space: pre;
+	overflow: visible;
+	line-height: 1.5;
+}
+.text-container {
+	white-space: pre;
+}
+@supports (-webkit-touch-callout: none) {
+	.text-container {
+		white-space: normal;
+	}
+}
+</style>
+<!-- End shared CSS values -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_1{left:752px;bottom:1262px;letter-spacing:1.46px;word-spacing:0.26px; font-family: Arial, Helvetica, sans-serif;}
+#t2_1{left:844px;bottom:888px;letter-spacing:0.83px;}
+#t3_1{left:567px;bottom:677px;letter-spacing:0.83px;word-spacing:0.02px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+#t4_1{left:677px;bottom:636px;letter-spacing:0.83px;word-spacing:0.02px;}
+#t5_1{left:916px;bottom:105px;letter-spacing:0.41px;}
+#t6_1{left:883px;bottom:70px;letter-spacing:0.31px;word-spacing:0.11px;}
+#t7_1{left:303px;bottom:283.7px;letter-spacing:-0.36px;}
+#t8_1{left:1476px;bottom:232px;letter-spacing:0.55px;word-spacing:0.33px;}
+#t9_1{left:1406px;bottom:180px;letter-spacing:0.78px;word-spacing:0.07px;}
+#name{bottom:732px;text-align: center; white-space:nowrap;font-weight: bold; font-size:110px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:#333333;}
+#khoahoc{bottom:492px;white-space:nowrap;font-size:79px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:#333333;}
+.s1{font-size:46px;font-family:Lato-Regular_m;color:#666;}
+.s2{font-size:34px;font-family:Lato-Regular_m;color:#666; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+.s3{font-size:23px;font-family:Lato-Regular_m;color:#999;}
+.s4{font-size:23px;font-family:Lato-Regular_m;color:#666;}
+.s5{font-size:37px;font-family:Roboto-Bold_18;color:#8F5806;}
+.s6{font-size:34px;font-family:Lato-Bold_1c;color:#666;}
+.t.m0_1{transform:matrix(0.967,-0.25,0.25,0.97,0,0);}
+</style>
+<!-- End inline CSS -->
+
+
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin page background -->
+<div id="pg1Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg1" style="-webkit-user-select: none;"><object style="width:2008px; height:1419px; background-image: url('/assets/images/bgbang.png'); -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div class="text-container"><span id="t1_1" class="t s1">COURSE CERTIFICATE </span>
+<span id="t2_1" class="t s2">This is to certify that </span>
+<div style="text-align: center; width: 70%;"><span id="name" class="t s2"></span></div>
+<span id="t3_1" class="t s2">has successfully completed the course by demonstrating </span>
+<span id="t4_1" class="t s2">theoretical and practical understanding of </span>
+<div style="text-align: center; width: 60%;"><span id="khoahoc" class="t s6"></span></div>
+<span id="t5_1" class="t s3">Certificate 20319640-1068 </span>
+<span id="t6_1" class="t s4"></span>
+<span id="t8_1" class="t s6">Yeva Hyusyan </span>
+<span id="t9_1" class="t s2">Chief Executive Officer </span></div>
+<!-- End text definitions -->
+</div>
+</body>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js}"></script>
+<script
+  type="text/javascript"
+  th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js}"
+></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js}"></script>
+<script th:src="@{\assets\js\exportbang.js}"></script>
+</html>

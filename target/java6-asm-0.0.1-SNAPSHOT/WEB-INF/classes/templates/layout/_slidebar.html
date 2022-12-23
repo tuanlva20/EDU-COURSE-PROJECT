@@ -1,0 +1,65 @@
+ <!-- Blog Sidebar Start -->
+ <div class="sidebar">
+    <!-- Sidebar Widget Search Start -->
+    <div class="sidebar-widget widget-search">
+    <form action="#">
+        <input type="text" placeholder="Search here" />
+        <button><i class="icofont-search-1"></i></button>
+    </form>
+    </div>
+    <!-- Sidebar Widget Search End -->
+
+    <!-- Sidebar Widget Category Start -->
+    <div class="sidebar-widget">
+    <h4 class="widget-title">Học lập trình</h4>
+
+    <div class="widget-category p-0">
+        <ul class="category-list">
+        <li th:each="cate : ${categories}">
+            <a th:href="@{|/courses?cd=${cate.id}|}">[[${cate.name}]] <span></span></a>
+        </li>
+        <!-- <li>
+            <a href="#">Creative Writing <span></span></a>
+        </li>
+        <li>
+            <a href="#">Graphic Design <span></span></a>
+        </li>
+        <li>
+            <a href="#">Fine Arts <span></span></a>
+        </li>
+        <li>
+            <a href="#">Business Analytics <span></span></a>
+        </li>
+        <li>
+            <a href="#">Marketing <span></span></a>
+        </li> -->
+        </ul>
+    </div>
+    </div>
+    <!-- Sidebar Widget Category End -->
+
+    <!-- Sidebar Widget Share Start -->
+    <!-- <div class="sidebar-widget">
+    <h4 class="widget-title">Share Course:</h4>
+
+    <ul class="social">
+        <li>
+        <a href="#"><i class="flaticon-facebook"></i></a>
+        </li>
+        <li>
+        <a href="#"><i class="flaticon-linkedin"></i></a>
+        </li>
+        <li>
+        <a href="#"><i class="flaticon-twitter"></i></a>
+        </li>
+        <li>
+        <a href="#"><i class="flaticon-skype"></i></a>
+        </li>
+        <li>
+        <a href="#"><i class="flaticon-instagram"></i></a>
+        </li>
+    </ul>
+    </div> -->
+    <!-- Sidebar Widget Share End -->
+</div>
+<!-- Blog Sidebar End -->

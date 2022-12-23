@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.poly.java6asm.Java6AsmApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.996 s - in com.poly.java6asm.Java6AsmApplicationTests

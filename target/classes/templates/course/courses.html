@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout :: dynamic(~{::main})}">
+
+<head>
+    <title>Courses</title>
+</head>
+
+<body>
+    <main>
+        <!-- Page Banner Start -->
+        <div class="section mb-5"></div>
+        <!-- Page Banner End -->
+
+        <!-- Course Start -->
+        <div class="section section-padding mt-n10">
+            <div class="container-fluid row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="gx-10 section-padding">
+                        <div class="">
+                        <!-- Courses Start -->
+                        <div class="section">
+                            <div class="">
+                            <!-- Courses Wrapper Start  -->
+                            <div class="courses-wrapper-02">
+                                <div class="row">
+                                <div th:each="p : ${products}" class="col-lg-4 col-md-6">
+                                    <!-- Single Courses Start -->
+                                    <div class="single-courses">
+                                    <div class="courses-images">
+                                        <a th:href="@{|/coursedetail/${p.id}|}"
+                                        ><img
+                                            th:src="@{|/assets/images/courses/${p.image}|}"
+                                            alt="Courses"
+                                        /></a>
+                                        <p class="pt-1 ps-2 fs-14"><i class="fa fa-users" aria-hidden="true"></i> 2.120</p>
+                                    </div>
+                                    <div class="courses-content">
+                                        <h4 class="title text-center title-box">
+                                            <a th:href="@{|/coursedetail/${p.id}|}"
+                                                >[[${p.name}]]</a
+                                            >
+                                        </h4>
+                                        <div class="courses-author">
+                                        <div class="author">
+                                            <div class="author-thumb">
+                                            <a href="#"
+                                                ><img
+                                                src="/assets/images/author/author-1.jpg"
+                                                alt="Author"
+                                            /></a>
+                                            </div>
+                                            <div class="author-name">
+                                            <a class="name" href="#">Tuấn Lương</a><br>
+                                            <a class="name-2" href="#">Giảng viên</a>
+                                            </div>
+                                        </div>
+                                        </div>
+        
+                                        
+                                    </div>
+                                    </div>
+                                    <!-- Single Courses End -->
+                                </div>
+                                </div>
+                            </div>
+                            <!-- Courses Wrapper End  -->
+                            </div>
+                        </div>
+                        <!-- Courses End -->
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <!-- Sidebar Start -->
+                    <div class="" th:insert="~{/layout/_slidebar}"></div>
+                    <!-- Sidebar End -->
+                </div>
+            </div>
+        </div>
+        <!-- Course End -->
+    </main>
+</body>
+
+</html>

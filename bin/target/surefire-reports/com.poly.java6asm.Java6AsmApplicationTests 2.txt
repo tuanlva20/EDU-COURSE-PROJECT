@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.poly.java6asm.Java6AsmApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.309 s <<< FAILURE! - in com.poly.java6asm.Java6AsmApplicationTests
+contextLoads  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'initConnectionString' defined in class path resource [com/azure/spring/cloud/config/AppConfigurationBootstrapConfiguration.class]: Unsatisfied dependency expressed through method 'initConnectionString' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'spring.cloud.azure.appconfiguration-com.azure.spring.cloud.config.properties.AppConfigurationProperties': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: At least one config store has to be configured.
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'spring.cloud.azure.appconfiguration-com.azure.spring.cloud.config.properties.AppConfigurationProperties': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: At least one config store has to be configured.
+Caused by: java.lang.IllegalArgumentException: At least one config store has to be configured.
+

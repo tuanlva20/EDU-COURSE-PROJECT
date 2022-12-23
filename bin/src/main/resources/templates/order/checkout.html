@@ -1,0 +1,230 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout :: dynamic(~{::main})}" >
+  <head>
+
+  </head>
+  <body oncontextmenu="return false" class="snippet-body">
+    <main class="container bg-white">
+      <!-- Page Banner Start -->
+      <div class="section mb-10"></div>
+      <!-- Page Banner End -->
+      <div class="row g-5 section section-padding order-checkout ">
+        <div class="col-md-5 col-lg-4 order-md-last ">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">Giỏ hàng của bạn</span>
+            <span class="badge bg-primary rounded-pill">{{cart.count}}</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-sm" ng-repeat="item in cart.items">
+              <div>
+                <h6 class="my-0 me-1">{{item.name}}</h6>
+                <!-- <small class="text-muted">Best Quality</small> -->
+              </div>
+              <span class="text-muted">{{item.price | number}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Tổng cộng: </span>
+              <strong>{{cart.amount | number}} VNĐ</strong>
+            </li>
+          </ul>
+
+          <form class="card p-2">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Mã giảm giá"
+              />
+              <button type="submit" class="btn btn-danger">Áp dụng</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Thông tin</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-12">
+                <label for="firstName" class="form-label">Họ và tên: </label>
+                <input
+                  ng-model="account.fullname"
+                  type="text"
+                  class="form-control border border-black py-1 ps-5"
+                  id="fullname"
+                  placeholder="Họ và tên"
+                  required
+                />
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label"
+                  >Email</label
+                >
+                <input
+                  ng-model="account.email" 
+                  type="email"
+                  class="form-control border border-black py-1 ps-5"
+                  id="email"
+                  placeholder="Email của bạn"
+                />
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label">Địa chỉ: </label>
+                <input
+                  ng-model="account.address"  
+                  type="text"
+                  class="form-control border border-black py-1 ps-5"
+                  id="address"
+                  placeholder="Địa chỉ"
+                  required
+                />
+                <!-- <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div> -->
+              </div>
+
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Số điện thoại: </label>
+                <input
+                  ng-model="account.phone"  
+                  type="text"
+                  class="form-control border border-black py-1 ps-5"
+                  id="phone"
+                  placeholder="Số điện thoại"
+                  required
+                />
+              </div>
+
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Ngày đặt hàng: </label>
+                <input
+                  ng-value="order.createdate | date : 'dd-MM-yyyy' "
+                  type="text"
+                  class="form-control border border-black py-1 ps-5"
+                  id="createdate"
+                  placeholder="Ngày đặt hàng"
+                  readonly
+                />
+              </div>
+              <div class="col-md-7">
+                <label for="country" class="form-label">Quốc gia</label>
+                <select class="form-select border border-black py-1 ps-5" id="country" required>
+                  <option value="vn">Việt Nam</option>
+                  <option value="eu">United stated</option>
+                </select>
+              </div>
+
+              <div class="col-md-5">
+                <label for="state" class="form-label">Thành phố</label>
+                <select class="form-select border border-black py-1 ps-5" id="state" required>
+                  <option value="hcm">Hồ Chí Minh</option>
+                  <option value="hn">Hà Nội</option>
+                </select>
+              </div>
+
+            <hr class="my-4" />
+
+            <!-- <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="same-address"
+              />
+              <label class="form-check-label" for="same-address"
+                >Shipping address is the same as my billing address</label
+              >
+            </div> -->
+
+            <!-- <hr class="my-4" /> -->
+
+            <h4 class="mb-3">Hình thức thanh toán</h4>
+
+            <div class="my-3">
+              <div class="form-check">
+                <input
+                  id="credit"
+                  name="paymentMethod"
+                  type="radio"
+                  class="form-check-input"
+                  checked
+                  required
+                />
+                <label class="form-check-label" for="credit">Thẻ ngân hàng</label>
+              </div>
+              <div class="form-check">
+                <input
+                  id="paypal"
+                  name="paymentMethod"
+                  type="radio"
+                  class="form-check-input"
+                  required
+                />
+                <label class="form-check-label" for="paypal">Ví</label>
+              </div>
+            </div>
+
+            <!-- <div class="row gy-3">
+              <div class="col-md-6">
+                <label for="cc-name" class="form-label">Name on card</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cc-name"
+                  placeholder=""
+                  required
+                />
+                <small class="text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">Name on card is required</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cc-number" class="form-label"
+                  >Credit card number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cc-number"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-expiration" class="form-label">Expiration</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cc-expiration"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">Expiration date required</div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">CVV</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cc-cvv"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">Security code required</div>
+              </div>
+            </div> -->
+
+            <hr class="my-4" />
+
+            <button ng-click="order.purchase()" class="m-auto w-50 btn btn-dark" type="submit">
+              Đặt hàng
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

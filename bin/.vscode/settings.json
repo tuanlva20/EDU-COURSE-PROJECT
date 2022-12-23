@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "package:java6-asm",
+    "appService.deploySubpath": "target/java6-asm-0.0.1-SNAPSHOT.jar",
+    "appService.defaultWebAppToDeploy": "/subscriptions/9151b166-2d7a-470e-868d-006d16972a02/microsoft.web/sites/subscriptions/9151b166-2d7a-470e-868d-006d16972a02/resourceGroups/laptrinhdethe-group/providers/Microsoft.Web/sites/laptrinhdethe"
+}

@@ -1,0 +1,16 @@
+<table class="table table-bordered table-striped table-hover mt-2">
+    <thead>
+      <tr class="text-center">
+        <th></th>
+        <td ng-repeat="role in roles">{{role.name}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="acc in admins">
+        <td>{{acc.username}}</td>
+        <td ng-repeat="r in roles" class="text-center">
+          <input class="form-check-input" ng-checked="authority_of(acc, r)" ng-click="authority_changed(acc, r)" type="checkbox" >
+        </td>
+      </tr>
+    </tbody>
+  </table>

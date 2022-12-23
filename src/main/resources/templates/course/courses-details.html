@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{/layout/layout :: dynamic(~{::main})}"
+>
+  <head>
+    <title>Courses Details</title>
+  </head>
+
+  <body>
+    <main>
+      <!-- Page Banner Start -->
+      <div
+        class="section section-padding"
+        style="padding-top: 15px !important"
+      ></div>
+      <!-- Page Banner End -->
+
+      <!-- Courses Start -->
+      <div class="section section-padding mt-n10">
+        <div class="container">
+          <div class="row gx-10" th:object="${product}">
+            <div class="col-lg-8">
+              <!-- Courses Details Start -->
+              <div class="courses-details">
+                <div class="">
+                  <!-- <img
+                    th:src="@{|/assets/images/courses/*{image}|}"
+                    alt="Courses Details"
+                  /> -->
+
+                  <div class="">
+                    <iframe width="760" height="415" src="https://www.youtube.com/embed/R6plN3FvzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class=""></iframe>
+                    <!-- <img
+                      src="/assets/images/courses/circle-shape.png"
+                      alt="Play"
+                    />
+                      <a
+                      class="play video-popup"
+                      th:href="@{https://youtu.be/R6plN3FvzFY}"
+                      ><i class="flaticon-play"></i
+                    ></a> -->
+                  </div>
+                </div>
+
+                <h2 class="title">[[*{name}]]</h2>
+
+                <div class="courses-details-admin">
+                  <div class="admin-author">
+                    <div class="author-thumb">
+                      <img
+                        th:src="@{/assets/images/author/author-3.jpg}"
+                        alt="Author"
+                      />
+                    </div>
+                    <div class="author-content">
+                      <a class="name" href="#">Tuấn Lương</a>
+                      <span class="Enroll">286 Học sinh đã đăng ký</span>
+                    </div>
+                  </div>
+                  <div class="admin-rating">
+                    <span class="rating-count">4.9</span>
+                    <span class="rating-star">
+                      <span class="rating-bar" style="width: 80%"></span>
+                    </span>
+                    <span class="rating-text">(5,764 Rating)</span>
+                  </div>
+                </div>
+
+                <!-- Courses Details Tab Start -->
+                <div class="courses-details-tab">
+                  <!-- Details Tab Menu Start -->
+                  <div class="details-tab-menu">
+                    <ul class="nav justify-content-center">
+                      <li>
+                        <button
+                          class="active"
+                          data-bs-toggle="tab"
+                          data-bs-target="#description"
+                        >
+                          Mô tả
+                        </button>
+                      </li>
+                      <li>
+                        <button data-bs-toggle="tab" data-bs-target="#reviews">
+                          Đánh giá
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Details Tab Menu End -->
+
+                  <!-- Details Tab Content Start -->
+                  <div class="details-tab-content">
+                    <div class="tab-content">
+                      <div class="tab-pane fade show active" id="description">
+                        <!-- Tab Description Start -->
+                        <div class="tab-description">
+                          <div class="description-wrapper">
+                            <h3 class="tab-title">Mô tả:</h3>
+                            <p>[[*{description}]]</p>
+                          </div>
+                          <!-- <div class="description-wrapper">
+                                                <h3 class="tab-title">Curriculum:</h3>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularsed in the 1960 with release containing Lorem Ipsum passages desktop publishing software.</p>
+                                            </div>
+                                            <div class="description-wrapper">
+                                                <h3 class="tab-title">Certification:</h3>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularsed in the 1960 with release containing Lorem Ipsum passages desktop publishing software.</p>
+                                            </div> -->
+                        </div>
+                        <!-- Tab Description End -->
+                      </div>
+                      <div class="tab-pane fade" id="reviews">
+                        <!-- Tab Reviews Start -->
+                        <div class="tab-reviews">
+                          <h3 class="tab-title">Student Reviews:</h3>
+
+                          <div class="reviews-wrapper reviews-active">
+                            <div class="swiper-container">
+                              <div class="swiper-wrapper">
+                                <!-- Single Reviews Start -->
+                                <div class="single-review swiper-slide">
+                                  <div class="review-author">
+                                    <div class="author-thumb">
+                                      <img
+                                        src="assets/images/author/author-06.jpg"
+                                        alt="Author"
+                                      />
+                                      <i class="icofont-quote-left"></i>
+                                    </div>
+                                    <div class="author-content">
+                                      <h4 class="name">Sara Alexander</h4>
+                                      <span class="designation"
+                                        >Product Designer, USA</span
+                                      >
+                                      <span class="rating-star">
+                                        <span
+                                          class="rating-bar"
+                                          style="width: 100%"
+                                        ></span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <p>
+                                    Lorem Ipsum has been the industry's standard
+                                    dummy text since the 1500 when unknown
+                                    printer took a galley of type and scrambled
+                                    to make type specimen book has survived not
+                                    five centuries but also the leap into
+                                    electronic type and book.
+                                  </p>
+                                </div>
+                                <!-- Single Reviews End -->
+
+                                <!-- Single Reviews Start -->
+                                <div class="single-review swiper-slide">
+                                  <div class="review-author">
+                                    <div class="author-thumb">
+                                      <img
+                                        src="assets/images/author/author-07.jpg"
+                                        alt="Author"
+                                      />
+                                      <i class="icofont-quote-left"></i>
+                                    </div>
+                                    <div class="author-content">
+                                      <h4 class="name">Karol Bachman</h4>
+                                      <span class="designation"
+                                        >Product Designer, USA</span
+                                      >
+                                      <span class="rating-star">
+                                        <span
+                                          class="rating-bar"
+                                          style="width: 100%"
+                                        ></span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <p>
+                                    Lorem Ipsum has been the industry's standard
+                                    dummy text since the 1500 when unknown
+                                    printer took a galley of type and scrambled
+                                    to make type specimen book has survived not
+                                    five centuries but also the leap into
+                                    electronic type and book.
+                                  </p>
+                                </div>
+                                <!-- Single Reviews End -->
+
+                                <!-- Single Reviews Start -->
+                                <div class="single-review swiper-slide">
+                                  <div class="review-author">
+                                    <div class="author-thumb">
+                                      <img
+                                        src="/assets/images/author/author-03.jpg"
+                                        alt="Author"
+                                      />
+                                      <i class="icofont-quote-left"></i>
+                                    </div>
+                                    <div class="author-content">
+                                      <h4 class="name">Gertude Culbertson</h4>
+                                      <span class="designation"
+                                        >Product Designer, USA</span
+                                      >
+                                      <span class="rating-star">
+                                        <span
+                                          class="rating-bar"
+                                          style="width: 100%"
+                                        ></span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <p>
+                                    Lorem Ipsum has been the industry's standard
+                                    dummy text since the 1500 when unknown
+                                    printer took a galley of type and scrambled
+                                    to make type specimen book has survived not
+                                    five centuries but also the leap into
+                                    electronic type and book.
+                                  </p>
+                                </div>
+                                <!-- Single Reviews End -->
+                              </div>
+                              <!-- Add Pagination -->
+                              <div class="swiper-pagination"></div>
+                            </div>
+                          </div>
+
+                          <div class="reviews-btn">
+                            <button
+                              type="button"
+                              class="btn btn-primary btn-hover-dark"
+                              data-bs-toggle="modal"
+                              data-bs-target="#reviewsModal"
+                            >
+                              Write A Review
+                            </button>
+                          </div>
+
+                          <!-- Reviews Form Modal Start -->
+                          <div class="modal fade" id="reviewsModal">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Add a Review</h5>
+                                  <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                  ></button>
+                                </div>
+
+                                <!-- Reviews Form Start -->
+                                <div class="modal-body reviews-form">
+                                  <form action="#">
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <!-- Single Form Start -->
+                                        <div class="single-form">
+                                          <input
+                                            type="text"
+                                            placeholder="Enter your name"
+                                          />
+                                        </div>
+                                        <!-- Single Form End -->
+                                      </div>
+                                      <div class="col-md-6">
+                                        <!-- Single Form Start -->
+                                        <div class="single-form">
+                                          <input
+                                            type="text"
+                                            placeholder="Enter your Email"
+                                          />
+                                        </div>
+                                        <!-- Single Form End -->
+                                      </div>
+                                      <div class="col-md-12">
+                                        <!-- Single Form Start -->
+                                        <div class="reviews-rating">
+                                          <label>Rating</label>
+                                          <ul id="rating" class="rating">
+                                            <li
+                                              class="star"
+                                              title="Poor"
+                                              data-value="1"
+                                            >
+                                              <i class="icofont-star"></i>
+                                            </li>
+                                            <li
+                                              class="star"
+                                              title="Poor"
+                                              data-value="2"
+                                            >
+                                              <i class="icofont-star"></i>
+                                            </li>
+                                            <li
+                                              class="star"
+                                              title="Poor"
+                                              data-value="3"
+                                            >
+                                              <i class="icofont-star"></i>
+                                            </li>
+                                            <li
+                                              class="star"
+                                              title="Poor"
+                                              data-value="4"
+                                            >
+                                              <i class="icofont-star"></i>
+                                            </li>
+                                            <li
+                                              class="star"
+                                              title="Poor"
+                                              data-value="5"
+                                            >
+                                              <i class="icofont-star"></i>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        <!-- Single Form End -->
+                                      </div>
+                                      <div class="col-md-12">
+                                        <!-- Single Form Start -->
+                                        <div class="single-form">
+                                          <textarea
+                                            placeholder="Write your comments here"
+                                          ></textarea>
+                                        </div>
+                                        <!-- Single Form End -->
+                                      </div>
+                                      <div class="col-md-12">
+                                        <!-- Single Form Start -->
+                                        <div class="single-form">
+                                          <button
+                                            class="
+                                              btn btn-primary btn-hover-dark
+                                            "
+                                          >
+                                            Submit Review
+                                          </button>
+                                        </div>
+                                        <!-- Single Form End -->
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                                <!-- Reviews Form End -->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Reviews Form Modal End -->
+                        </div>
+                        <!-- Tab Reviews End -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Details Tab Content End -->
+                </div>
+                <!-- Courses Details Tab End -->
+              </div>
+              <!-- Courses Details End -->
+            </div>
+            <div class="col-lg-4">
+              <!-- Courses Details Sidebar Start -->
+              <div class="sidebar sidebar-style">
+                <!-- Sidebar Widget Information Start -->
+                <div class="sidebar-widget widget-information">
+                  <div class="info-price">
+                    <span class="price"
+                      >[[*{#numbers.formatDecimal(price, 0, 'COMMA', 0,
+                      'POINT')}]] VNĐ</span
+                    >
+                  </div>
+                  <div class="info-list">
+                    <ul>
+                      <li>
+                        <i class="icofont-man-in-glasses"></i>
+                        <strong>Giảng viên</strong> <span>Tuấn Lương</span>
+                      </li>
+                      <li>
+                        <i class="icofont-clock-time"></i>
+                        <strong>Thời lượng</strong> <span>08 h 15 mins</span>
+                      </li>
+                      <li>
+                        <i class="icofont-ui-video-play"></i>
+                        <strong>Tổng số bài học</strong> <span>29</span>
+                      </li>
+                      <li>
+                        <i class="icofont-bars"></i> <strong>Trình độ</strong>
+                        <span>Cơ bản</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="info-btn">
+
+                    <button disabled th:if="${an}" class="btn btn-dark btn-hover-dark mb-1"
+                      ><i class="fa-solid fa-circle-check"></i>&nbsp; Đã thanh toán </button
+                    >
+                    <a th:if="${an}" th:href="@{|/coursedetail/chuonghoc/*{id}|}" class="btn btn-primary btn-hover-dark"
+                      >Học Ngay</a
+                    >
+                    <a th:if="!${an}" th:href="@{|/coursedetail/chuonghoc/*{id}|}" class="btn btn-primary btn-hover-dark mb-1"
+                    >Học thử miễn phí</a>
+
+                    <a th:if="!${an}" href="" th:attr="ng-click=@{|cart.add(*{id})|}" class="btn btn-primary btn-hover-dark "
+                      ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+                      >&nbsp; Thêm vào giỏ hàng</a
+                    >
+                    <br />
+                  </div>
+                </div>
+                <!-- Sidebar Widget Information End -->
+                <!-- Sidebar Widget Post Start -->
+                <div class="sidebar-widget">
+                  <h4 class="widget-title">Khóa học liên quan</h4>
+
+                  <div class="widget-post">
+                    <ul class="post-items">
+                      <li th:each="item : *{category.products}">
+                        <!-- Sidebar Widget Post Start -->
+                        <div class="single-post">
+                          <div class="post-thumb">
+                            <a th:href="@{|/coursedetail/${item.id}|}"
+                              ><img
+                                th:src="@{|/assets/images/courses/${item.image}|}"
+                                alt="Post"
+                            /></a>
+                          </div>
+                          <div class="post-content">
+                            <h5 class="title">
+                              <a th:href="@{|/coursedetail/${item.id}|}"
+                                >[[${item.name}]]</a
+                              >
+                            </h5>
+                            <span class="date"
+                              ><i class="icofont-calendar"></i> 02-08-2022</span
+                            >
+                          </div>
+                        </div>
+                        <!-- Sidebar Widget Post End -->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- Sidebar Widget Post End -->
+              </div>
+              <!-- Courses Details Sidebar End -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Courses End -->
+    </main>
+  </body>
+</html>

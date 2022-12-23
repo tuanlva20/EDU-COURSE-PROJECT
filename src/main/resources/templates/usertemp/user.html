@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{/layout/layoutUser :: dynamic(~{::main})}"
+>
+  <head>
+    <title>User</title>
+  </head>
+
+  <body>
+    <main>
+               <!-- Page Banner Start -->
+               <div class="section page-banner">
+
+                <div class="container">
+                    <div class="container align-items-center">
+                        <!-- Page Banner Start -->
+                    <div class="page-banner-content m-0 row m-auto">
+                        <div class="col-3 text-start">
+                            <img class="shape-author-01" th:src="@{|${account.photo}|}" width="200" height="150" alt="Shape" id="" >
+                        </div>
+                        <div class="col-9 position-relative text-start">
+                            <p class="title text-white m-0 p-0 text-wrap">[[${account.fullname}]]</p>
+                            <div class="d-flex align-content-between align-items-center flex-wrap mb-1">
+                                <span class="fa fa-star text-star fs-4 me-2" aria-hidden="true"></span>
+                                <p class="footer-title text-white m-0 text-wrap fs-6 fw-bold align-item-center">1712XP</p>
+                            </div>
+                            <div class="d-flex align-content-between align-items-center flex-wrap">
+                                <img src="/assets/images/vietnam.svg" class="flag-icon me-2" alt="">
+                                <p class="footer-title text-white m-0 text-wrap fs-6 fw-bold align-item-center">Việt Nam - Lvl 2</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- Page Banner End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Page Banner End -->
+    
+            <!-- Courses Start -->
+            <div class="section">
+                <div class="container">
+    
+                    <div class="container text-center">
+                        <!-- Courses Category Wrapper Start  -->
+                    <div class="p-0 courses-style m-auto row">
+    
+                        <div class="col-5 text-start d-flex flex-column column-style align-content-between">
+                            <p class="m-0 h-50 pt-3 fs-6 fw-bold">EduLearn<span class="ms-1 badge-style badge rounded-pill bg-warning text-dark">FREE</span></p>
+                            <p class="h-50 fs-7">Trải nghiệm khóa học trong 12 tháng</p>
+                        </div>
+                        <div class="col-4 text-start d-flex flex-column column-style align-self-end">
+                            <img src="/assets/images/index.png" class="w-75 iconuser-custom" alt="">
+                        </div>
+                        <div class="col-3 d-flex align-items-center align-content-center">
+                            <button type="button" class="btn btn-warning btn-style fw-bold align-content-between"><a th:href="@{/course}">Bắt Đầu Ngay</a></button>
+                        </div>
+                    </div>
+                    <!-- Courses Category Wrapper End  -->
+                    </div>
+    
+                    <!-- Courses Wrapper Start  -->
+                    <div class="container">
+                        <div class="container style-course-user m-auto row" >
+                            <div class="col-lg-6 col-md-6" >
+                                <!-- Single Courses Start -->
+                                <div class="single-courses bg-white pt-0 rounded-3">
+                                    <div class="courses-content">
+    
+                                        <p class="h5 font-web mb-3"><a href="#">Khóa Học Của Bạn</a></p>
+    
+                                        <div class="courses-author p-1" th:each="p : ${products}">
+                                            <div class="author">
+                                                <div class="author-thumb">
+                                                    <a th:href="@{|coursedetail/chuonghoc/${p.id}|}"><img th:src="@{|/assets/images/courses/${p.image}|}" alt="Author" id="avatar"></a>
+                                                </div>
+                                                <div class="author-name">
+                                                    <a class="name" th:href="@{|coursedetail/chuonghoc/${p.id}|}"><span class="fw-bolder">[[${p.name}]]</span></a>
+                                                </div>
+                                                <div class="avatar-css">
+                                                    <a class="" tht:href="@{|coursedetail/chuonghoc/${p.id}|}"><img src="/assets/images/resources-icon/icon-1-1.png" class="w-50" alt="Author"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="courses-rating mt-2">
+                                            <p>38% Complete</p>
+    
+                                            <div class="rating-progress-bar">
+                                                <div class="rating-line" style="width: 38%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Courses End -->
+                            </div>
+                            <div class="col-lg-6 col-md-6 ">
+                                <!-- Single Courses Start -->
+                                <div class="single-courses bg-white pt-0 rounded-3">
+                                    
+                                    <div class="courses-content">
+    
+                                        <p class="h5 font-web mb-3"><a href="/courses">Thành Tựu Đã Đạt Được</a></p>
+    
+                                        <div class="courses-author">
+                                            <div class="author mb-2">
+                                                <div class="author-thumb archi-color rounded-3 w-25 mx-1">
+                                                    <img src="/assets/images/achievement/122.webp" alt="Author">
+                                                </div>
+                                                <div class="author-thumb archi-color rounded-3 w-25 mx-1">
+                                                    <img src="/assets/images/achievement/121.png" alt="Author">
+                                                </div>
+                                                <div class="author-thumb archi-color rounded-3 w-25 mx-1">
+                                                    <img src="/assets/images/achievement/123.png" alt="Author">
+                                                </div>
+                                                <div class="author-thumb archi-color rounded-3 w-25 mx-1">
+                                                    <img src="/assets/images/achievement/56.png" alt="Author">
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <p class="h5 font-web mt-5"><a href="courses-details.html">Next Task</a></p>
+    
+    
+                                        <div class="courses-author p-1">
+                                            <div class="author">
+                                                <div class="d-flex">
+                                                    <div class="author-thumb desp-cust rounded-3 w-25 mx-1">
+                                                        <img src="/assets/images/achievement/125.webp" alt="Author">
+                                                    </div>
+                                                    <div class="author-name">
+                                                        <a class="title" href="#">Task 1</a>
+                                                        <p class="lh-sm ">Hoàn thiện bài tập sử dụng api với Firebase</p>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+    
+                                        <div class="w-100 text-center rounded-3 border border-color">
+                                            <a href="/courses"><p class="seemore-cust">Xem Thêm</p></a>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                                <!-- Single Courses End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Courses Wrapper End  -->
+    
+                </div>
+            </div>
+            <!-- Courses End -->
+    </main>
+  </body>
+</html>

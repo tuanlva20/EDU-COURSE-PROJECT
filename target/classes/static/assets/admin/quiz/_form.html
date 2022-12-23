@@ -1,0 +1,31 @@
+<form class="row g-3 mt-2">
+  <div class="col-md-12">
+    <label for="inputName" class="form-label">Nội dung câu hỏi</label>
+    <input
+      ng-model="form.noidung"
+      type="text"
+      class="form-control"
+      id="inputName"
+      placeholder="nội dung"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputChuonghoc" class="form-label">Mã bài học</label>
+    <select
+      ng-model="form.baihoc.baihocid"
+      id="inputChuonghoc"
+      class="form-select"
+      
+    >
+      <option  value="" ng-value="">Chọn tên bài học...</option>
+      <option ng-repeat="c in baihoc" ng-value="c.baihocid" >{{c.tenbh}}</option>
+    </select>
+  </div>
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
+      <button ng-disabled="!status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="!status()" ng-click="delete(form)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
+    </div>
+  
+</form>

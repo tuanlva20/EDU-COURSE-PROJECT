@@ -1,0 +1,196 @@
+@import url("/assets/css/plugins/fonts.css");
+
+.single-courses {
+  padding: 0px;
+}
+
+.single-courses .courses-content {
+  margin: 10px;
+  padding-top: 0px;
+}
+
+.title-box {
+  min-height: 60px;
+}
+
+.single-courses .courses-content .title a {
+  margin-top: 0px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fa-shopping-cart-cus {
+  color: #2a874b;
+}
+
+.fa-shopping-cart {
+  font-size: xx-large;
+}
+
+.mount-cart {
+  top: -17px;
+  left: 14px;
+  font-size: 12px;
+}
+
+/* SHOPPING CART */
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
+  }
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+.bg-grey {
+  background-color: #eae8e8;
+}
+
+@media (min-width: 992px) {
+  .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+.form-quantity {
+  width: 70px;
+  height: 40px;
+  border: 1px solid black;
+  margin-top: 8px;
+}
+
+.btn i {
+  font-size: 17px;
+  margin-left: -7px;
+}
+
+.rounded-cust {
+  width: 50px;
+  height: 50px;
+}
+
+.rounded-cust:hover {
+  background-color: #2a874b !important;
+  color: white !important;
+  border-color: white !important;
+  transition: 0.2s;
+}
+.border-facebook {
+  border-color: #3b5998 !important;
+}
+.border-google {
+  border-color: #dd4b39 !important;
+}
+
+.order-checkout {
+  margin-top: 10px;
+}
+
+
+/* ORDER DETAILS */
+.cart {
+  height: 100vh;
+}
+.progresses {
+  display: flex;
+  align-items: center;
+}
+.line {
+  width: 76px;
+  height: 6px;
+  background: #63d19e;
+}
+.steps {
+  display: flex;
+  background-color: #63d19e;
+  color: #fff;
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.check1 {
+  display: flex;
+  background-color: #63d19e;
+  color: #fff;
+  font-size: 17px;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.invoice-link {
+  font-size: 15px;
+}
+.order-button {
+  height: 50px;
+}
+.background-muted {
+  background-color: #fafafc;
+}
+.image-style{
+  margin-left: 185px;
+  max-width: 75%;
+}
+.sidebar{
+  padding-top: 90px;
+}
+
+/* Index */
+.header-menu .sub-menu {
+  width: 60px;
+  left: 15px;
+}
+
+.header-menu .sub-menu li a {
+  padding: 6px 10px;
+}
+
+.courses-tabs-menu {
+  padding: 25px 100px;
+}
+
+.single-work {
+  padding: 0px;
+  min-height: 450px;
+}
+
+.single-work .work-content {
+  text-align: center;
+  padding: 33px;
+}
+
+.single-work .work-content p {
+  font-size: 18px;
+}
+
+.single-testimonial::before {
+  background-image: none;
+}
+
+.text-color1{
+  color: rgb(111	126	151	) !important;
+}

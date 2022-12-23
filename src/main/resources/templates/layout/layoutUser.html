@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>EduLearn</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      th:href="@{/assets/images/OngVang.png}"
+    />
+
+    <!-- CSS
+============================================ -->
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/icofont.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/flaticon.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/font-awesome.min.css}" />
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css}" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/animate.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/swiper-bundle.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/magnific-popup.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/nice-select.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/apexcharts.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/jqvmap.min.css}" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/user.css}" />
+    
+  </head>
+
+  <body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+    <div class="main-wrapper">
+      <div th:replace="~{/layout/_menuUser}"></div>
+
+      <div th:replace="${main}"></div>
+
+      <div th:replace="~{/layout/_footer.html}"></div>
+    </div>
+
+    <!-- JS -->
+
+    <!-- Modernizer & jQuery JS -->
+    <script th:src="@{/assets/js/vendor/modernizr-3.11.2.min.js}"></script>
+    <script th:src="@{/assets/js/vendor/jquery-3.5.1.min.js}"></script>
+
+    <!-- Bootstrap JS -->
+    <script th:src="@{/assets/js/plugins/popper.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/bootstrap.min.js}"></script>
+
+    <!-- Plugins JS -->
+    <script th:src="@{/assets/js/plugins/swiper-bundle.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/jquery.magnific-popup.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/video-playlist.js}"></script>
+    <script th:src="@{/assets/js/plugins/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/ajax-contact.js}"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js}"></script>
+
+    <!-- Main JS -->
+    <script th:src="@{/assets/js/main.js}"></script>
+    <script th:src="@{/assets/js/shopping-cart-app.js}"></script>
+  </body>
+</html>

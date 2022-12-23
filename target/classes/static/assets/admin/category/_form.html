@@ -1,0 +1,19 @@
+<form class="row g-3 mt-2" style="height: 300px;">
+  <div class="col-md-6">
+    <label for="inputName" class="form-label">Tên thể loại</label>
+    <input
+      ng-model="form.name"
+      type="text"
+      class="form-control"
+      id="inputName"
+      placeholder="Tên thể loại"
+    />
+  </div>
+  
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
+      <button ng-disabled="!status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="!status()" ng-click="delete(form)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
+    </div>
+</form>

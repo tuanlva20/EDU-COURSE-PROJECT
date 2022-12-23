@@ -1,0 +1,34 @@
+@import url("/assets/css/plugins/fonts.css");
+
+.form-control{
+    border: 1px solid #ced4da;
+    padding: 8px 20px;
+}
+
+.form-select{
+    border: 1px solid #ced4da;
+    padding: 8px 20px;
+}
+
+.nice-select:after{
+    display: none;
+}
+
+.btn-edit{
+    border: none;
+    background: none;
+    padding: 0px;
+    font-size: 18px;
+}
+
+.graph {
+    padding: 25px 20px 45px;
+}
+
+.page-link{
+    cursor: pointer;
+}
+
+.table-height{
+    min-height: 640px !important;
+}
