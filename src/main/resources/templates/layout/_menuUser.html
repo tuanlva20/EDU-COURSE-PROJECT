@@ -18,6 +18,9 @@
                     <ul class="nav-menu">
                         <li><a href="/">[(#{nav.home})]</a></li>
                         <li>
+                            <a href="/Discuss/discuss">[(#{nav.discuss})]</a>
+                        </li>
+                        <li>
                             <a href="/courses">[(#{nav.course})]</a>
                         </li>
                         <th:block th:if="${#request.remoteUser}">
@@ -28,6 +31,7 @@
                                 <a href="/admin">[(#{nav.administration})]</a>
                             </li>
                         </th:block>
+                        
                         <li>
                             <a href="#"><img th:src="@{#{app.lang}=='vi'?'/assets/images/flagVN.png':'/assets/images/flagUS.png'}" alt="" width="30px"></a>
                             <ul class="sub-menu">

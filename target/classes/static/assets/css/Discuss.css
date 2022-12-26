@@ -1,0 +1,186 @@
+body{
+    background-color: #f2f5f7;
+}
+.container-1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    
+}
+.article{
+    width: 70%;
+    /* background-color: ; */
+}
+.aside{
+    width: calc(100% - 70%);
+    /* background-color: azure; */
+}
+.search .form-inline .form-control{
+    width: 80%;
+}
+.btn-search{
+    width: 120px;
+}
+.trending{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.trending .btn-trending .btn-trend{
+    width: 250px;
+    text-align: left;
+}
+.trending .btn-ask{
+    width: 200px;
+    margin-right: 25px;
+}
+.content-discuss{
+    margin-top: 25px;
+    margin-right: 25px;
+}
+.discuss-questions-list__item__title {
+    color: #2d3846;
+    font-family: Fira Sans,sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+}
+.discuss-questions-list__item__tags {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+.discuss-questions-list__item__left-part {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    gap: 16px;
+    max-width: 733px;
+}
+.discuss-questions-list__item__info {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #6b7f99;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: Fira Sans,sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    gap: 16px;
+    letter-spacing: .01em;
+    line-height: 1.3;
+    margin-top: 16px;
+}
+@media (min-width: 1024px){
+.discuss-meta {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-left: 0;
+    text-align: right;
+}
+}
+.discuss-meta {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-left: 60px;
+    margin-top: 12px;
+}
+.discuss-questions-list__item {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: flex-end;
+    background-color: #fff;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin-top: 25px;
+}
+.discuss-meta__avatar {
+    margin-right: 0;
+}
+.discuss-meta__avatar {
+    -webkit-box-flex: 0;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 50%;
+    cursor: pointer;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    height: 32px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 32px;
+}
+.discuss-meta__info__date, .discuss-meta__info__name {
+    font-family: Fira Sans,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    line-height: 1.3;
+}
+.discuss-meta__info__date {
+    color: #6b7f99;
+}
+.example {
+    margin-top: 25px;
+}
+
+.discuss-hot-today__topic {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    background-color: #fff;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 14px;
+    letter-spacing: .01em;
+    margin-top: 16px;
+    padding: 12px;
+}
+.discuss-hot-today__topic__title {
+    color: #2d3846;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.discuss-hot-today__topic__votes {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #6b7f99;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: Fira Sans,sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    gap: 5px;
+    letter-spacing: .01em;
+    line-height: 1.3;
+    padding-top: 12px;
+}
