@@ -24,7 +24,7 @@ app.controller("html-ctrl", function ($scope, $http) {
             account : $scope.test.account,
             baihoc : $scope.test.baihoc
           }
-          $http.put(`/rest/test/run/${idbaihoc}/${user}`,$scope.test).then((resp)=>{
+          $http.put(`/rest/test/${idbaihoc}/${user}`,$scope.test).then((resp)=>{
             $scope.test = resp.data;
           }).catch(error =>{
             alert(error);
@@ -36,7 +36,7 @@ app.controller("html-ctrl", function ($scope, $http) {
             baihoc : {baihocid:idbaihoc}
           }
           console.log($scope.test);
-          $http.post(`/rest/test/run`,$scope.test).then((resp)=>{
+          $http.post(`/rest/test`,$scope.test).then((resp)=>{
             $scope.test = resp.data;
           }).catch(error =>{
             alert(error);
