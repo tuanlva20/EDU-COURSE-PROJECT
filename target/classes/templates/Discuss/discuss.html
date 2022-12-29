@@ -1,0 +1,484 @@
+<!doctype html>
+<html
+xmlns:th="http://www.thymeleaf.org"
+th:replace="~{/layout/layout :: dynamic(~{::main})}">>
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no"> -->
+
+        <!-- Bootstrap CSS -->
+        <!-- <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"> -->
+        <!-- <link rel="stylesheet" href="/src/main/resources/static/assets/css/Discuss.css"> -->
+        <!-- <link rel="stylesheet" th:href="@{/assets/css/Discuss.css}" /> -->
+        <!-- <script src="/src/main/resources/static/assets/js/Discuss.js"></script> -->
+        <!-- <script th:src="@{/assets/js/Discuss.js}"></script> -->
+    </head>
+    <body>
+        <div class="container-1">
+            <article class="article">
+                <h3>Q&A DISCUSSIONS</h3>
+                <div class="search">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <button class="btn btn-search btn-outline-success my-2
+                            my-sm-0"
+                            type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="trending">
+                    <!-- Example single danger button -->
+                    <div class="btn-trending">
+                        <button type="button" class="btn btn-trend
+                            btn-outline-danger
+                            dropdown-toggle-split" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Trending
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else
+                                here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </div>
+                    <div class="Ask">
+                        <button type="button" class="btn btn-ask btn-info">
+                            Ask a Question
+                        </button>
+                    </div>
+                </div>
+                <div class="content-discuss">
+                    <div class="discuss-questions-list__item"><div
+                            class="discuss-questions-list__item__left-part">
+                            <a class="discuss-questions-list__item__title"
+                                href="/Discuss/524028/lets-stay-safe-together-people-">
+                                Let's stay safe together, people! 👮</a>
+                                <div class="discuss-questions-list__item__tags"><a
+                                    href="/Discuss/?query=abuse"
+                                    class="discuss-questions-list__item__tags__tag">abuse</a><a
+                                    href="/Discuss/?query=challenges"
+                                    class="discuss-questions-list__item__tags__tag">challenges</a><a
+                                    href="/Discuss/?query=fake"
+                                    class="discuss-questions-list__item__tags__tag">fake</a><a
+                                    href="/Discuss/?query=let's"
+                                    class="discuss-questions-list__item__tags__tag">let's</a><a
+                                    href="/Discuss/?query=moderators"
+                                    class="discuss-questions-list__item__tags__tag">moderators</a><a
+                                    href="/Discuss/?query=report"
+                                    class="discuss-questions-list__item__tags__tag">report</a><a
+                                    href="/Discuss/?query=safe"
+                                    class="discuss-questions-list__item__tags__tag">safe</a><a
+                                    href="/Discuss/?query=stay"
+                                    class="discuss-questions-list__item__tags__tag">stay</a><a
+                                    href="/Discuss/?query=together"
+                                    class="discuss-questions-list__item__tags__tag">together</a>
+                                </div>
+                                <div class="discuss-questions-list__item__info">
+                                    <div class="discuss-questions-list__item__info__votes">
+                                        <svg viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            role="img" width="16" height="16"
+                                            class="sol-icon">
+                                        <g id="icon-reaction-small">
+                                            <path id="Vector" fill-rule="evenodd"
+                                                clip-rule="evenodd" d="M4.43627
+                                                1.56371C4.58379 1.41619 4.78387
+                                                1.33331 4.9925 1.33331C5.50426
+                                                1.33331 5.87977 1.81425 5.75565
+                                                2.31073L5.33333
+                                                3.99998V4H7.52926C8.0677 4
+                                                8.43072 4.55054 8.21862
+                                                5.04544L6.92642 8.06057C6.76884
+                                                8.42826 6.4073 8.66665 6.00727
+                                                8.66665H3C2.44771 8.66665 2
+                                                8.21894 2
+                                                7.66665V6V5.99998V4.82841C2
+                                                4.29797 2.21071 3.78927 2.58579
+                                                3.41419L4.43627 1.56371ZM11.5637
+                                                14.4363C11.4162 14.5838 11.2161
+                                                14.6667 11.0075 14.6667C10.4957
+                                                14.6667 10.1202 14.1857 10.2443
+                                                13.6892L10.6666
+                                                12V12H8.47074C7.9323 12 7.56928
+                                                11.4494 7.78138 10.9545L9.07358
+                                                7.9394C9.23116 7.57172 9.5927
+                                                7.33332 9.99273
+                                                7.33332H13C13.5523 7.33332 14
+                                                7.78104 14 8.33332V9.99998L14
+                                                10.0104V11.1716C14 11.702
+                                                13.7893 12.2107 13.4142
+                                                12.5858L11.5637 14.4363Z"
+                                                fill="currentColor">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <!-- -->1259<!-- --> Votes
+                                </div>
+                                <a class="discuss-questions-list__item__info__answers"
+                                    href="/Discuss/524028/lets-stay-safe-together-people-">
+                                    <svg viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        role="img" width="16" height="16"
+                                        class="sol-icon">
+                                        <g id="icon-message-small">
+                                            <path id="Vector" fill-rule="evenodd"
+                                                clip-rule="evenodd" d="M3
+                                                3C2.44772 3 2 3.44772 2 4V10C2
+                                                10.5523 2.44772 11 3
+                                                11H4V12.7929C4 13.2383 4.53857
+                                                13.4614 4.85355 13.1464L7
+                                                11H13C13.5523 11 14 10.5523 14
+                                                10V4C14 3.44772 13.5523 3 13
+                                                3H3Z" fill="currentColor">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <!-- -->1049<!-- --> <!-- -->Answers
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="discuss-meta">
+                            <div class="discuss-meta__info">
+                                <div class="discuss-meta__info__date">9th Jul 2017, 4:37 PM</div>
+                                <div class="discuss-meta__info__name">Kuba Siekierzyński </div>
+                            </div>
+                                <img src="https://blob.sololearn.com/avatars/10ae20c8-7064-4d0f-9704-1b67ead9f00c.jpg"
+                                alt="Kuba Siekierzyński - avatar"
+                                class="discuss-meta__avatar rounded-circle">
+                            </div>
+                        </div>
+                
+                    <div class="discuss-questions-list__item"><div
+                            class="discuss-questions-list__item__left-part">
+                            <a class="discuss-questions-list__item__title"
+                                href="/Discuss/524028/lets-stay-safe-together-people-">
+                                Let's stay safe together, people! 👮</a>
+                                <div class="discuss-questions-list__item__tags"><a
+                                    href="/Discuss/?query=abuse"
+                                    class="discuss-questions-list__item__tags__tag">abuse</a><a
+                                    href="/Discuss/?query=challenges"
+                                    class="discuss-questions-list__item__tags__tag">challenges</a><a
+                                    href="/Discuss/?query=fake"
+                                    class="discuss-questions-list__item__tags__tag">fake</a><a
+                                    href="/Discuss/?query=let's"
+                                    class="discuss-questions-list__item__tags__tag">let's</a><a
+                                    href="/Discuss/?query=moderators"
+                                    class="discuss-questions-list__item__tags__tag">moderators</a><a
+                                    href="/Discuss/?query=report"
+                                    class="discuss-questions-list__item__tags__tag">report</a><a
+                                    href="/Discuss/?query=safe"
+                                    class="discuss-questions-list__item__tags__tag">safe</a><a
+                                    href="/Discuss/?query=stay"
+                                    class="discuss-questions-list__item__tags__tag">stay</a><a
+                                    href="/Discuss/?query=together"
+                                    class="discuss-questions-list__item__tags__tag">together</a>
+                                </div>
+                                <div class="discuss-questions-list__item__info">
+                                    <div class="discuss-questions-list__item__info__votes">
+                                        <svg viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            role="img" width="16" height="16"
+                                            class="sol-icon">
+                                        <g id="icon-reaction-small">
+                                            <path id="Vector" fill-rule="evenodd"
+                                                clip-rule="evenodd" d="M4.43627
+                                                1.56371C4.58379 1.41619 4.78387
+                                                1.33331 4.9925 1.33331C5.50426
+                                                1.33331 5.87977 1.81425 5.75565
+                                                2.31073L5.33333
+                                                3.99998V4H7.52926C8.0677 4
+                                                8.43072 4.55054 8.21862
+                                                5.04544L6.92642 8.06057C6.76884
+                                                8.42826 6.4073 8.66665 6.00727
+                                                8.66665H3C2.44771 8.66665 2
+                                                8.21894 2
+                                                7.66665V6V5.99998V4.82841C2
+                                                4.29797 2.21071 3.78927 2.58579
+                                                3.41419L4.43627 1.56371ZM11.5637
+                                                14.4363C11.4162 14.5838 11.2161
+                                                14.6667 11.0075 14.6667C10.4957
+                                                14.6667 10.1202 14.1857 10.2443
+                                                13.6892L10.6666
+                                                12V12H8.47074C7.9323 12 7.56928
+                                                11.4494 7.78138 10.9545L9.07358
+                                                7.9394C9.23116 7.57172 9.5927
+                                                7.33332 9.99273
+                                                7.33332H13C13.5523 7.33332 14
+                                                7.78104 14 8.33332V9.99998L14
+                                                10.0104V11.1716C14 11.702
+                                                13.7893 12.2107 13.4142
+                                                12.5858L11.5637 14.4363Z"
+                                                fill="currentColor">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <!-- -->1259<!-- --> Votes
+                                </div>
+                                <a class="discuss-questions-list__item__info__answers"
+                                    href="/Discuss/524028/lets-stay-safe-together-people-">
+                                    <svg viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        role="img" width="16" height="16"
+                                        class="sol-icon">
+                                        <g id="icon-message-small">
+                                            <path id="Vector" fill-rule="evenodd"
+                                                clip-rule="evenodd" d="M3
+                                                3C2.44772 3 2 3.44772 2 4V10C2
+                                                10.5523 2.44772 11 3
+                                                11H4V12.7929C4 13.2383 4.53857
+                                                13.4614 4.85355 13.1464L7
+                                                11H13C13.5523 11 14 10.5523 14
+                                                10V4C14 3.44772 13.5523 3 13
+                                                3H3Z" fill="currentColor">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <!-- -->1049<!-- --> <!-- -->Answers
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="discuss-meta">
+                            <div class="discuss-meta__info">
+                                <div class="discuss-meta__info__date">9th Jul 2017, 4:37 PM</div>
+                                <div class="discuss-meta__info__name">Kuba Siekierzyński </div>
+                            </div>
+                                <img src="https://blob.sololearn.com/avatars/10ae20c8-7064-4d0f-9704-1b67ead9f00c.jpg"
+                                alt="Kuba Siekierzyński - avatar"
+                                class="discuss-meta__avatar rounded-circle">
+                            </div>
+                        </div>
+                
+                    <div class="discuss-questions-list__item"><div
+                            class="discuss-questions-list__item__left-part">
+                            <a class="discuss-questions-list__item__title"
+                                href="/Discuss/524028/lets-stay-safe-together-people-">
+                                Let's stay safe together, people! 👮</a>
+                                <div class="discuss-questions-list__item__tags"><a
+                                    href="/Discuss/?query=abuse"
+                                    class="discuss-questions-list__item__tags__tag">abuse</a><a
+                                    href="/Discuss/?query=challenges"
+                                    class="discuss-questions-list__item__tags__tag">challenges</a><a
+                                    href="/Discuss/?query=fake"
+                                    class="discuss-questions-list__item__tags__tag">fake</a><a
+                                    href="/Discuss/?query=let's"
+                                    class="discuss-questions-list__item__tags__tag">let's</a><a
+                                    href="/Discuss/?query=moderators"
+                                    class="discuss-questions-list__item__tags__tag">moderators</a><a
+                                    href="/Discuss/?query=report"
+                                    class="discuss-questions-list__item__tags__tag">report</a><a
+                                    href="/Discuss/?query=safe"
+                                    class="discuss-questions-list__item__tags__tag">safe</a><a
+                                    href="/Discuss/?query=stay"
+                                    class="discuss-questions-list__item__tags__tag">stay</a><a
+                                    href="/Discuss/?query=together"
+                                    class="discuss-questions-list__item__tags__tag">together</a>
+                                </div>
+                                <div class="discuss-questions-list__item__info">
+                                    <div class="discuss-questions-list__item__info__votes">
+                                        <svg viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            role="img" width="16" height="16"
+                                            class="sol-icon">
+                                        <g id="icon-reaction-small">
+                                            <path id="Vector" fill-rule="evenodd"
+                                                clip-rule="evenodd" d="M4.43627
+                                                1.56371C4.58379 1.41619 4.78387
+                                                1.33331 4.9925 1.33331C5.50426
+                                                1.33331 5.87977 1.81425 5.75565
+                                                2.31073L5.33333
+                                                3.99998V4H7.52926C8.0677 4
+                                                8.43072 4.55054 8.21862
+                                                5.04544L6.92642 8.06057C6.76884
+                                                8.42826 6.4073 8.66665 6.00727
+                                                8.66665H3C2.44771 8.66665 2
+                                                8.21894 2
+                                                7.66665V6V5.99998V4.82841C2
+                                                4.29797 2.21071 3.78927 2.58579
+                                                3.41419L4.43627 1.56371ZM11.5637
+                                                14.4363C11.4162 14.5838 11.2161
+                                                14.6667 11.0075 14.6667C10.4957
+                                                14.6667 10.1202 14.1857 10.2443
+                                                13.6892L10.6666
+                                                12V12H8.47074C7.9323 12 7.56928
+                                                11.4494 7.78138 10.9545L9.07358
+                                                7.9394C9.23116 7.57172 9.5927
+                                                7.33332 9.99273
+                                                7.33332H13C13.5523 7.33332 14
+                                                7.78104 14 8.33332V9.99998L14
+                                                10.0104V11.1716C14 11.702
+                                                13.7893 12.2107 13.4142
+                                                12.5858L11.5637 14.4363Z"
+                                                fill="currentColor">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <!-- -->1259<!-- --> Votes
+                                </div>
+                                <a class="discuss-questions-list__item__info__answers"
+                                    href="/Discuss/524028/lets-stay-safe-together-people-">
+                                    <svg viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        role="img" width="16" height="16"
+                                        class="sol-icon">
+                                        <g id="icon-message-small">
+                                            <path id="Vector" fill-rule="evenodd"
+                                                clip-rule="evenodd" d="M3
+                                                3C2.44772 3 2 3.44772 2 4V10C2
+                                                10.5523 2.44772 11 3
+                                                11H4V12.7929C4 13.2383 4.53857
+                                                13.4614 4.85355 13.1464L7
+                                                11H13C13.5523 11 14 10.5523 14
+                                                10V4C14 3.44772 13.5523 3 13
+                                                3H3Z" fill="currentColor">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <!-- -->1049<!-- --> <!-- -->Answers
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="discuss-meta">
+                            <div class="discuss-meta__info">
+                                <div class="discuss-meta__info__date">9th Jul 2017, 4:37 PM</div>
+                                <div class="discuss-meta__info__name">Kuba Siekierzyński </div>
+                            </div>
+                                <img src="https://blob.sololearn.com/avatars/10ae20c8-7064-4d0f-9704-1b67ead9f00c.jpg"
+                                alt="Kuba Siekierzyński - avatar"
+                                class="discuss-meta__avatar rounded-circle">
+                            </div>
+                        </div>
+                </div>
+                <nav aria-label="Page navigation example" class="example">
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
+                    </ul>
+                </nav>
+            </article>
+            <aside class="aside">
+                <h3>Hot today</h3>
+                <div class="discuss-hot-today__topic">
+                    <a class="discuss-hot-today__topic__title" 
+                    href="/Discuss/3175942/is-my-code-correct-pls-tell">
+                    Is my code correct pls tell
+                    </a>
+                    <div class="discuss-hot-today__topic__votes">
+                        <svg viewBox="0 0 16 16" fill="none" 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            role="img" width="16" height="16" class="sol-icon">
+                        <g id="icon-reaction-positive-small">
+                            <path id="Vector" fill-rule="evenodd" 
+                                clip-rule="evenodd" d="M8.88324 2.20147C9.03946 
+                                2.07129 9.23637 2 9.43971 2C9.98824 2 
+                                10.3996 2.50183 10.2921 3.03971L9.90001 
+                                5.00001L13 5C13.5523 5 14 5.44772 14 
+                                6V8.0934C14 8.59595 13.8108 9.08008 13.4701 
+                                9.44947L10.4918 12.678C10.3025 12.8833 10.036 13 
+                                9.75681 13L6 13C5.44772 13 5 12.5523 5 12L5 
+                                8.18751V5.90588C5 5.6091 5.13182 5.32765 5.35982 
+                                5.13766L8.88324 2.20147ZM2.5 6C2.22386 6 2 
+                                6.22386 2 6.5V12.5C2 12.7761 2.22386 13 2.5 
+                                13H3.5C3.77614 13 4 12.7761 4 12.5V6.5C4 6.22386 
+                                3.77614 6 3.5 6H2.5Z" fill="currentColor">
+                            </path>
+                        </g>
+                        </svg> 
+                        <!-- -->-2<!-- --> Votes
+                    </div>
+                </div>
+                <div class="discuss-hot-today__topic">
+                    <a class="discuss-hot-today__topic__title" 
+                    href="/Discuss/3175942/is-my-code-correct-pls-tell">
+                    Is my code correct pls tell
+                    </a>
+                    <div class="discuss-hot-today__topic__votes">
+                        <svg viewBox="0 0 16 16" fill="none" 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            role="img" width="16" height="16" class="sol-icon">
+                        <g id="icon-reaction-positive-small">
+                            <path id="Vector" fill-rule="evenodd" 
+                                clip-rule="evenodd" d="M8.88324 2.20147C9.03946 
+                                2.07129 9.23637 2 9.43971 2C9.98824 2 
+                                10.3996 2.50183 10.2921 3.03971L9.90001 
+                                5.00001L13 5C13.5523 5 14 5.44772 14 
+                                6V8.0934C14 8.59595 13.8108 9.08008 13.4701 
+                                9.44947L10.4918 12.678C10.3025 12.8833 10.036 13 
+                                9.75681 13L6 13C5.44772 13 5 12.5523 5 12L5 
+                                8.18751V5.90588C5 5.6091 5.13182 5.32765 5.35982 
+                                5.13766L8.88324 2.20147ZM2.5 6C2.22386 6 2 
+                                6.22386 2 6.5V12.5C2 12.7761 2.22386 13 2.5 
+                                13H3.5C3.77614 13 4 12.7761 4 12.5V6.5C4 6.22386 
+                                3.77614 6 3.5 6H2.5Z" fill="currentColor">
+                            </path>
+                        </g>
+                        </svg> 
+                        <!-- -->-2<!-- --> Votes
+                    </div>
+                </div>
+                <div class="discuss-hot-today__topic">
+                    <a class="discuss-hot-today__topic__title" 
+                    href="/Discuss/3175942/is-my-code-correct-pls-tell">
+                    Is my code correct pls tell
+                    </a>
+                    <div class="discuss-hot-today__topic__votes">
+                        <svg viewBox="0 0 16 16" fill="none" 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            role="img" width="16" height="16" class="sol-icon">
+                        <g id="icon-reaction-positive-small">
+                            <path id="Vector" fill-rule="evenodd" 
+                                clip-rule="evenodd" d="M8.88324 2.20147C9.03946 
+                                2.07129 9.23637 2 9.43971 2C9.98824 2 
+                                10.3996 2.50183 10.2921 3.03971L9.90001 
+                                5.00001L13 5C13.5523 5 14 5.44772 14 
+                                6V8.0934C14 8.59595 13.8108 9.08008 13.4701 
+                                9.44947L10.4918 12.678C10.3025 12.8833 10.036 13 
+                                9.75681 13L6 13C5.44772 13 5 12.5523 5 12L5 
+                                8.18751V5.90588C5 5.6091 5.13182 5.32765 5.35982 
+                                5.13766L8.88324 2.20147ZM2.5 6C2.22386 6 2 
+                                6.22386 2 6.5V12.5C2 12.7761 2.22386 13 2.5 
+                                13H3.5C3.77614 13 4 12.7761 4 12.5V6.5C4 6.22386 
+                                3.77614 6 3.5 6H2.5Z" fill="currentColor">
+                            </path>
+                        </g>
+                        </svg> 
+                        <!-- -->-2<!-- --> Votes
+                    </div>
+                </div>
+            </aside>
+            
+        </div>
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
