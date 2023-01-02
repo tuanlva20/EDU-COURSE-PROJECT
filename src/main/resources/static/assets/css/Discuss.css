@@ -1,7 +1,7 @@
 body{
     background-color: #f2f5f7;
 }
-.container-1{
+.container{
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
@@ -33,6 +33,26 @@ body{
 .trending .btn-ask{
     width: 200px;
     margin-right: 25px;
+}
+.Ask a{
+    color: white;
+    text-decoration: none;
+}
+a {
+    outline: none;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+}
+.aside .discusslink {
+    margin-top: 20px;
+    margin-left: 0px;
+    display: inline-block;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
 }
 .content-discuss{
     margin-top: 25px;

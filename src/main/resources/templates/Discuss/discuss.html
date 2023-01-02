@@ -1,7 +1,5 @@
 <!doctype html>
-<html
-xmlns:th="http://www.thymeleaf.org"
-th:replace="~{/layout/layout :: dynamic(~{::main})}">>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout :: dynamic(~{::main})}">
     <head>
         <title>Title</title>
         <!-- Required meta tags -->
@@ -20,7 +18,7 @@ th:replace="~{/layout/layout :: dynamic(~{::main})}">>
         <!-- <script th:src="@{/assets/js/Discuss.js}"></script> -->
     </head>
     <body>
-        <div class="container-1">
+        <div class="container">
             <article class="article">
                 <h3>Q&A DISCUSSIONS</h3>
                 <div class="search">
@@ -52,7 +50,7 @@ th:replace="~{/layout/layout :: dynamic(~{::main})}">>
                     </div>
                     <div class="Ask">
                         <button type="button" class="btn btn-ask btn-info">
-                            Ask a Question
+                           <a href="/askAndQuestion.html">Ask a Question</a>
                         </button>
                     </div>
                 </div>
@@ -60,7 +58,7 @@ th:replace="~{/layout/layout :: dynamic(~{::main})}">>
                     <div class="discuss-questions-list__item"><div
                             class="discuss-questions-list__item__left-part">
                             <a class="discuss-questions-list__item__title"
-                                href="/Discuss/524028/lets-stay-safe-together-people-">
+                                href="/Answers.html">
                                 Let's stay safe together, people! 👮</a>
                                 <div class="discuss-questions-list__item__tags"><a
                                     href="/Discuss/?query=abuse"
@@ -375,7 +373,7 @@ th:replace="~{/layout/layout :: dynamic(~{::main})}">>
                 </nav>
             </article>
             <aside class="aside">
-                <h3>Hot today</h3>
+                <a href="/Discuss.html" class="discusslink">Hot Today</a>
                 <div class="discuss-hot-today__topic">
                     <a class="discuss-hot-today__topic__title" 
                     href="/Discuss/3175942/is-my-code-correct-pls-tell">
