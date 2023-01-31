@@ -59,8 +59,10 @@ public class AccountServiceImpl implements AccountService{
         aDAO.deleteById(username);
     }
 
-   
-
-    
+    @Override
+    public List<Account> findByKeyword(String key) {
+        // TODO Auto-generated method stub
+        return aDAO.search(key);
+    }
     
 }

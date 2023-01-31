@@ -2,20 +2,18 @@
 
     <!-- Admin Tab Menu Start -->
     <div class="nav flex-column nav-pills admin-tab-menu">
-        <a href="#!product">Quản lý khóa học</a>
         <a href="#!accounts">Quản lý tài khoản</a>
-        <a href="#!donhang">Quản lý đơn hàng</a>
-        <a href="#!discount">Quản lý mã giảm giá</a>
-        <a href="#!category">Quản lý thể loại</a>
+        <a href="#!product">Quản lý khóa học</a>
         <a href="#!chuonghoc">Quản lý chương học</a>
         <a href="#!baihoc">Quản lý bài học</a>
-        <a href="#!role">Quản lý vai trò</a>
-        <a href="#!quiz" class="active">Quản lý Câu hỏi</a>
+        <a href="#!quiz" class="active">Quản lý câu hỏi</a>
         <a href="#!phuongan">Quản lý đáp án</a>
         <a href="#!test">Quản lý bài kiểm tra</a>
-        <a href="#!thaoluan">Quản lý thảo luận</a>
-        <a href="#!authorize">Phân quyền</a>
-    </div>
+        <a href="#!discount">Quản lý mã giảm giá</a>
+        <!-- <a href="#!donhang">Quản lý đơn hàng</a> -->
+        <!-- <a href="#!category">Quản lý thể loại</a> -->
+        <!-- <a href="#!authorize">Phân quyền</a> -->
+</div>
     <!-- Admin Tab Menu End -->
 
     <!-- Page Content Wrapper Start -->
@@ -25,6 +23,15 @@
             <div class="graph mt-0">
                 <div class="graph-title">
                     <h2 class="title">Quản lý câu hỏi</h2>
+                    <div class="login-header-search dropdown">
+                        <div class="search-input">
+                            <input type="text" placeholder="Search here" class="bg-light text-dark"
+                            id="myInput" ng-keyup="search()">
+                            <button class="search-toggle" data-bs-toggle="dropdown"><i class="flaticon-loupe"></i></button>
+                            <div id="myDropdown" class="dropdown-content">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="graph-content">

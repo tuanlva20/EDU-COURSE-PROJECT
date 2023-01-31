@@ -14,6 +14,15 @@ public interface AccountDAO extends JpaRepository<Account, String> {
     @Query("SELECT DISTINCT ar.account  FROM Authority ar WHERE ar.role.id IN ('DIRE', 'STAF')")
     List<Account> getAdministrators();
 
+    @Query(value = "SELECT * FROM account WHERE username or address or fullname LIKE '%?%'", nativeQuery = true)
+    List<Account> search(String key);
+
+    @Query(value = "select count(date(ac.createdate)) as count FROM accounts ac WHERE Month(ac.createdate) = ?1", nativeQuery = true)
+    Integer getCountAccountByMonth(int month);
+    
+    @Query("SELECT count(*) as count  FROM Account ac ")
+    Integer getCountAllAccount();
+
     // @Modifying(clearAutomatically = true)
     // @Transactional
     // @Query(value = "update accounts set diem = ?1 and heart = ?2 where username = ?3", nativeQuery = true)

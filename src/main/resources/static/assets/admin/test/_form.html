@@ -1,37 +1,40 @@
-<form class="row g-3 mt-2">
+<form class="row g-3 mt-2" id="formtest">
   <div class="col-md-12">
     <label for="inputId" class="form-label">Nội dung bài kiểm tra</label>
     <input
       ng-model="form.codes"
       type="text"
       class="form-control"
-      id="inputId"
+      id="noidung"
       placeholder="Nội dung"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 form-group">
     <label for="inputChuonghoc" class="form-label">Tài khoản</label>
     <select
       ng-model="form.account.username"
-      id="inputChuonghoc"
+      id="taikhoan"
       class="form-select"
       
     >
-      <option  value="" ng-value="">Chọn tài khoản...</option>
+      <option  value="">Chọn tài khoản...</option>
       <option ng-repeat="c in account1" ng-value="c.username" >{{c.username}}</option>
     </select>
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 form-group">
     <label for="inputChuong" class="form-label">Bài học</label>
     <select
       ng-model="form.baihoc.baihocid"
-      id="inputChuong"
+      id="baihoc"
       class="form-select"
       
     >
-      <option  value="" ng-value="">Chọn tài khoản...</option>
+      <option  value="">Chọn tài khoản...</option>
       <option ng-repeat="c in baihoc1" ng-value="c.baihocid" >{{c.tenbh}}</option>
     </select>
+    <span class="form-message invalid-feedback"></span>
   </div>
     <div class="col-12">
       <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
@@ -40,3 +43,20 @@
       <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
     </div>
 </form>
+<script>
+
+  Validator({
+
+      // tên form cần validate
+      form : '#formtest',
+      // các thuộc tính kiểm lỗi
+      rules : [
+          //gọi hàm kiểm lỗi và kiểm tra thẻ theo yêu cầu
+          Validator.isRequired('#noidung'),
+          Validator.isRequired('#taikhoan'),
+          Validator.isRequired('#baihoc')
+
+      ]
+  })
+
+</script>

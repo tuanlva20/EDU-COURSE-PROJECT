@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.poly.bean.Baihoc;
 import com.poly.bean.Category;
 import com.poly.bean.Chuonghoc;
-import com.poly.bean.DataBang;
+// import com.poly.bean.DataBang;
 import com.poly.bean.Lambai;
 import com.poly.bean.Order;
 import com.poly.bean.Quiz;
@@ -23,7 +23,7 @@ import com.poly.dao.ChuonghocDAO;
 import com.poly.dao.QuizDAO;
 import com.poly.service.BaihocService;
 import com.poly.service.ChuonghocService;
-import com.poly.service.DatabangService;
+// import com.poly.service.DatabangService;
 import com.poly.service.LambaiService;
 import com.poly.service.OrderService;
 import com.poly.service.QuizService;
@@ -48,8 +48,7 @@ public class QuizController {
     @Autowired
     TestService testService;
     int idProductpublic;
-    @Autowired
-    DatabangService databangService;
+
 
     @RequestMapping(value = "/coursedetail/chuonghoc/{id}")
     public String baihoc(Model model, @PathVariable("id") int idProduct, HttpServletRequest request) {
@@ -63,15 +62,15 @@ public class QuizController {
                 model.addAttribute("an", "disabled");
                 model.addAttribute("quizService", quizService);
             }
-            DataBang bang = databangService.getDatabang(idProduct, username);
-            if(bang.getUsername() !=""){
-                model.addAttribute("export", "hien");
-            }else{
-                double progress = (double)  100 / bang.getSizeQuizByProduct() * bang.getSizeQuizBySucccess();
+            // DataBang bang = databangService.getDatabang(idProduct, username);
+            // if(bang.getUsername() !=""){
+            //     model.addAttribute("export", "hien");
+            // }else{
+            //     double progress = (double)  100 / bang.getSizeQuizByProduct() * bang.getSizeQuizBySucccess();
 
-                model.addAttribute("progress",(double) Math.round(progress*100)/100+"%");
-                model.addAttribute("export", "an");
-            }
+            //     model.addAttribute("progress",(double) Math.round(progress*100)/100+"%");
+            //     model.addAttribute("export", "an");
+            // }
             idProductpublic = idProduct;
             model.addAttribute("idproduct", idProduct);
             model.addAttribute("listProduct", list);

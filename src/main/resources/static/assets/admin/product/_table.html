@@ -1,25 +1,25 @@
 <table class="table table-bordered table-striped table-hover mt-2">
     <thead>
       <tr class="text-center">
-        <th scope="col">STT</th>
+        <th scope="col">Mã khóa học</th>
         <th scope="col">Tên</th>
         <th scope="col">Giá</th>
-        <th scope="col">Hình ảnh</th>
-        <th scope="col">Số lượng</th>
+        <!-- <th scope="col">Hình ảnh</th> -->
         <th scope="col">Tình trạng</th>
         <th scope="col">Thể loại</th>
+        <th scope="col">Mã giảm giá</th>
         <th>Edit</th>
       </tr>
     </thead>
-    <tbody>
-      <tr ng-repeat="p in pager.items">
-        <td>{{$index+1}}</td>
+    <tbody id="myTbody">
+      <tr ng-repeat="p in pager.items" id="myTr">
+        <td>{{p.id}}</td>
         <td>{{p.name}}</td>
         <td>{{p.price | number}}</td>
-        <td>{{p.image}}</td>
-        <td>{{p.quantity}}</td>
+        <!-- <td>{{p.image}}</td> -->
         <td>{{p.available?'Yes':'No'}}</td>
         <td>{{p.category.name}}</td>
+        <td>{{p.discount.name}}</td>
         <td>
             <button class="text-warning btn-edit" style="border: none; background: none;" ng-click="edit(p)"><i class="fa fa-pencil-square-o"></i></button>
             <button class="text-danger btn-edit" ng-click="delete(p)"><i class="fa fa-trash-o"></i></button>

@@ -20,16 +20,15 @@ public interface OrderDAO extends JpaRepository<Order, Integer>{
     nativeQuery = true)
     Order damua(String username, int idProduct);
 
-
-        @Query(value = "select o.id from orders o where o.address=?1 and o.createdate=?2 and o.email=?3 and o.fullname=?4 and o.phone=?5 and"+
-        " o.status=?6 and o.username=?7", nativeQuery = true)
-        List<Integer> findidOrders(String address,Date createdate, String email, String fullname, String phone, boolean status, String username);
-
-
+    @Query(value = "select o.id from orders o where o.address=?1 and o.createdate=?2 and o.email=?3 and o.fullname=?4 and o.phone=?5 and"+
+    " o.status=?6 and o.username=?7", nativeQuery = true)
+    List<Integer> findidOrders(String address,Date createdate, String email, String fullname, String phone, boolean status, String username);
 
     @Query(value="select * from orders o, orderdetails od where o.id=od.orderid and od.price = ?1 and o.username = ?2",
     nativeQuery = true)
     Order updateStatusOrder(Integer price, String username);
 
+    @Query(value = "select sum(price) as totalprice from orders od where od.status = 1 and month(od.createdate) = ?;", nativeQuery = true)
+    Integer totalOrderByMonth(int month);
 
 }

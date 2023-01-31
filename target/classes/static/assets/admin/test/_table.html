@@ -8,8 +8,8 @@
         <th>edit</th>
       </tr>
     </thead>
-    <tbody>
-      <tr ng-repeat="p in pager.items">
+    <tbody id="myTbody">
+      <tr ng-repeat="p in pager.items track by $index" id="myTr">
         <td>{{p.testid}}</td>
         <td>{{p.codes}}</td>
         <td>{{p.account.username}}</td>
