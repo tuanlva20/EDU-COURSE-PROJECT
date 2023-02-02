@@ -28,7 +28,11 @@ public interface OrderDAO extends JpaRepository<Order, Integer>{
     nativeQuery = true)
     Order updateStatusOrder(Integer price, String username);
 
-    @Query(value = "select sum(price) as totalprice from orders od where od.status = 1 and month(od.createdate) = ?;", nativeQuery = true)
-    Integer totalOrderByMonth(int month);
+    @Query(value = "select sum(price) as totalprice from orders od where od.status = 1"
+    +   " and month(od.createdate) = ?1 and year(od.createdate) = ?2", nativeQuery = true)
+    Integer totalOrderByMonth(int month, int year);
+
+    @Query(value = "select sum(price) as totalprice from orders od where od.status = 1 and year(od.createdate) = ?", nativeQuery = true)
+    Integer totalOrderByYear(int year);
 
 }

@@ -244,5 +244,54 @@ app.controller("accounts-ctrl",function($scope,$http){
         }
         
     }
+    
+    $scope.exportHTMLToWord = function (){
+        var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+                "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+                "xmlns='http://www.w3.org/TR/REC-html40'>"+
+                "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+        var footer = "</body></html>";
+        var sourceHTML = header+document.getElementById("myTbody").innerHTML+footer;
+        
+        var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+        var fileDownload = document.createElement("a");
+        document.body.appendChild(fileDownload);
+        fileDownload.href = source;
+        fileDownload.download = 'Tai khoan.doc';
+        fileDownload.click();
+        document.body.removeChild(fileDownload);
+    }
+
+    $scope.exportHTMLToExcel = function () {
+        var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById("myTbl");
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+        // Specifiy file name
+        var filename = "taikhoan";
+        filename = filename?filename+'.xls':'excel_data.xls';
+        
+        //create download link element
+        downloadLink = document.createElement("a");
+
+        document.body.appendChild(downloadLink);
+
+        if (navigator.msSaveOrOpenBlod) {
+            var blod  = new Blob(['\ufeff', tableHTML], {
+                type: dataType
+            })
+            navigator.msSaveOrOpenBlod(blod, filename);
+        } else {
+            //create a link to the file
+            downloadLink.href = 'data:' + dataType + ',' + tableHTML;
+
+            //setting the file name
+            downloadLink.download = filename;
+
+            //triggering the function
+            downloadLink.click();
+        }
+    }
 });
 

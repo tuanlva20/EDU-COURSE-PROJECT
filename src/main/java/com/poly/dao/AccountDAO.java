@@ -19,6 +19,10 @@ public interface AccountDAO extends JpaRepository<Account, String> {
 
     @Query(value = "select count(date(ac.createdate)) as count FROM accounts ac WHERE Month(ac.createdate) = ?1", nativeQuery = true)
     Integer getCountAccountByMonth(int month);
+
+    @Query(value = "select count(date(ac.createdate)) as count FROM accounts ac WHERE Month(ac.createdate) = ?1 and year(ac.createdate)"
+    , nativeQuery = true)
+    Integer getCountAccountMonthInYear(int month, int year);
     
     @Query("SELECT count(*) as count  FROM Account ac ")
     Integer getCountAllAccount();
