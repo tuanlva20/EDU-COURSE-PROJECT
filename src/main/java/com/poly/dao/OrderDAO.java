@@ -35,4 +35,10 @@ public interface OrderDAO extends JpaRepository<Order, Integer>{
     @Query(value = "select sum(price) as totalprice from orders od where od.status = 1 and year(od.createdate) = ?", nativeQuery = true)
     Integer totalOrderByYear(int year);
 
+    @Query(value = "select od.product.id  from Order od, Product p where od.product.id = p.id")
+    List<Integer> findOderByProductId();
+
+    @Query(value = "select SUM(price) as totalprice from Order od where od.status = 1 and od.product.id = ?1")
+    Integer totalOrderByProductId(int id);
+
 }

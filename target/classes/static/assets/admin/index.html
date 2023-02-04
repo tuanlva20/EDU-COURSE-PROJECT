@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -35,8 +35,6 @@
            rel="stylesheet">
            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-       <!-- Custom styles for this template-->
-       <!-- <link href="../css/sb-admin-2.min.css" rel="stylesheet"> -->
    
     
 </head>
@@ -52,19 +50,12 @@
 
                 <!-- Header Logo Start -->
                 <div class="login-header-logo">
-                    <a href="index.html"><img src="../images/logo-icon.png" alt="Logo"></a></li>
+                    <a href="/admin"><img src="../images/logo-icon.png" alt="Logo"></a></li>
                 </div>
                 <!-- Header Logo End -->
 
                 <!-- Header Search Start -->
                 <div class="login-header-search dropdown">
-                    <!-- <button class="search-toggle" data-bs-toggle="dropdown"><i class="flaticon-loupe"></i></button>
-
-                    <div class="search-input dropdown-menu">
-                        <form action="#">
-                            <input type="text" placeholder="Search here">
-                        </form>
-                    </div> -->
 
                 </div>
                 <!-- Header Search End -->
@@ -125,7 +116,7 @@
                                 </div>
 
                                 <div class="widget-address">
-                                    <h4 class="footer-widget-title">Caribbean Ct</h4>
+                                    <h4 class="footer-widget-title" th:text="${ten}">Caribbean Ct</h4>
                                     <p>Haymarket, Virginia (VA).</p>
                                 </div>
 
@@ -281,16 +272,6 @@
     <!-- Custom scripts for all pages-->
     <script src="../js/thongke_js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <!-- <script src="../js/thongke_js/Chart.min.js"></script>
-    <script src="../js/thongke_js/chart-area-demo.js"></script>
-    <script src="../js/thongke_js/chart-bar-demo.js"></script>
-    <script src="../js/thongke_js/chart-pie-demo.js"></script>
-    <script src="../js/thongke_js/datatables-demo.js"></script> -->
-
-    <!-- Page level custom scripts -->
-    <!-- <script src="../js/thongke_js/chart-area-demo.js"></script>
-    <script src="../js/thongke_js/chart-pie-demo.js"></script> -->
     <!-- Main JS -->
     <script src="/assets/admin/js/admin-app.js"></script>
     <script src="/assets/admin/js/product-ctrl.js"></script>
@@ -306,6 +287,7 @@
     <script src="/assets/admin/js/test-ctrl.js"></script>
     <script src="/assets/admin/js/validator.js"></script>
     <script src="/assets/admin/js/thongke-ctrl.js"></script>
+    <script src="/assets/admin/js/layout-ctrl.js"></script>
     <script src="../js/main.min.js"></script>
 
 </body>

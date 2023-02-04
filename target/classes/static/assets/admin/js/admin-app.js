@@ -58,6 +58,10 @@ app.config(function($routeProvider){
         templateUrl:"/assets/admin/thongke/index.html",
         controller:"thongke-ctrl"
     })
+    .when("", {
+        templateUrl: "/asset/admin/layout/index.html",
+        controller: "layout-ctrl"
+    })
     .when("/unauthorized",{
         templateUrl:"/assets/admin/authority/unauthorized.html",
         controller:"authority-ctrl"

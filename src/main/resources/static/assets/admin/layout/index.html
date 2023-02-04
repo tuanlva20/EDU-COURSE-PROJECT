@@ -4,7 +4,7 @@
 
         <!-- Admin Courses Tab Start -->
         <div class="admin-courses-tab">
-            <h3 class="title">Courses</h3>
+            <h3 class="title" th:text="${listp}">Courses  </h3>
 
             <div class="courses-tab-wrapper">
                
@@ -14,7 +14,7 @@
                     <li><button data-bs-toggle="tab" data-bs-target="#tab3"><i class="icofont-eye-blocked"></i></button></li>
                 </ul>
                 <div class="tab-btn">
-                    <a href="#" class="btn btn-primary btn-hover-dark">New Course</a>
+                    <a href="#!product" class="btn btn-primary btn-hover-dark">New Course  </a>
                 </div>
             </div>
         </div>
@@ -35,8 +35,8 @@
 
                         <div class="content-title">
                             <div class="meta">
-                                <!-- <a href="#" class="action">Live</a>
-                                <a href="#" class="action">Free</a> -->
+                                <a href="#" class="action">Live </a>
+                                <a href="#" class="action">Free</a>
                                 <a href="#" class="action">Public</a>
                             </div>
                             <h3 class="title"><a href="#">Build An eCommerce Site With WooCommerce and WooLentor.</a></h3>
@@ -69,7 +69,7 @@
                     <!-- Courses Item End -->
 
                     <!-- Courses Item Start -->
-                    <div class="courses-item">
+                    <div class="courses-item" th:each="item : ${listp}">
                         <div class="item-thumb">
                             <a href="#">
                                 <img src="/assets/images/courses/courses-02.png" alt="Courses">
@@ -82,7 +82,7 @@
                                 <a href="#" class="action">Free</a>
                                 <a href="#" class="action">Public</a>
                             </div>
-                            <h3 class="title"><a href="#">Build An eCommerce Site With WooCommerce and WooLentor.</a></h3>
+                            <h3 class="title" th:text="${ten}"><a href="#"></a></h3>
                         </div>
 
                         <div class="content-wrapper">

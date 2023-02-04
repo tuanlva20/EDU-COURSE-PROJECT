@@ -104,4 +104,27 @@ app.controller("bill-ctrl",function($scope,$http){
 			this.page--;
 		}
     }
+     // lọc dữ liệu và fill lại search
+     $scope.search = function () {
+        var input, filter,td , tr, i, tbody
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        tbody = document.getElementById("myTbody");
+        tr = tbody.getElementsByTagName("tr");
+        for (var index = 0; index < tr.length; index++) {
+            td = tr[index].getElementsByTagName("td");
+            for (i = 0; i < td.length; i++) {
+                var  tempc = false;
+                txtValue = td[i].textContent || td[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tempc = true;
+                    tr[index].style.display = "";
+                    break;
+                } else if(i == td.length-1 && tempc == false) {
+                    tr[index].style.display = "none";
+                }
+            }   
+        }
+        
+    }
 });
