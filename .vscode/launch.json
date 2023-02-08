@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Java6AsmApplication<java6-asm>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.poly.Java6AsmApplication",
+            "projectName": "java6-asm",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -18,9 +18,11 @@
                 <div class="header-menu d-none d-lg-block">
                     <ul class="nav-menu">
                         <li><a href="/">[(#{nav.home})]</a></li>
+                        <li><a href="/Discuss/discuss">[(#{nav.discuss})]</a></li>
                         <li>
                             <a href="/courses">[(#{nav.course})]</a>
                         </li>
+                        
                         <th:block th:if="${#request.remoteUser}">
                             <li>
                                 <a href="/order/list">[(#{nav.yourorder})]</a>
@@ -29,12 +31,14 @@
                                 <a href="/admin">[(#{nav.administration})]</a>
                             </li>
                         </th:block>
+                        
                         <li>
                             <a href="#"><img th:src="@{#{app.lang}=='vi'?'/assets/images/flagVN.png':'/assets/images/flagUS.png'}" alt="" width="30px"></a>
                             <ul class="sub-menu">
                                 <li><a th:href="@{#{app.lang}=='vi'?'?lang=en':'?lang=vi'}"><img th:src="@{#{app.lang}=='vi'?'/assets/images/flagUS.png':'/assets/images/flagVN.png'}" alt=""></a></li>
                             </ul>
                         </li>
+                        
                     </ul>
 
                 </div>
