@@ -42,15 +42,18 @@ public class ProductController {
     
     @RequestMapping(value = "/coursedetail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, HttpServletRequest request){
+        Order order;
         Product p=pService.getOneById(id);
         model.addAttribute("product", p);
         String username = request.getRemoteUser();
-        if(!accountDAO.existsById(username)){
+        if(username !=null && !accountDAO.existsById(username)){
             username = accountDAO.parseSubToUsername(username);
         }
-        Order order = oService.damua(username,id);
-        if(order!=null&& order.isStatus()==true){
-            model.addAttribute("an", "disabled");
+        if(username != null && username.length() > 0){
+                order = oService.damua(username,id);
+                if(order!=null&& order.isStatus()==true){
+                    model.addAttribute("an", "disabled");
+                }
         }
         return "course/courses-details";
     }

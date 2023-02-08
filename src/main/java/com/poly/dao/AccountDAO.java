@@ -23,6 +23,10 @@ public interface AccountDAO extends JpaRepository<Account, String> {
 
     @Query(value = "select acc.username from accounts acc where acc.sub = ?1", nativeQuery = true)
     String parseSubToUsername(String sub);
+
+    //select * from accounts acc, authorities auth where acc.username = auth.username and auth.roleid = 'DIRE' and auth.username = 'user1'
+    @Query(value = "select 'Y' from accounts acc, authorities auth where acc.username = auth.username and auth.roleid = 'DIRE' and auth.username = ?1", nativeQuery = true)
+    String isDire(String username);
     // @Modifying(clearAutomatically = true)
     // @Transactional
     // @Query(value = "update accounts set diem = ?1 and heart = ?2 where username = ?3", nativeQuery = true)

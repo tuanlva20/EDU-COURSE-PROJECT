@@ -26,16 +26,22 @@ public class GlobalInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request,HttpServletResponse response,Object handler,
                         ModelAndView modelAndView) {
-            Account account = new Account();   
-            
+            String accountAuthority = "";
+            boolean authority = false;
+            Account account = new Account();
             String username = request.getRemoteUser();
             Optional<Account> existUserBySub = aDao.getAccountBySub(username);
             if(existUserBySub.isPresent()){
                 account = existUserBySub.get();
+                accountAuthority = aDao.isDire(aDao.parseSubToUsername(username));
             }else if(username != null && username.length() > 0){
                 account = aDao.findById(username).get();
+                accountAuthority = aDao.isDire(username);
             }
-            
+            if (accountAuthority.equalsIgnoreCase("Y")) {
+                authority = true;
+            }
+            request.setAttribute("authority", authority);
             request.setAttribute("account", account);
             request.setAttribute("categories", cateService.getAll());
     };

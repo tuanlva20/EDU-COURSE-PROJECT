@@ -25,7 +25,7 @@
                             <li>
                                 <a href="/order/list">[(#{nav.yourorder})]</a>
                             </li>
-                            <li th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+                            <li th:if="${#request.isUserInRole('DIRE')}">
                                 <a href="/admin">[(#{nav.administration})]</a>
                             </li>
                         </th:block>
