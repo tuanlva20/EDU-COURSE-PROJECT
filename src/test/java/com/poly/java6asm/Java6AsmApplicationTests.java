@@ -9,12 +9,8 @@ import com.poly.service.MailService;
 @SpringBootTest
 class Java6AsmApplicationTests {
 
-	@Autowired
-	MailService mailService;
-
 	@Test
 	void contextLoads() {
-		mailService.sendMail();
 	}
 
 }

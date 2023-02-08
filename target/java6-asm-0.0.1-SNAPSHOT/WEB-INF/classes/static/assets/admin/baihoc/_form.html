@@ -1,0 +1,83 @@
+<form class="row g-3 mt-2">
+  <div class="col-md-6">
+    <label for="inputName" class="form-label">Tên bài học</label>
+    <input
+      ng-model="form.tenbh"
+      type="text"
+      class="form-control"
+      id="inputName"
+      placeholder="Tên baihoc"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputdate" class="form-label">Ngày tạo</label>
+    <input
+      ng-model="form.createdate"
+      type="text"
+      class="form-control"
+      id="inputdate"
+      placeholder="Ngày tạo"
+    />
+  </div>
+  <div class="col-md-12">
+    <label for="inputlink" class="form-label">Link</label>
+    <input
+      ng-model="form.link"
+      type="text"
+      class="form-control"
+      id="inputlink"
+      placeholder="Đường dẫn"
+    />
+  </div>
+  <div class="col-md-12">
+    <label for="inputch" class="form-label">Câu hỏi cuối bài</label>
+    <input
+      ng-model="form.cauhoi"
+      type="text"
+      class="form-control"
+      id="inputch"
+      placeholder="Câu hỏi"
+    />
+  </div>
+  <div class="col-md-12">
+    <label for="inputcontent" class="form-label">Nội dung</label>
+    <input
+      ng-model="form.noidung"
+      type="text"
+      class="form-control"
+      id="inputnoidung"
+      placeholder="Nội dung"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputCategory" class="form-label">Mã thể loại</label>
+    <select
+      ng-model="form.category.id"
+      id="inputCategory"
+      class="form-select"
+      
+    >
+      <option  value="" ng-value="">Chọn tên thể loại...</option>
+      <option ng-repeat="c in category" ng-value="c.id" >{{c.name}}</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="inputChuonghoc" class="form-label">Mã chương học</label>
+    <select
+      ng-model="form.chuonghoc.id"
+      id="inputChuonghoc"
+      class="form-select"
+      
+    >
+      <option  value="" ng-value="">Chọn tên chương học...</option>
+      <option ng-repeat="c in chuonghoc" ng-value="c.id" >{{c.tieude}}</option>
+    </select>
+  </div>
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
+      <button ng-disabled="!status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="!status()" ng-click="delete(form)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
+    </div>
+  
+</form>

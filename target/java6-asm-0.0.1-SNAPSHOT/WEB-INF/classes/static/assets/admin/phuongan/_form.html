@@ -1,0 +1,45 @@
+<form class="row g-3 mt-2">
+  <div class="row g-3 col-md-9">
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">Đáp án</label>
+      <input
+        ng-model="form.noidung"
+        type="text"
+        class="form-control"
+        id="inputName"
+        placeholder="nội dung đáp án"
+      />
+    </div>
+    
+    <div class="col-md-6">
+      <label class="form-check-label" for="gridCheck"> Đúng sai </label>
+      <div class="form-control" id="gridCheck">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="form.dungsai" ng-value="true">
+          <label class="form-check-label" for="inlineRadio1">Đúng</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="form.dungsai" ng-value="false">
+          <label class="form-check-label" for="inlineRadio2">Sai</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputCategory" class="form-label">Câu hỏi</label>
+      <select
+        ng-model="form.quiz.idquiz"
+        id="inputCategory"
+        class="form-select"
+      >
+        <option ng-value="">Chọn câu hỏi...</option>
+        <option ng-repeat="c in quizs" ng-value="c.idquiz">{{c.noidung}}</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
+      <button ng-disabled="!status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="!status()" ng-click="delete(form)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,59 @@
+<div class="page-content-wrapper py-0">
+
+    <!-- Admin Tab Menu Start -->
+    <div class="nav flex-column nav-pills admin-tab-menu">
+        <a href="#!product">Quản lý khóa học</a>
+        <a href="#!accounts"  class="active">Quản lý tài khoản</a>
+        <a href="#!donhang">Quản lý đơn hàng</a>
+        <a href="#!discount">Quản lý mã giảm giá</a>
+        <a href="#!category">Quản lý thể loại</a>
+        <a href="#!chuonghoc">Quản lý chương học</a>
+        <a href="#!baihoc">Quản lý bài học</a>
+        <a href="#!role">Quản lý vai trò</a>
+        <a href="#!quiz">Quản lý câu hỏi</a>
+        <a href="#!phuongan">Quản lý đáp án</a>
+        <a href="#!test">Quản lý bài kiểm tra</a>
+        <a href="#!thaoluan">Quản lý thảo luận</a>
+        <a href="#!authorize">Phân quyền</a>
+    </div>
+    <!-- Admin Tab Menu End -->
+
+    <!-- Page Content Wrapper Start -->
+    <div class="main-content-wrapper">
+        <div class="container-fluid px-2">
+            <!-- Graph Top Start -->
+            <div class="graph mt-0">
+                <div class="graph-title">
+                    <h2 class="title">Quản lý Tài khoản</h2>
+
+                    
+                </div>
+
+                <div class="graph-content">
+                    <div id="uniqueReport">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="course-tab" data-bs-toggle="tab" data-bs-target="#course" type="button" role="tab" aria-controls="course" aria-selected="true"><i class="fa fa-info"></i>&nbsp; Tài khoản</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses" type="button" role="tab" aria-controls="courses" aria-selected="false"><i class="fa fa-list"></i>&nbsp; Danh sách tài khoản</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade" id="course" role="tabpanel" aria-labelledby="home-tab">
+                                <div ng-include="'/assets/admin/accounts/_form.html'"></div>
+                            </div>
+                            <div class="tab-pane fade show active" id="courses" role="tabpanel" aria-labelledby="profile-tab">
+                                <div ng-include="'/assets/admin/accounts/_table.html'"></div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Graph Top End -->
+
+        </div>
+    </div>
+    <!-- Page Content Wrapper End -->
+
+</div>

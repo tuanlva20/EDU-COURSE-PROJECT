@@ -1,0 +1,50 @@
+<form class="row g-3 mt-2">
+  <div class="col-md-3">
+    <div class="input-group">
+      <input
+        type="file"
+        class="form-control m-0 p-0"
+        id="avatarproduct"
+        aria-label="Upload"
+        onchange="angular.element(this).scope().imageChanged(this.files)"
+      />
+      <img
+        ng-src="{{'/assets/images/courses/'+form.chuonghocimg}}"
+        width="100%"
+        height="auto"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="row g-3 col-md-9">
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">Tiêu đề chương học</label>
+      <input
+        ng-model="form.tieude"
+        type="text"
+        class="form-control"
+        id="inputName"
+        placeholder="Tên sản phẩm"
+      />
+    </div>
+    
+    <div class="col-md-5">
+      <label for="inputCategory" class="form-label">Mã môn học</label>
+      <select
+        ng-model="form.product.id"
+        id="inputProduct"
+        class="form-select"
+      >
+        <option  value="" ng-value="">Chọn sản phẩm...</option>
+        <option ng-repeat="c in products" ng-value="c.id" >{{c.name}}</option>
+      </select>
+    </div>
+  </div>
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
+      <button ng-disabled="!status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="!status()" ng-click="delete(form)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
+    </div>
+  
+</form>

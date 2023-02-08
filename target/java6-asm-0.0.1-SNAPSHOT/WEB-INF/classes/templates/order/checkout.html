@@ -11,8 +11,8 @@
       <div class="row g-5 section section-padding order-checkout ">
         <div class="col-md-5 col-lg-4 order-md-last ">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-primary">Giỏ hàng của bạn</span>
-            <span class="badge bg-primary rounded-pill">{{cart.count}}</span>
+            <span class="text-primary">Đơn hàng của bạn</span>
+            <!-- <span class="badge bg-primary rounded-pill">{{cart.count}}</span> -->
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm" ng-repeat="item in cart.items">
@@ -66,7 +66,7 @@
                   placeholder="Email của bạn"
                 />
               </div>
-
+<!-- 
               <div class="col-12">
                 <label for="address" class="form-label">Địa chỉ: </label>
                 <input
@@ -77,12 +77,12 @@
                   placeholder="Địa chỉ"
                   required
                 />
-                <!-- <div class="invalid-feedback">
+                <div class="invalid-feedback">
                   Please enter your shipping address.
-                </div> -->
-              </div>
+                </div>
+              </div> -->
 
-              <div class="col-sm-6">
+              <!-- <div class="col-sm-6">
                 <label for="firstName" class="form-label">Số điện thoại: </label>
                 <input
                   ng-model="account.phone"  
@@ -92,7 +92,7 @@
                   placeholder="Số điện thoại"
                   required
                 />
-              </div>
+              </div> -->
 
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">Ngày đặt hàng: </label>
@@ -105,21 +105,21 @@
                   readonly
                 />
               </div>
-              <div class="col-md-7">
+              <!-- <div class="col-md-7">
                 <label for="country" class="form-label">Quốc gia</label>
                 <select class="form-select border border-black py-1 ps-5" id="country" required>
                   <option value="vn">Việt Nam</option>
                   <option value="eu">United stated</option>
                 </select>
-              </div>
-
+              </div> -->
+<!-- 
               <div class="col-md-5">
                 <label for="state" class="form-label">Thành phố</label>
                 <select class="form-select border border-black py-1 ps-5" id="state" required>
                   <option value="hcm">Hồ Chí Minh</option>
                   <option value="hn">Hà Nội</option>
                 </select>
-              </div>
+              </div> -->
 
             <hr class="my-4" />
 
@@ -136,9 +136,9 @@
 
             <!-- <hr class="my-4" /> -->
 
-            <h4 class="mb-3">Hình thức thanh toán</h4>
+            <!-- <h4 class="mb-3">Hình thức thanh toán</h4> -->
 
-            <div class="my-3">
+            <!-- <div class="my-3">
               <div class="form-check">
                 <input
                   id="credit"
@@ -160,7 +160,7 @@
                 />
                 <label class="form-check-label" for="paypal">Ví</label>
               </div>
-            </div>
+            </div> -->
 
             <!-- <div class="row gy-3">
               <div class="col-md-6">
@@ -217,7 +217,7 @@
               </div>
             </div> -->
 
-            <hr class="my-4" />
+            <!-- <hr class="my-4" /> -->
 
             <button ng-click="order.purchase()" class="m-auto w-50 btn btn-dark" type="submit">
               Đặt hàng
