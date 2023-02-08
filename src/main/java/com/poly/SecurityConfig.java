@@ -1,10 +1,18 @@
 package com.poly;
 
+import com.poly.Security.OAuth2.CustomOAuth2User;
 import com.poly.dao.AccountDAO;
+import com.poly.service.AccountService;
 import com.poly.service.SecuriryService;
 
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +24,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 
 @Configuration
@@ -29,11 +41,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     AccountDAO accountDAO;
+    @Autowired
+    DataSource dataSource;
+
+    @Autowired
+    AccountService accountService;
+
+    @Autowired
+    OAuth2UserService oAuth2UserService;
 
     /* Quản lý nguồn dữ liệu người dùng */
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception{
-        auth.userDetailsService(userService);
+        auth.userDetailsService(userService).passwordEncoder(getPasswordEncoder());
     }
 
     /* Phân quyền sử dụng và hình thức đăng nhập */
@@ -42,12 +62,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         //CSRF, CORS
         http.csrf().disable();
         // Phân quyền sử dụng
-        // http.authorizeRequests()
-        //     .antMatchers("/admin/**").hasAnyRole("DIRE","STAF")
-        //     .antMatchers("/home/user").hasAnyRole("DIRE","STAF")
-        //     .antMatchers("/order/**","/user").authenticated()
-        //     .antMatchers("/**").permitAll()
-        //     .anyRequest().permitAll();
+        http.authorizeRequests()
+            .antMatchers("/admin/**").hasAnyRole("DIRE")
+            .antMatchers("/home/user").hasAnyRole("DIRE","STAF")
+            .antMatchers("/order/**","/user").authenticated()
+            .antMatchers("/**").permitAll()
+            .anyRequest().permitAll();
             
         // .antMatchers("/rest/authorities","/rest/authorities/**").hasRole("DIRE")
         // http.authorizeRequests().anyRequest().permitAll();
@@ -65,6 +85,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .usernameParameter("username")
             .passwordParameter("password");
 
+
+        
+
         // http.rememberMe()
         //     .tokenValiditySeconds(86400);
         //     .rememberMeParameter("remember");
@@ -76,10 +99,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         //OAuth2 - Đăng nhập từ mạng xã hội
         http.oauth2Login()
             .loginPage("/security/login/form")
-            .defaultSuccessUrl("/courses/",false)
+            // .defaultSuccessUrl("/user/",false)
             .failureUrl("/security/login/error")
-            .authorizationEndpoint()
-                .baseUri("/oauth2/authorization");
+            // .authorizationEndpoint()
+                // .baseUri("/oauth2/authorization")
+            // .userInfoEndpoint()
+            // .userService(oAuth2UserService)
+            // .and()
+            .successHandler(new AuthenticationSuccessHandler() {
+                @Override
+                public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+                        Authentication authentication) throws IOException, ServletException {
+                    DefaultOidcUser oauth2User = (DefaultOidcUser) authentication.getPrincipal();
+                    accountService.processOAuthPostLogin(oauth2User);
+                    response.sendRedirect("/user");
+                }
+            });
     }
 
     // Mã hóa mật khẩu

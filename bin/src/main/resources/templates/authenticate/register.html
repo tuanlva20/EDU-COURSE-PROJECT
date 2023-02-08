@@ -28,43 +28,44 @@
 
 
                                 <div class="images">
-                                    <img src="assets/images/register-login.png" alt="Register Login">
+                                    <img th:src="@{/assets/images/logo.png}" alt="Register Login">
                                 </div>
                             </div>
                             <!-- Register & Login Images End -->
 
                         </div>
                         <div class="col-lg-6">
-
+                            
                             <!-- Register & Login Form Start -->
                             <div class="register-login-form">
                                 <h3 class="title">Registration <span>Now</span></h3>
 
                                 <div class="form-wrapper">
-                                    <form action="#">
+                                    <form action="security/register/form" method="post">
                                         <!-- Single Form Start -->
                                         <div class="single-form">
-                                            <input type="text" placeholder="Name">
+                                            <input type="text" name="username" placeholder="Name">
                                         </div>
                                         <!-- Single Form End -->
                                         <!-- Single Form Start -->
                                         <div class="single-form">
-                                            <input type="email" placeholder="Email">
+                                            <input type="email" name="email" placeholder="Email">
                                         </div>
                                         <!-- Single Form End -->
                                         <!-- Single Form Start -->
                                         <div class="single-form">
-                                            <input type="password" placeholder="Password">
+                                            <input type="password" name="password" placeholder="Password">
                                         </div>
                                         <!-- Single Form End -->
                                         <!-- Single Form Start -->
                                         <div class="single-form">
-                                            <input type="password" placeholder="Confirm Password">
+                                            <input type="password" name="confirm" placeholder="Confirm Password">
                                         </div>
+                                        
                                         <!-- Single Form End -->
                                         <!-- Single Form Start -->
                                         <div class="single-form">
-                                            <button class="btn btn-primary btn-hover-dark w-100">Create an account</button>
+                                            <button type="submit" class="btn btn-primary btn-hover-dark w-100">Create an account</button>
                                             <a class="btn btn-secondary btn-outline w-100" href="#">Sign up with Google</a>
                                         </div>
                                         <!-- Single Form End -->

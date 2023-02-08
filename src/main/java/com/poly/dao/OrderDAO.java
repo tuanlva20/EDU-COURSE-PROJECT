@@ -16,7 +16,7 @@ public interface OrderDAO extends JpaRepository<Order, Integer>{
     @Query(value="select max(o.id) from orders o", nativeQuery = true)
     Integer findmax();
 
-    @Query(value="select * from orderdetails,orders where orderdetails.orderid = orders.id and username = ?1 and productid = ?2",
+    @Query(value="select * from orderdetails od,orders o where od.orderid = o.id and o.username = ?1 and od.productid = ?2",
     nativeQuery = true)
     Order damua(String username, int idProduct);
 
@@ -27,9 +27,9 @@ public interface OrderDAO extends JpaRepository<Order, Integer>{
 
 
 
-    @Query(value="select * from orders o, orderdetails od where o.id=od.orderid and od.price = ?1 and o.username = ?2",
+    @Query(value="select * from orders o, orderdetails od where o.id=od.orderid and o.id = ?1 and o.username = ?2",
     nativeQuery = true)
-    Order updateStatusOrder(Integer price, String username);
+    Order updateStatusOrder(String id,String username);
 
 
 }
