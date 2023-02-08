@@ -23,6 +23,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
                         ModelAndView modelAndView) {
             request.setAttribute("categories", cateService.getAll());
             String username = request.getRemoteUser();
+            System.out.println(username);
             Account account = new Account();         
             if(username != null && username.length() > 0){
                 account = aDao.findById(username).get();

@@ -29,18 +29,28 @@ public class LayoutRestController {
 
     @GetMapping()
     public HashMap<String, Object> init(){
-        List<Integer> countPrice = odao.findOderByProductId();
+        List<Integer> listOrderId = odao.findOderByProductId();
+        List<Integer> listTotalPriceOfOrderByOrderId = new ArrayList<>();
         List<Product> listProduct = new ArrayList<>();
-        Map<Integer, Integer> countP = new HashMap<>();
-        for (int i = 0; i < countPrice.size(); i++) {
-            countP.put(countPrice.get(i), i);
+        Map<Integer, Integer> hashmapOrderId = new HashMap<>();
+        for (int i = 0; i < listOrderId.size(); i++) {
+            int countPrice = odao.totalOrderByProductId(listOrderId.get(i));
+            listTotalPriceOfOrderByOrderId.add(countPrice);
+            hashmapOrderId.put(listOrderId.get(i), countPrice);
         }
-        hashmap.put("countprice", countP);
-        for (int index = 0; index < 3; index++) {
-            Optional<Product> pd = pdao.findById(countPrice.get(index));
-            listProduct.add(pd.get());
+
+        hashmap.put("totalPriceOfOrderByOrderId", hashmapOrderId);
+        
+        int c = 0;
+        for (Integer orderId : hashmapOrderId.keySet()) {
+            if (c == 3) {
+                break;
+            }
+            Optional<Product> product = pdao.findById(orderId);
+            listProduct.add(product.get());
+            c ++;
         }
-        hashmap.put("product", listProduct);
+        hashmap.put("products", listProduct);
         return hashmap;
     }
 

@@ -1,13 +1,12 @@
 <form class="row g-3 mt-2" id="formtest">
   <div class="col-md-12">
     <label for="inputId" class="form-label">Nội dung bài kiểm tra</label>
-    <input
-      ng-model="form.codes"
-      type="text"
-      class="form-control"
-      id="noidung"
-      placeholder="Nội dung"
-    />
+    <textarea ng-model="form.codes"
+    type="text"
+    class="form-control"
+    id="noidung"
+    placeholder="Nội dung" rows="10" cols="50">
+      </textarea>
     <span class="form-message invalid-feedback"></span>
   </div>
   <div class="col-md-6 form-group">

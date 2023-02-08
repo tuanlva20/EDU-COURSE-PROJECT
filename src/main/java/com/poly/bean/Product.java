@@ -36,6 +36,8 @@ public class Product implements Serializable {
 
 	private double price;
 
+	private int total_register;
+
 	@JsonIgnore
 	@OneToMany(mappedBy="product")
 	private List<Chuonghoc> chuonghocs;

@@ -51,11 +51,12 @@ public class Account implements Serializable {
 	private int heart;
 
 	private Timestamp recoveryheart;
+
+	private String provider;
+
 	@JsonIgnore
 	@OneToMany(mappedBy="account",fetch= FetchType.EAGER)
 	private List<Authority> authorities;
-
-
 
 	@JsonIgnore
 	@OneToMany(mappedBy="account")
@@ -65,20 +66,12 @@ public class Account implements Serializable {
 	@OneToMany(mappedBy="account")
 	private List<Order> orders;
 
-
-
 	@JsonIgnore
 	@OneToMany(mappedBy="account")
 	private List<Thaoluan> thaoluans;
 
-
 	@JsonIgnore
 	@OneToMany(mappedBy="account")
 	private List<Test> tests;
-
-
-
-	
-	
 
 }
