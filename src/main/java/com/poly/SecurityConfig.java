@@ -5,12 +5,14 @@ import com.poly.dao.AccountDAO;
 import com.poly.service.AccountService;
 import com.poly.service.SecuriryService;
 
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -39,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     AccountDAO accountDAO;
+    @Autowired
+    DataSource dataSource;
 
     @Autowired
     AccountService accountService;
@@ -49,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     /* Quản lý nguồn dữ liệu người dùng */
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception{
-        auth.userDetailsService(userService);
+        auth.userDetailsService(userService).passwordEncoder(getPasswordEncoder());
     }
 
     /* Phân quyền sử dụng và hình thức đăng nhập */
@@ -80,6 +84,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .failureUrl("/security/login/error")
             .usernameParameter("username")
             .passwordParameter("password");
+
+
+        
 
         // http.rememberMe()
         //     .tokenValiditySeconds(86400);

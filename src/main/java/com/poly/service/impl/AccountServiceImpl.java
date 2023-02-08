@@ -28,7 +28,12 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public Account findByUsername(String username) {
-        Account acc=aDAO.findById(username).get();
+        try {
+            Account acc=aDAO.findById(username).get();
+            return acc;
+        } catch (Exception e) {
+           return null;
+        }
         // acc.setPassword(pe.encode(acc.getPassword()));
         return aDAO.findById(username).get();
     }
@@ -56,6 +61,9 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public Account create(Account account) {
         account.setRecoveryheart( new Timestamp(123456787));
+        account.setHeart(3);
+        account.setDiem(30);
+        account.setPhoto("https://png.pngtree.com/png-vector/20210128/ourmid/pngtree-flat-default-avatar-png-image_2848906.jpg");
         return aDAO.save(account);
     }
 
