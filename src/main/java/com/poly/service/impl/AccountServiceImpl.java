@@ -28,14 +28,13 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public Account findByUsername(String username) {
+        Account acc = new Account();
         try {
-            Account acc=aDAO.findById(username).get();
-            return acc;
+            acc=aDAO.findById(username).get();
         } catch (Exception e) {
-           return null;
+           e.printStackTrace();
         }
-        // acc.setPassword(pe.encode(acc.getPassword()));
-        return aDAO.findById(username).get();
+        return acc;
     }
 
     @Override
