@@ -41,7 +41,7 @@ public class SecuriryService implements UserDetailsService {
                             .toArray(new String[0]);
             
             return User.withUsername(username)
-                    .password(pe.encode(password))
+                    .password(password)
                     .roles(roles).build();
         } catch (Exception e) {
             throw new UsernameNotFoundException(username+"not found");

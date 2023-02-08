@@ -28,5 +28,6 @@ public class HomeController {
     public String admin(){
         return "redirect:/assets/admin/index.html";
     }
+
     
 }

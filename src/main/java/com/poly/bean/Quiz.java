@@ -30,6 +30,8 @@ public class Quiz implements Serializable {
 
 	private String noidung;
 
+	private int loaicauhoi;
+
 	@JsonIgnoreProperties("quiz")
 	@OneToMany(mappedBy="quiz")
 	private List<Phuongan> phuongans;
