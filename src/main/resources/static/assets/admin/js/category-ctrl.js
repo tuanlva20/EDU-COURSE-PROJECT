@@ -27,52 +27,31 @@ app.controller("category-ctrl", function($scope,$http){
     //Tạo mới
     $scope.create=function(){
         item = angular.copy($scope.form);
+        console.log(item);
         if (item.id != 0) {
-            var selectorElement = document.getElementsByClassName('form-control')
-            for (var i = 0; i < selectorElement.length; i++) {
-                if (selectorElement[i].value == "") {
-                    validElement = false;
-                }
-            }
-            if (validElement == true) {
-                $http.post(`/rest/categories`,item).then(resp =>{
-                    $scope.items.push(resp.data);
-                    $scope.initialize();
-                    this.reset();
-                    alert('Thêm mới thành công!')
-                }).catch(error =>{
-                    alert('Thêm mới thất bại')
-                    console.log('Error: ',error);
-                })
-            } else {
-                alert("không được bỏ trống dữ liệu");
-            }
-           
+            $http.post(`/rest/categories`,item).then(resp =>{
+                $scope.items.push(resp.data);
+                $scope.initialize();
+                this.reset();
+                alert('Thêm mới thành công!')
+            }).catch(error =>{
+                alert('Thêm mới thất bại')
+                console.log('Error: ',error);
+            })
         }else alert("mã thể loại phải lớn hơn 0");
     }
     //Cập nhật
     $scope.update=function(){
         item=angular.copy($scope.form);
-        var selectorElement = document.getElementsByClassName('form-control')
-        for (var i = 0; i < selectorElement.length; i++) {
-            if (selectorElement[i].value == "") {
-                validElement = false;
-            }
-        }
-        if (validElement == true) {
-            $http.put(`/rest/categories`,item).then(resp =>{
-                var index=$scope.items.findIndex(p => p.id == item.id);
-                $scope.items[index]=item;
-                alert('Cập nhật thành công');
-                $scope.reset();
-            }).catch(error =>{
-                alert('Cập nhật thất bại');
-                console.log('Error: ',error);
-            })
-        } else {
-            alert("không được bỏ trống dữ liệu");
-        }
-        
+        $http.put(`/rest/categories`,item).then(resp =>{
+            var index=$scope.items.findIndex(p => p.id == item.id);
+            $scope.items[index]=item;
+            alert('Cập nhật thành công');
+            $scope.reset();
+        }).catch(error =>{
+            alert('Cập nhật thất bại');
+            console.log('Error: ',error);
+        })
         
     }
     //Xóa

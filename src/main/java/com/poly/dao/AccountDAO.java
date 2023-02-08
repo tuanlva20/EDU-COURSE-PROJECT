@@ -1,6 +1,7 @@
 package com.poly.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.poly.bean.Account;
 
@@ -14,19 +15,18 @@ public interface AccountDAO extends JpaRepository<Account, String> {
     @Query("SELECT DISTINCT ar.account  FROM Authority ar WHERE ar.role.id IN ('DIRE', 'STAF')")
     List<Account> getAdministrators();
 
-    @Query(value = "SELECT * FROM account WHERE username or address or fullname LIKE '%?%'", nativeQuery = true)
-    List<Account> search(String key);
+    @Query(value = "SELECT DISTINCT *  FROM accounts acc WHERE acc.sub=?1", nativeQuery = true)
+    Optional<Account> getAccountBySub(String sub);
 
-    @Query(value = "select count(date(ac.createdate)) as count FROM accounts ac WHERE Month(ac.createdate) = ?1", nativeQuery = true)
-    Integer getCountAccountByMonth(int month);
+    @Query(value = "select DISTINCT * from accounts acc where acc.fullname = ?1", nativeQuery = true)
+    Optional<Account> getAccountByName(String name);
 
-    @Query(value = "select count(date(ac.createdate)) as count FROM accounts ac WHERE Month(ac.createdate) = ?1 and year(ac.createdate)"
-    , nativeQuery = true)
-    Integer getCountAccountMonthInYear(int month, int year);
-    
-    @Query("SELECT count(*) as count  FROM Account ac ")
-    Integer getCountAllAccount();
+    @Query(value = "select acc.username from accounts acc where acc.sub = ?1", nativeQuery = true)
+    String parseSubToUsername(String sub);
 
+    //select * from accounts acc, authorities auth where acc.username = auth.username and auth.roleid = 'DIRE' and auth.username = 'user1'
+    @Query(value = "select 'Y' from accounts acc, authorities auth where acc.username = auth.username and auth.roleid = 'DIRE' and auth.username = ?1", nativeQuery = true)
+    String isDire(String username);
     // @Modifying(clearAutomatically = true)
     // @Transactional
     // @Query(value = "update accounts set diem = ?1 and heart = ?2 where username = ?3", nativeQuery = true)

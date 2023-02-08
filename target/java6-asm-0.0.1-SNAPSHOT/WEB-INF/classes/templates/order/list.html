@@ -14,6 +14,7 @@
             <tr>
               <th scope="col">STT</th>
               <th scope="col">Order No</th>
+              <th scope="col">Order Status</th>
               <th scope="col">Order Date</th>
               <th scope="col">Email</th>
               <th></th>
@@ -23,6 +24,7 @@
             <tr th:each="item,index : ${orders}">
               <td th:text="${index.index +1}"></td>
               <td th:text="${item.id}">Mark</td>
+              <td th:text="${item.status?'Đã thanh toán':'Thanh toán thất bại'}">Otto</td>
               <td th:text="${item.createdate}">Otto</td>
               <td th:text="${item.email}">Otto</td>
               <td><a th:href="@{|/order/detail/${item.id}|}"><i class="fa fa-pencil-square-o text-warning fs-4"></i></a></td>

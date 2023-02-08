@@ -6,9 +6,9 @@ app.config(function($routeProvider){
         templateUrl:"/assets/admin/product/index.html",
         controller:"product-ctrl"
     })
-    .when("/bill",{
-        templateUrl:"/assets/admin/bill/index.html",
-        controller:"bill-ctrl"
+    .when("/donhang",{
+        templateUrl:"/assets/admin/donhang/index.html",
+        controller:"donhang-ctrl"
     })
     .when("/accounts",{
         templateUrl:"/assets/admin/accounts/index.html",
@@ -53,14 +53,6 @@ app.config(function($routeProvider){
     .when("/thaoluan",{
         templateUrl:"/assets/admin/thaoluan/index.html",
         controller:"thaoluan-ctrl"
-    })
-    .when("/thongke",{
-        templateUrl:"/assets/admin/thongke/index.html",
-        controller:"thongke-ctrl"
-    })
-    .when("/layout", {
-        templateUrl: "/assets/admin/layout/index.html",
-        controller: "layout-ctrl"
     })
     .when("/unauthorized",{
         templateUrl:"/assets/admin/authority/unauthorized.html",

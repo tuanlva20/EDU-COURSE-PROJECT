@@ -1,0 +1,122 @@
+<form class="row g-3 mt-2">
+  <h4 class="title">Thông tin đơn hàng</h4>
+  <div class="col-md-6">
+    <label for="inputUsername" class="form-label">Tài khoản người dùng</label>
+    <select
+      ng-model="form.order.account.username"
+      id="inputProduct"
+      class="form-select"
+      ng-click="account(form.account.username)"
+    >
+      <option  value="" ng-value="">Chọn tài khoản...</option>
+      <option ng-repeat="c in accounts" ng-value="c.username" >{{c.username}}</option>
+    </select>
+  </div>
+    <!-- <div class="col-md-6">
+      <label for="inputFullname" class="form-label">Họ và tên</label>
+      <input
+        ng-model="form.order.fullname"
+        type="text"
+        class="form-control"
+        id="inputFullname"
+        placeholder="Họ và tên"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail" class="form-label">Emai</label>
+      <input
+        ng-model="form.order.email"
+        type="text"
+        class="form-control"
+        id="inputEmai"
+        placeholder="Email"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputPhone" class="form-label">Điện thoại</label>
+      <input
+        ng-model="form.order.phone"
+        type="text"
+        class="form-control"
+        id="inputPhone"
+        placeholder="Điện thoại"
+      />
+      </div>
+    <div class="col-md-6">
+      <label for="inputAddress" class="form-label"> Địa chỉ </label> 
+      <input
+        ng-model="form.order.address"
+        type="text"
+        class="form-control"
+        id="inputAddress"
+        placeholder="Địa chỉ"
+      />
+    </div> -->
+    <div class="col-md-6">
+      <label class="form-label" for="gridCheck"> Trạng thái </label>
+      <div class="form-control" id="gridCheck">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="form.order.status" ng-value="true">
+          <label class="form-check-label" for="inlineRadio1">Hoạt động</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="form.order.status" ng-value="false">
+          <label class="form-check-label" for="inlineRadio2">inActive</label>
+        </div>
+      </div>
+    </div>
+    
+    <h4 class="title">Chi tiết đơn hàng</h4>
+    <!-- <div class="col-md-6">
+      <label for="inputIdorder" class="form-label">Mã đơn hàng chi tiết</label>
+      <input
+        ng-model="form.orderdetail.order.id"
+        type="text"
+        class="form-control"
+        id="inputIdorder"
+        placeholder="Mã đơn hàng"
+        disabled="disabled"
+      />
+    </div> -->
+    
+    <div class="col-md-6">
+      <label for="inputCategory" class="form-label">Mã sản phẩm</label>
+      <select
+        ng-model="form.orderdetail.product.id"
+        id="inputProduct"
+        class="form-select"
+        ng-click="product(form.orderdetail.product.id)"
+      >
+        <option  value="" ng-value="">Chọn sản phẩm...</option>
+        <option ng-repeat="c in products" ng-value="c.id" >{{c.name}}</option>
+      </select>
+    </div>
+    <!-- <div class="col-md-6">
+      <label for="inputCount" class="form-label" >Số lượng</label>
+      <input
+        ng-model="form.orderdetail.quantity"
+        type="number"
+        class="form-control"
+        id="inputCount"
+        placeholder="Số lượng"
+        disabled="disabled"
+      />
+    </div> -->
+
+    <div class="col-md-6">
+      <label for="inputPrice" class="form-label">Đơn Giá</label>
+      <input
+        ng-model="form.orderdetail.price"
+        type="number"
+        class="form-control"
+        id="inputPrice"
+        placeholder="Đơn giá"
+        disabled="disabled"
+      />
+    </div>
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="status()" ng-click="delete(form.order.id)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <!-- <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button> -->
+    </div>
+</form>

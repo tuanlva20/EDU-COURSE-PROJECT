@@ -2,14 +2,15 @@ package com.poly.service.impl;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poly.bean.Order;
+import com.poly.bean.Orderdetail;
 import com.poly.dao.OrderDAO;
+import com.poly.dao.OrderDetailDAO;
 import com.poly.service.OrderService;
 
 
@@ -23,24 +24,26 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
     OrderDAO orderDAO;
 
-    @Override
-    public Order create(Order orderData) {
-        // ObjectMapper mapper=new ObjectMapper();
-        // Order order=mapper.convertValue(orderData, Order.class);
-        // orderDAO.save(order);
+    @Autowired
+    OrderDetailDAO ddao;
 
-        // TypeReference<List<Orderdetail>> type=new TypeReference<List<Orderdetail>>(){};
-        // List<Orderdetail> details=mapper.convertValue(orderData.get("orderdetails"), type)
-        //     .stream()
-        //     .peek(d -> d.setOrder(order)).collect(Collectors.toList());
-        // ddao.saveAll(details);
-        // return order;
-        return orderDAO.save(orderData);
+    @Override
+    public Order create(JsonNode orderData) {
+        ObjectMapper mapper=new ObjectMapper();
+        Order order=mapper.convertValue(orderData, Order.class);
+        orderDAO.save(order);
+
+        TypeReference<List<Orderdetail>> type=new TypeReference<List<Orderdetail>>(){};
+        List<Orderdetail> details=mapper.convertValue(orderData.get("orderdetails"), type)
+            .stream()
+            .peek(d -> d.setOrder(order)).collect(Collectors.toList());
+        ddao.saveAll(details);
+        return order;
     }
 
     @Override
-    public Optional<Order> getById(Integer id) {
-        return orderDAO.findById(id);
+    public Order getById(Integer id) {
+        return orderDAO.findById(id).get();
     }
 
     @Override
@@ -58,16 +61,17 @@ public class OrderServiceImpl implements OrderService{
         return orderDAO.damua(username, idProduct);
     }
 
+   
     @Override
-    public Order update(Order order) {
+    public Integer findmax() {
+        return orderDAO.findmax();
+    }
+    
+    @Override
+    public List<Integer> findidOrders(String address,  Date createdate, String email, String fullname, String phone,
+            boolean status, String username) {
         // TODO Auto-generated method stub
-        return orderDAO.save(order);
+        return orderDAO.findidOrders(address, createdate, email, fullname, phone, status, username);
     }
-
-    @Override
-    public void delete(Integer id) {
-        orderDAO.deleteById(id);
-    }
-
     
 }

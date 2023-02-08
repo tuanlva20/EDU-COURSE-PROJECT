@@ -27,17 +27,24 @@ public class Order implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	private String address;
+
 	@Temporal(TemporalType.DATE)
     @Column(name = "createdate")
     Date createdate=new Date();
 
+	private String email;
+
+	private String fullname;
+
+	private String phone;
+
 	private boolean status;
 
-	private double price;
-
-	@ManyToOne
-	@JoinColumn(name="product_id")
-	private Product product;
+	//bi-directional many-to-one association to Orderdetail
+	@JsonIgnore
+	@OneToMany(mappedBy="order")
+	private List<Orderdetail> orderdetails;
 
 	//bi-directional many-to-one association to Account
 	@ManyToOne

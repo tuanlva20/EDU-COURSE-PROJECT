@@ -2,9 +2,7 @@ app.controller("phuongan-ctrl", function($scope,$http){
     $scope.items=[];
     var item={};
     var id;
-    $scope.form={
-        dungsai : true
-    };
+    $scope.form={};
     $scope.initialize=function(){
         // load discount
         $http.get("/rest/phuongan").then(resp =>{
@@ -24,7 +22,6 @@ app.controller("phuongan-ctrl", function($scope,$http){
     $scope.reset=function(){
         $scope.form={
             available:true,
-            dungsai : true
         }
         id = null;
     }
@@ -32,51 +29,29 @@ app.controller("phuongan-ctrl", function($scope,$http){
     $scope.create=function(){
         item = angular.copy($scope.form);
         console.log(item);
-        var selectorElement = document.getElementsByClassName('form-control')
-            for (var i = 0; i < selectorElement.length; i++) {
-                if (selectorElement[i].value == "") {
-                    validElement = false;
-                }
-            }
-            if (validElement == true) {
-                $http.post(`/rest/phuongan`,item).then(resp =>{
-                    $scope.items.push(resp.data);
-                    $scope.initialize();
-                    this.reset();
-                    alert('Thêm mới thành công!')
-                }).catch(error =>{
-                    alert('Thêm mới thất bại')
-                    console.log('Error: ',error);
-                })
-            } else {
-                alert("không được bỏ trống dữ liệu");
-            }
-        
+        $http.post(`/rest/phuongan`,item).then(resp =>{
+            $scope.items.push(resp.data);
+            $scope.initialize();
+            this.reset();
+            alert('Thêm mới thành công!')
+        }).catch(error =>{
+            alert('Thêm mới thất bại')
+            console.log('Error: ',error);
+        })
     }
     //Cập nhật
     $scope.update=function(){
         item=angular.copy($scope.form);
-        var selectorElement = document.getElementsByClassName('form-control')
-            for (var i = 0; i < selectorElement.length; i++) {
-                if (selectorElement[i].value == "") {
-                    validElement = false;
-                }
-            }
-            if (validElement == true) {
-                $http.put(`/rest/phuongan`,item).then(resp =>{
-                    var index=$scope.items.findIndex(p => p.id == item.id);
-                    $scope.items[index]=item;
-                    $scope.reset();
-                    $scope.initialize();
-                    alert('Cập nhật thành công');
-                }).catch(error =>{
-                    alert('Cập nhật thất bại');
-                    console.log('Error: ',error);
-                })
-            } else {
-                alert("không được bỏ trống dữ liệu");
-            }
-        
+        $http.put(`/rest/phuongan`,item).then(resp =>{
+            var index=$scope.items.findIndex(p => p.id == item.id);
+            $scope.items[index]=item;
+            $scope.reset();
+            $scope.initialize();
+            alert('Cập nhật thành công');
+        }).catch(error =>{
+            alert('Cập nhật thất bại');
+            console.log('Error: ',error);
+        })
         
     }
     //Xóa
@@ -130,28 +105,5 @@ app.controller("phuongan-ctrl", function($scope,$http){
 		prev(){
 			this.page--;
 		}
-    }
-     // lọc dữ liệu và fill lại search
-     $scope.search = function () {
-        var input, filter,td , tr, i, tbody
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        tbody = document.getElementById("myTbody");
-        tr = tbody.getElementsByTagName("tr");
-        for (var index = 0; index < tr.length; index++) {
-            td = tr[index].getElementsByTagName("td");
-            for (i = 0; i < td.length; i++) {
-                var  tempc = false;
-                txtValue = td[i].textContent || td[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tempc = true;
-                    tr[index].style.display = "";
-                    break;
-                } else if(i == td.length-1 && tempc == false) {
-                    tr[index].style.display = "none";
-                }
-            }   
-        }
-        
     }
 })

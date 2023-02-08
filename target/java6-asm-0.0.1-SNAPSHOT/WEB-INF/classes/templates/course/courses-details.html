@@ -23,22 +23,23 @@
             <div class="col-lg-8">
               <!-- Courses Details Start -->
               <div class="courses-details">
-                <div class="courses-details-images">
-                  <img
+                <div class="">
+                  <!-- <img
                     th:src="@{|/assets/images/courses/*{image}|}"
                     alt="Courses Details"
-                  />
+                  /> -->
 
-                  <div class="courses-play">
-                    <img
+                  <div class="">
+                    <iframe width="760" height="415" src="https://www.youtube.com/embed/R6plN3FvzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class=""></iframe>
+                    <!-- <img
                       src="/assets/images/courses/circle-shape.png"
                       alt="Play"
                     />
-                    <a
+                      <a
                       class="play video-popup"
-                      href="https://www.youtube.com/watch?v=71IA6hfXN0g&ab_channel=UnicaHCM"
+                      th:href="@{https://youtu.be/R6plN3FvzFY}"
                       ><i class="flaticon-play"></i
-                    ></a>
+                    ></a> -->
                   </div>
                 </div>
 
@@ -46,16 +47,16 @@
 
                 <div class="courses-details-admin">
                   <div class="admin-author">
-                    <div class="author-thumb">
+                    <!-- <div class="author-thumb">
                       <img
-                        src="/assets/images/author/author-01.jpg"
+                        th:src="@{/assets/images/author/author-3.jpg}"
                         alt="Author"
                       />
-                    </div>
-                    <div class="author-content">
+                    </div> -->
+                    <!-- <div class="author-content">
                       <a class="name" href="#">Tuấn Lương</a>
                       <span class="Enroll">286 Học sinh đã đăng ký</span>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="admin-rating">
                     <span class="rating-count">4.9</span>
@@ -63,6 +64,7 @@
                       <span class="rating-bar" style="width: 80%"></span>
                     </span>
                     <span class="rating-text">(5,764 Rating)</span>
+                    <span class="Enroll ms-2 fs-6 text-success">| 286 Học sinh <b>đã đăng ký</b></span>
                   </div>
                 </div>
 
@@ -113,7 +115,7 @@
                       <div class="tab-pane fade" id="reviews">
                         <!-- Tab Reviews Start -->
                         <div class="tab-reviews">
-                          <h3 class="tab-title">Student Reviews:</h3>
+                          <h3 class="tab-title">Các bình luận:</h3>
 
                           <div class="reviews-wrapper reviews-active">
                             <div class="swiper-container">
@@ -123,15 +125,15 @@
                                   <div class="review-author">
                                     <div class="author-thumb">
                                       <img
-                                        src="assets/images/author/author-06.jpg"
+                                        src="/assets/images/author/author-1.jpg"
                                         alt="Author"
                                       />
                                       <i class="icofont-quote-left"></i>
                                     </div>
                                     <div class="author-content">
-                                      <h4 class="name">Sara Alexander</h4>
+                                      <h4 class="name">Duy Trần</h4>
                                       <span class="designation"
-                                        >Product Designer, USA</span
+                                        >Hồ Chí Minh, VN</span
                                       >
                                       <span class="rating-star">
                                         <span
@@ -142,12 +144,7 @@
                                     </div>
                                   </div>
                                   <p>
-                                    Lorem Ipsum has been the industry's standard
-                                    dummy text since the 1500 when unknown
-                                    printer took a galley of type and scrambled
-                                    to make type specimen book has survived not
-                                    five centuries but also the leap into
-                                    electronic type and book.
+                                    Giảng viên giảng khá kỹ, hiểu được cấu trúc của các hàm
                                   </p>
                                 </div>
                                 <!-- Single Reviews End -->
@@ -157,15 +154,15 @@
                                   <div class="review-author">
                                     <div class="author-thumb">
                                       <img
-                                        src="assets/images/author/author-07.jpg"
+                                        src="/assets/images/author/author-2.jpg"
                                         alt="Author"
                                       />
                                       <i class="icofont-quote-left"></i>
                                     </div>
                                     <div class="author-content">
-                                      <h4 class="name">Karol Bachman</h4>
+                                      <h4 class="name">Lê Thị Trang</h4>
                                       <span class="designation"
-                                        >Product Designer, USA</span
+                                        >Kiên Giang, VN</span
                                       >
                                       <span class="rating-star">
                                         <span
@@ -176,12 +173,7 @@
                                     </div>
                                   </div>
                                   <p>
-                                    Lorem Ipsum has been the industry's standard
-                                    dummy text since the 1500 when unknown
-                                    printer took a galley of type and scrambled
-                                    to make type specimen book has survived not
-                                    five centuries but also the leap into
-                                    electronic type and book.
+                                    very good, thầy giáo dạy rất hay , rất kỹ càng, bạn nào muốn giỏi excel nên học nhé, mình học xong giỏi luôn rồi nè. cám ơn thầy nhiều.
                                   </p>
                                 </div>
                                 <!-- Single Reviews End -->
@@ -191,15 +183,15 @@
                                   <div class="review-author">
                                     <div class="author-thumb">
                                       <img
-                                        src="/assets/images/author/author-03.jpg"
+                                        src="/assets/images/author/author-3.jpg"
                                         alt="Author"
                                       />
                                       <i class="icofont-quote-left"></i>
                                     </div>
                                     <div class="author-content">
-                                      <h4 class="name">Gertude Culbertson</h4>
+                                      <h4 class="name">Mông Thị Dương Liễu</h4>
                                       <span class="designation"
-                                        >Product Designer, USA</span
+                                        >Gia Lai, VN</span
                                       >
                                       <span class="rating-star">
                                         <span
@@ -210,12 +202,7 @@
                                     </div>
                                   </div>
                                   <p>
-                                    Lorem Ipsum has been the industry's standard
-                                    dummy text since the 1500 when unknown
-                                    printer took a galley of type and scrambled
-                                    to make type specimen book has survived not
-                                    five centuries but also the leap into
-                                    electronic type and book.
+                                    Khóa học rất hay! Mình giờ có thể nói hay và hát hay hơn xưa rồi!! Xin cảm ơn Cô Hải và Unica đã mang đến khóa học bổ ích này!!!
                                   </p>
                                 </div>
                                 <!-- Single Reviews End -->
@@ -361,7 +348,7 @@
             </div>
             <div class="col-lg-4">
               <!-- Courses Details Sidebar Start -->
-              <div class="sidebar">
+              <div class="sidebar sidebar-style">
                 <!-- Sidebar Widget Information Start -->
                 <div class="sidebar-widget widget-information">
                   <div class="info-price">
@@ -391,13 +378,25 @@
                     </ul>
                   </div>
                   <div class="info-btn">
-                    <a href="" th:attr="ng-click=@{|cart.add(*{id})|}" class="btn btn-primary btn-hover-dark mb-1"
-                      ><i class="fa fa-shopping-cart" aria-hidden="true"></i
-                      >&nbsp; Mua ngay</a
-                    ><br />
-                    <a href="#" class="btn btn-primary btn-hover-dark"
-                      >Học thử miễn phí</a
+
+                    <button disabled th:if="${an}" class="btn btn-dark btn-hover-dark mb-1"
+                      ><i class="fa-solid fa-circle-check"></i>&nbsp; Đã thanh toán </button
                     >
+                    <a th:if="${an}" th:href="@{|/coursedetail/chuonghoc/*{id}|}" class="btn btn-primary btn-hover-dark"
+                      >Học Ngay</a
+                    >
+                    <a th:if="!${an}" th:href="@{|/coursedetail/chuonghoc/*{id}|}" class="btn btn-primary btn-hover-dark mb-1"
+                    >Học thử miễn phí</a>
+
+                    <!-- <a th:if="!${an}" href="" th:attr="ng-click=@{|cart.add(*{id})|}" class="btn btn-primary btn-hover-dark "
+                      ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+                      >&nbsp; Thêm vào giỏ hàng</a
+                    > -->
+                    <a th:if="!${an}"  aria-hidden="true" th:href="@{/order/checkout}" th:attr="ng-click=@{|cart.add(*{id})|}"  class="btn btn-danger btn-hover-dark "
+                      ></i
+                      >Mua Ngay</a
+                    >
+                    <br />
                   </div>
                 </div>
                 <!-- Sidebar Widget Information End -->

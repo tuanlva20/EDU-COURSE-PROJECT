@@ -3,10 +3,14 @@ package com.poly.rest.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.poly.bean.Account;
+import com.poly.dao.AccountDAO;
 import com.poly.service.AccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,10 +28,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountRestController {
     @Autowired
     AccountService aService;
+
+    @Autowired
+    AccountDAO aDao;
     
     @GetMapping("/{id}")
     public Account getByUsername(@PathVariable("id") String username){
+        
         return aService.findByUsername(username);
+    }
+
+    @GetMapping("/user")
+    public Optional<Account> getByName(@RequestParam(name = "name") String name){
+        return aDao.getAccountByName(name);
     }
 
     @GetMapping
@@ -38,9 +51,20 @@ public class AccountRestController {
         return aService.getAll();
     }
     @PostMapping()
-    public Account createAccounts(@RequestBody Account account){
+    public Account createAccounts(@Valid @RequestBody Account account, BindingResult bindingResult){
+       
+            try {
+                if (bindingResult.hasErrors())
+                throw new Exception(bindingResult.getAllErrors().get(0).getDefaultMessage());
+                else return aService.create(account);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }finally{
+                return aService.create(account);
 
-            return aService.create(account);
+            }
+        
     }
 
     @PutMapping("/{username}")
@@ -52,5 +76,4 @@ public class AccountRestController {
     public void deleteAccounts(@PathVariable("username") String username){
         aService.delete(username);
     }
-
 }

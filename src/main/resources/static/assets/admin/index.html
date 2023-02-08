@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Education admin</title>
+    <title>Education</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,15 +27,6 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin-main.css">
-    <link rel="stylesheet" href="../css/search.css">
-       <!-- Custom fonts for this template-->
-       <link href="../css/vendor/all.min.css" rel="stylesheet" type="text/css">
-       <link
-           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-           rel="stylesheet">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
-   
     
 </head>
 
@@ -51,12 +41,19 @@
 
                 <!-- Header Logo Start -->
                 <div class="login-header-logo">
-                    <a href="#!layout"><img src="../images/logo-icon.png" alt="Logo"></a></li>
+                    <a href="index.html"><img src="../images/logo-icon.png" alt="Logo"></a></li>
                 </div>
                 <!-- Header Logo End -->
 
                 <!-- Header Search Start -->
                 <div class="login-header-search dropdown">
+                    <button class="search-toggle" data-bs-toggle="dropdown"><i class="flaticon-loupe"></i></button>
+
+                    <div class="search-input dropdown-menu">
+                        <form action="#">
+                            <input type="text" placeholder="Search here">
+                        </form>
+                    </div>
 
                 </div>
                 <!-- Header Search End -->
@@ -75,8 +72,8 @@
                             <span></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="" href="/index"><i class="icofont-user"></i>Trang chủ</a></li>
-                            <li><a class="" href="/index"><i class="icofont-user"></i>Tài khoản</a></li>
+                            <li><a class="" href="/"><i class="icofont-user"></i>Trang chủ</a></li>
+                            <li><a class="" href="/user"><i class="icofont-user"></i>Tài khoản</a></li>
                             <li><a class="" href="/logoff"><i class="icofont-logout"></i> Sign Out</a></li>
                         </ul>
                     </div>
@@ -117,7 +114,7 @@
                                 </div>
 
                                 <div class="widget-address">
-                                    <h4 class="footer-widget-title" th:text="${ten}">Caribbean Ct</h4>
+                                    <h4 class="footer-widget-title">Caribbean Ct</h4>
                                     <p>Haymarket, Virginia (VA).</p>
                                 </div>
 
@@ -263,33 +260,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- Bootstrap core JavaScript-->
-    <script src="../js/thongke_js/jquery.min.js"></script>
-    <script src="../js/thongke_js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../js/thongke_js/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../js/thongke_js/sb-admin-2.min.js"></script>
 
     <!-- Main JS -->
     <script src="/assets/admin/js/admin-app.js"></script>
     <script src="/assets/admin/js/product-ctrl.js"></script>
-    <script src="/assets/admin/js/bill-ctrl.js"></script>
+    <script src="/assets/admin/js/donhang-ctrl.js"></script>
     <script src="/assets/admin/js/accounts-ctrl.js"></script>
     <script src="/assets/admin/js/authority-ctrl.js"></script>
     <script src="/assets/admin/js/discount-ctrl.js"></script>
     <script src="/assets/admin/js/category-ctrl.js"></script>
     <script src="/assets/admin/js/chuonghoc-ctrl.js"></script>
     <script src="/assets/admin/js/baihoc-ctrl.js"></script>
+    <script src="/assets/admin/js/role-ctrl.js"></script>
     <script src="/assets/admin/js/quiz-ctrl.js"></script>
     <script src="/assets/admin/js/phuongan-ctrl.js"></script>
     <script src="/assets/admin/js/test-ctrl.js"></script>
-    <script src="/assets/admin/js/validator.js"></script>
-    <script src="/assets/admin/js/thongke-ctrl.js"></script>
-    <script src="/assets/admin/js/layout-ctrl.js"></script>
-    <script src="../js/main.min.js"></script>
+    <script src="/assets/admin/js/thaoluan-ctrl.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 

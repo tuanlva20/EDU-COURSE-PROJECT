@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -50,13 +48,16 @@ public class Account implements Serializable {
 
 	private int heart;
 
-	private Timestamp recoveryheart;
-
 	private String provider;
 
+	private String sub;
+
+	private Timestamp recoveryheart;
 	@JsonIgnore
 	@OneToMany(mappedBy="account",fetch= FetchType.EAGER)
 	private List<Authority> authorities;
+
+
 
 	@JsonIgnore
 	@OneToMany(mappedBy="account")
@@ -66,12 +67,20 @@ public class Account implements Serializable {
 	@OneToMany(mappedBy="account")
 	private List<Order> orders;
 
+
+
 	@JsonIgnore
 	@OneToMany(mappedBy="account")
 	private List<Thaoluan> thaoluans;
 
+
 	@JsonIgnore
 	@OneToMany(mappedBy="account")
 	private List<Test> tests;
+
+
+
+	
+	
 
 }
