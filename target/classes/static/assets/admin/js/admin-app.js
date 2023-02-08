@@ -6,9 +6,9 @@ app.config(function($routeProvider){
         templateUrl:"/assets/admin/product/index.html",
         controller:"product-ctrl"
     })
-    .when("/bill",{
-        templateUrl:"/assets/admin/bill/index.html",
-        controller:"bill-ctrl"
+    .when("/donhang",{
+        templateUrl:"/assets/admin/donhang/index.html",
+        controller:"donhang-ctrl"
     })
     .when("/accounts",{
         templateUrl:"/assets/admin/accounts/index.html",
@@ -66,7 +66,6 @@ app.config(function($routeProvider){
         templateUrl:"/assets/admin/authority/unauthorized.html",
         controller:"authority-ctrl"
     })
-    
     .otherwise({
         templateUrl:"/assets/admin/layout/index1.html",
         controller: "layout-ctrl"

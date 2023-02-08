@@ -209,7 +209,7 @@
     }
     #question-quiz{
         /* display: none; */
-        width: 50%;
+        /* width: 50%; */
     }
 }
 .footer-lesson{
@@ -283,9 +283,10 @@
     color: #2d3846;
     cursor: pointer;
     line-height: 24px;
-    margin: 16px 0;
+    margin: 10px 10px;
     padding: 16px 32px;
-    min-width: 90%;
+    width: 90%;
+    max-width: 90%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 .show-parent-comments{
@@ -331,6 +332,7 @@
     -webkit-box-shadow: 0 4px 0 #c3dbec;
     box-shadow: 0 4px 0 #c3dbec;
   }
+
 .correct{
     background: #bde8e0;
     border-color: #40bf9c;
@@ -340,4 +342,85 @@
 #prev{
     display: none;
 }
+
+
+
+
+
+.container-type3{
+    white-space: pre-line;
+    line-height: 35px;
+}
+#drop1{
+    white-space: normal;
+    display: inline-table;
+    min-width: 20vh;
+    min-height: 50px;
+    border-bottom: 1px solid gray;
+}
+#border-content{
+    display: inline-table;
+    
+}
+
+.container-question-type-3{
+    /* min-width: 150vh; */
+    padding: 20px;
+    
+}
+.container-type3{
+    text-align: center;
+    margin-top: 1vh;
+    font-size: 20px;
+    color: #53575c;
+    font-weight: bolder;
+}
+.list-group-item{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    cursor: pointer;
+    /* width: 200px; */
+}
+
+#thuchanh-page{
+    background-color: #157347;
+    color: rgb(253, 253, 253);
+}
+#thuchanh-page:hover{
+    color: #f0f0f0;
+}
+.list-quiz-menu-left{
+    overflow-y: scroll;
+    height: 500px;
+}
+.list-quiz-menu-left::-webkit-scrollbar{
+    background-color: gray;
+    width: 8px;
+    border-radius: 5px;
+}
+.list-quiz-menu-left::-webkit-scrollbar-thumb{
+    background-color: rgb(197, 212, 190);
+    width: 8px;
+    border-radius: 5px;
+}
+
+/* 
+#text-form-dapan{
+    display: contents;
+}
+#text-dapan{
+    border: none;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: transparent;
+}
+#text-dapan:focus{
+    outline: none;
+    border-bottom: 1px solid #2446df;
+    text-align: center;
+} */
 

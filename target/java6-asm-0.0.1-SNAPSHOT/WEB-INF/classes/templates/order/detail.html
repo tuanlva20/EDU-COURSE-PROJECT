@@ -21,7 +21,35 @@
                     </div> -->
               <div class="row g-0" th:object="${order}">
                 
-                <div class="col-md-6 border-right p-5">
+                <div th:if="${order.status ==false}" class="col-md-6 border-right p-5">
+                  <div class="text-center order-details">
+                    <div
+                      class="
+                        d-flex
+                        justify-content-center
+                        mb-5
+                        flex-column
+                        align-items-center
+                      "
+                    >
+                      <span class="check1 bg-danger"><i class="fa fa-x"></i></span>
+                      <span class="font-weight-bold">[[*{#strings.capitalizeWords('Thanh toán thất bại')}]]</span>
+                      <small class="mt-2"
+                        >Bạn đã hủy thanh toán</small
+                      >
+                      <!-- <a href="#" class="text-decoration-none invoice-link text-primary"
+                        >Check mail</a
+                      > -->
+                    </div>
+                    <form action="/order/list" method="post">
+                    <button type="submit" class="btn btn-success">
+                      Quản lý đơn hàng
+                    </button>
+                  </form>
+                  </div>
+                </div>
+
+                <div th:if="${order.status ==true}" class="col-md-6 border-right p-5">
                   <div class="text-center order-details">
                     <div
                       class="
@@ -37,7 +65,7 @@
                       <small class="mt-2"
                         >Hóa đơn sẽ được gửi qua Mail của bạn</small
                       >
-                      <a href="#" class="text-decoration-none invoice-link text-primary"
+                      <a href="https://mail.google.com/mail/u/0/#inbox" class="text-decoration-none invoice-link text-primary"
                         >Check mail</a
                       >
                     </div>
@@ -48,6 +76,8 @@
                   </form>
                   </div>
                 </div>
+
+
               
                 <div class="col-md-6 background-muted">
                   <div class="p-3 border-bottom">
@@ -70,6 +100,7 @@
                       </span>
                       <small>Người mua: [[*{fullname}]]</small> <br>
                       <small>Ngày mua: [[*{createdate}]]</small>
+                      <!-- <small>Hình thức thanh toán: [[*{vnp_CardType}]]</small> -->
                       <div class="d-flex flex-column mt-3">
                         <!-- <small
                           ><i class="fa fa-check text-muted"></i> Vector

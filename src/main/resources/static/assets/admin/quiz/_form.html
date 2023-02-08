@@ -1,27 +1,25 @@
-<form class="row g-3 mt-2" id="formcauhoi">
-  <div class="col-md-12 form-group">
+<form class="row g-3 mt-2">
+  <div class="col-md-12">
     <label for="inputName" class="form-label">Nội dung câu hỏi</label>
     <input
       ng-model="form.noidung"
       type="text"
       class="form-control"
-      id="noidung"
+      id="inputName"
       placeholder="nội dung"
     />
-    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-12 form-group">
+  <div class="col-md-6">
     <label for="inputChuonghoc" class="form-label">Mã bài học</label>
     <select
       ng-model="form.baihoc.baihocid"
-      id="baihocId"
+      id="inputChuonghoc"
       class="form-select"
       
     >
-      <option  value="">Chọn tên bài học...</option>
+      <option  value="" ng-value="">Chọn tên bài học...</option>
       <option ng-repeat="c in baihoc" ng-value="c.baihocid" >{{c.tenbh}}</option>
     </select>
-    <span class="form-message invalid-feedback"></span>
   </div>
     <div class="col-12">
       <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
@@ -31,19 +29,3 @@
     </div>
   
 </form>
-<script>
-
-  Validator({
-
-      // tên form cần validate
-      form : '#formcauhoi',
-      // các thuộc tính kiểm lỗi
-      rules : [
-          //gọi hàm kiểm lỗi và kiểm tra thẻ theo yêu cầu
-          Validator.isRequired('#noidung'),
-          Validator.isRequired('#baihocId')
-
-      ]
-  })
-
-</script>

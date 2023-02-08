@@ -45,6 +45,9 @@ public class MailServiceImpl implements MailService{
     @Override
     public void sendMail() {
         String username = request.getRemoteUser();
+        if(!aDao.existsById(username)){
+            username=aDao.parseSubToUsername(username);
+        }
         Account account = aDao.findById(username).get();
         Properties props = new Properties();
         props.put("mail.smtp.host", host);
@@ -70,5 +73,35 @@ public class MailServiceImpl implements MailService{
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void sendMailRegister(String fromemail, int code) {
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", port);
+        
+        Session session = Session.getInstance(props,
+                new Authenticator() {
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(email, password);
+                    }
+                });
+        Message message = new MimeMessage(session);
+
+        try {
+            
+            message.setRecipients(Message.RecipientType.TO, new InternetAddress[]{new InternetAddress(fromemail)});
+            message.setSubject("Mail Kích Hoạt Tài Khoản");
+            message.setFrom(new InternetAddress(email));
+            message.setContent(thymeleafService.getContent1(code), CONTENT_TYPE_TEXT_HTML);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        
     }
 }

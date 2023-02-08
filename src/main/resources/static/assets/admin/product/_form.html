@@ -1,4 +1,4 @@
-<form class="row g-3 mt-2" id="formkhoahoc" name="khoahoc">
+<form class="row g-3 mt-2">
   <div class="col-md-3">
     <div class="input-group">
       <input
@@ -9,74 +9,37 @@
         onchange="angular.element(this).scope().imageChanged(this.files)"
       />
       <img
-        ng-if="ck == true"
         ng-src="{{'/assets/images/courses/'+form.image}}"
         width="100%"
         height="auto"
         alt=""
-        style="height: 300px;"
-      />
-      <img
-        ng-if="ck == false"
-        ng-src="{{form.image}}"
-        width="100%"
-        height="auto"
-        alt=""
-        style="height: 300px;"
       />
     </div>
   </div>
   <div class="row g-3 col-md-9">
-    <div class="col-md-6 form-group">
-      <label for="inputName" class="form-label">Tên khóa học</label>
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">Tên sản phẩm</label>
       <input
         ng-model="form.name"
         type="text"
         class="form-control"
-        id="name"
+        id="inputName"
         placeholder="Tên sản phẩm"
       />
-      <span class="form-message invalid-feedback"></span>
     </div>
-    <div class="col-md-6 form-group">
+    <div class="col-md-6">
       <label for="inputPrice" class="form-label">Giá bán</label>
       <input
         ng-model="form.price"
         type="number"
         class="form-control"
-        id="price"
+        id="inputPrice"
         placeholder="Giá bán"
       />
-      <span class="form-message invalid-feedback"></span>
     </div>
     
-    
-    <div class="col-md-6 form-group">
-      <label for="inputDiscount" class="form-label">Khuyến mãi</label>
-      <select
-        ng-model="form.discount.id"
-        id="discount"
-        class="form-select"
-      >
-        <option value="">Chọn thể loại...</option>
-        <option ng-repeat="c in discounts" ng-value="c.id">{{c.name}}</option>
-      </select>
-      <span class="form-message invalid-feedback"></span>
-    </div>
-    <div class="col-md-6 form-group">
-      <label for="inputCategory" class="form-label">Thể loại</label>
-      <select
-        ng-model="form.category.id"
-        id="category"
-        class="form-select"
-      >
-        <option value="">Chọn thể loại...</option>
-        <option ng-repeat="c in categories" ng-value="c.id">{{c.name}}</option>
-      </select>
-      <span class="form-message invalid-feedback"></span>
-    </div>
-    <div class="col-md-6 form-group">
-      <label class="form-label" for="gridCheck"> Còn hàng </label>
+    <div class="col-md-6">
+      <label class="form-check-label" for="gridCheck"> Còn hàng </label>
       <div class="form-control" id="gridCheck">
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="form.available" ng-value="true">
@@ -87,20 +50,56 @@
           <label class="form-check-label" for="inlineRadio2">No</label>
         </div>
       </div>
-      <span class="form-message invalid-feedback"></span>
+    </div>
+    <div class="col-md-6">
+      <label class="form-check-label" for="gridCheck"> Khuyến mãi </label>
+      <div class="form-control" id="gridCheck">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions1" ng-model="form.discount.id" ng-value="1">
+          <label class="form-check-label" for="inlineRadio1">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions1" ng-model="form.discount.id" ng-value="1">
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputCategory" class="form-label">Thể loại</label>
+      <select
+        ng-model="form.category.id"
+        id="inputCategory"
+        class="form-select"
+      >
+        <option>Chọn thể loại...</option>
+        <option ng-repeat="c in categories" ng-value="c.id">{{c.name}}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="inputId" class="form-label">ID Youtube</label>
+      <input placeholder="ID youtube" type="text" class="form-control" id="inputId" />
+    </div>
+    <div class="col-md-3">
+      <label for="inputCount" class="form-label">Số lượng</label>
+      <input
+        ng-model="form.quantity"
+        type="number"
+        class="form-control"
+        id="inputCount"
+        placeholder="Số lượng"
+      />
     </div>
 
-    <div class="col-12 form-group">
+    <div class="col-12">
       <label for="inputDesciption" class="form-label">Mô tả</label>
       <textarea
         ng-model="form.description"
         type="text"
         class="form-control"
-        id="desciption"
+        id="inputDesciption"
         placeholder="Mô tả"
         rows="3"
       ></textarea>
-      <span class="form-message invalid-feedback"></span>
     </div>
     <div class="col-12">
       <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
@@ -110,22 +109,3 @@
     </div>
   </div>
 </form>
-<script>
-
-  Validator({
-
-      // tên form cần validate
-      form : '#formkhoahoc',
-      // các thuộc tính kiểm lỗi
-      rules : [
-          //gọi hàm kiểm lỗi và kiểm tra thẻ theo yêu cầu
-          Validator.isRequired('#name'),
-          Validator.isRequired('#price'),
-          Validator.isRequired('#discount'),
-          Validator.isRequired('#category'),
-          Validator.isRequired('#desciption'),
-
-      ]
-  })
-
-</script>

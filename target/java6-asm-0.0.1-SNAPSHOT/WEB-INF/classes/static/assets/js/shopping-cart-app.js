@@ -1,15 +1,16 @@
 var app=angular.module("shopping-cart-app",[]);
-app.controller("shopping-cart-ctrl",function($scope,$http){
+app.controller("shopping-cart-ctrl",function($scope,$http,$window){
     // QUẢN LÝ GIỎ HÀNG
-    
+    var payAmount=0;
+    $scope.usernameString;
+
     $scope.cart={
         items: [],
         //Thêm sản phẩm vào giỏ hàng
         add(id){
             var item=this.items.find(c => c.id==id);
             if(item){
-                item.quantity++;
-                this.saveToLocalStorage();
+                item.quantity==1;
             }else{
                 $http.get(`/rest/products/${id}`).then(resp =>{
                     resp.data.quantity=1;
@@ -25,7 +26,7 @@ app.controller("shopping-cart-ctrl",function($scope,$http){
             var index=this.items.findIndex(item => item.id==id);
             this.items.splice(index,1);
             this.saveToLocalStorage();
-        },
+        }, 
         //Xóa sạch các mặt hàng trong giỏ
         clear(){
             this.items=[];
@@ -60,13 +61,21 @@ app.controller("shopping-cart-ctrl",function($scope,$http){
     }
     $scope.cart.loadFromLocalStorage();
 
+    
+
     $scope.account={
         loadInfoAccount(username){
-            $http.get('/rest/accounts/'+username).then(resp =>{
+            $http.get('/rest/accounts/user?name='+username).then(resp =>{
                 $scope.account = resp.data;   
             })
+            if($scope.account == null){
+                $http.get('/rest/accounts/'+username).then(resp =>{
+                    $scope.account = resp.data;   
+                })
+            }
         },
     }
+
     $scope.account.loadInfoAccount($('#username').text());
 
     $scope.order={
@@ -75,7 +84,8 @@ app.controller("shopping-cart-ctrl",function($scope,$http){
         email:"",
         address:"",
         phone:"",
-        account:{username:$("#username").text()},
+        account:{username:""},
+        // account:{username:$('#username').text()},
 
         get orderdetails(){
             return $scope.cart.items.map(item =>{
@@ -92,19 +102,31 @@ app.controller("shopping-cart-ctrl",function($scope,$http){
             this.email=$scope.account.email;
             this.address=$scope.account.address;
             this.phone=$scope.account.phone;
+            this.account.username=$scope.account.username;
             var order=angular.copy(this);
+            var amount=$scope.cart.amount;
             // Thực hiện đặt hàng
             $http.post("/rest/order",order).then(resp =>{
-                alert('Đặt hàng thành công!');
                 $scope.cart.clear();
-                location.href="/order/detail/"+resp.data.id;
+                var payment={
+                    idService:resp.data.id,
+                    amount: amount,
+                    description:"Thanh toan khoa hoc online",
+                    bankcode:"",
+                }
+                var json=JSON.stringify(payment);
+                $http.post(`/create-payment/${resp.data.id}`,json).then(resp =>{
+                    $window.location.href=resp.data.url;
+                }).catch(error =>{
+                    console.log(error);
+                })
             }).catch(error =>{
-                alert('Đặt hàng lỗi!');
+                alert('Thanh toán không thành công!');
                 console.log("Error: "+error);
             })
         },
-
-        
     }
+
+    
     
 });

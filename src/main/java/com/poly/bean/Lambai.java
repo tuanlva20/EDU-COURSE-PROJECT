@@ -23,6 +23,7 @@ public class Lambai implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+
 	private String active;
 
 	private Timestamp endat;

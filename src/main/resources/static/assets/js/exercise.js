@@ -32,6 +32,8 @@ app.controller("lesson", function ($scope, $http) {
     }
   });
 
+
+
   $scope.callTimeoutheart= function(){
     $scope.resetIntervalHeart = setInterval(timeoutHeart,1000);
       function timeoutHeart(){
@@ -74,12 +76,51 @@ app.controller("lesson", function ($scope, $http) {
     }
   }
 
+  $scope.inputCheck = function(){
+    var text =  $scope.listquiz[$scope.countQues].noidung
+    console.log(text);
+  }
   $scope.checkvideotrue = 0;
   $scope.countQues = 0;
   $scope.pointprogress = 0;
 
 
+  $scope.allowDrop = function(ev) {
+    var classname = ev.target.getAttribute("class");
+    if(classname=="form-check-label"){
+      return false
+    }else{
+      ev.preventDefault();
+    }
+  }
+
+  $scope.drag = function(ev) {
+    ev.dataTransfer.effectAllowed='move';
+    ev.dataTransfer.setData("Text", ev.target.id);
   
+  }
+
+  $scope.drop = function(ev) {
+    var data = ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+  $scope.selectType3 = function(event){
+    // console.log(event.target.id);
+    var drop =  document.getElementById("drop1");
+    if(drop.textContent.length <=0){
+      drop.appendChild(document.getElementById(`${event.target.id}`));
+    }
+    
+  }
+  $scope.dragType3 = function(event){
+    var drop1 = document.getElementById(`${event.target.id}`);
+    console.log(drop1)
+    document.getElementById("drop1").removeChild(drop1);
+    document.getElementById("drop2").appendChild(drop1);
+  }
+
+
+
   $scope.cash = function(){
     if($scope.account.diem >= 30){
       $scope.account.diem = $scope.account.diem - 30;
@@ -186,10 +227,13 @@ app.controller("lesson", function ($scope, $http) {
               $scope.dungsai = 1;
               document.getElementById("kiemtra").style.display = "none";
               document.getElementById("next").style.display = "unset";
+              return;
           }
         }
       }else{
         $scope.dungsai = 2;
+        document.getElementById("kiemtra").style.display = "unset";
+        document.getElementById("next").style.display = "none";
       }
     });
   };
@@ -198,52 +242,61 @@ app.controller("lesson", function ($scope, $http) {
     if ($scope.countQues < $scope.progressSize) {
       $scope.countQues++;
       $scope.pointprogress++;
-      $scope.quiz_step =
-        (100 / ($scope.progressSize + 1)) * $scope.pointprogress;
-      document.getElementById("dot-quiz-starting").style.left =
-        $scope.quiz_step + "%";
+      
+      $scope.nowProgress($scope.pointprogress);
+      
       if ($scope.countQues == $scope.listquiz.length) {
         document.getElementById("succes-question").style.display = "unset";
         document.getElementById("success-lesson").style.display = "unset";
         document.getElementById("next").style.display = "none";
-        document.getElementById("prev").style.display = "none";
+        // document.getElementById("prev").style.display = "none";
         document.getElementById("kiemtra").style.display = "none";
       }
       $scope.checkQuizSuccess();
       document.getElementById("next").style.display = "none";
     }
   };
+
+  $scope.nowProgress = function(point){
+    
+    $scope.quiz_step =
+        (100 / ($scope.progressSize + 1)) * point;
+      document.getElementById("dot-quiz-starting").style.left =
+        $scope.quiz_step + "%";
+    document.getElementById("answer-bad").classList.remove("animate__animated","animate__heartBeat");
+  }
   // 2 button teen giong nhau
   $scope.back = function () {
     if ($scope.countQues >= 0) {
       $scope.countQues--;
       $scope.pointprogress--;
-      console.log($scope.countQues);
-      $scope.quiz_step =
-        (100 / ($scope.progressSize + 1)) * $scope.pointprogress;
-      document.getElementById("dot-quiz-starting").style.left =
-        $scope.quiz_step + "%";
+      console.log($scope.countQues,$scope.pointprogress)
     }
     if ($scope.countQues < 0) {
       document.getElementById("myVideo").style.display = "unset";
       $scope.checkvideotrue = 0;
       document.getElementById("next").style.display = "none";
-      document.getElementById("next").style.display = "none";
       document.getElementById("prev").style.display = "none";
       document.getElementById("nextvideo").style.display = "unset";
       document.getElementById("kiemtra").style.display = "none";
     }
+    
+    if ($scope.countQues <= $scope.listquiz.length) {
+      console.log($scope.countQues+"vo"+$scope.progressSize);
+      document.getElementById("success-lesson").style.display = "none";
+      document.getElementById("succes-question").style.display = "none";
+      // document.getElementById("next").style.display = "unset";
+    }
+
     $scope.checkQuizSuccess();
+    $scope.nowProgress($scope.pointprogress);
   };
 
   // document.getElementById("question-quiz").style.display="none";
   $scope.nextvideo = function () {
     
     $scope.pointprogress++;
-    $scope.quiz_step = (100 / ($scope.progressSize + 1)) * $scope.pointprogress;
-    console.log($scope.quiz_step);
-    document.getElementById("dot-quiz-starting").style.left =
-      $scope.quiz_step + "%";
+    $scope.nowProgress($scope.pointprogress);
     document.getElementById("myVideo").style.display = "none";
     document.getElementById("myVideo").pause();
     document.getElementById("prev").style.display = "unset";
@@ -290,7 +343,39 @@ app.controller("lesson", function ($scope, $http) {
   }
   $scope.comment.getComment()
 
-
+  $scope.shortcuts_quiz = function(index){
+    document.getElementById("kiemtra").style.display = "unset";
+    $scope.countQues = index;
+    $scope.pointprogress = index+1;
+    $scope.nowProgress($scope.pointprogress);
+        if ($scope.countQues < 0) {
+          document.getElementById("myVideo").style.display = "unset";
+          $scope.checkvideotrue = 0;
+          document.getElementById("next").style.display = "none";
+          document.getElementById("prev").style.display = "none";
+          document.getElementById("nextvideo").style.display = "unset";
+          document.getElementById("kiemtra").style.display = "none";
+        }
+    $scope.checkQuizSuccess();
+  }
+  $scope.shortcuts_quizmax = function(max){
+    $scope.countQues = max;
+    $scope.pointprogress = max+1;
+    $scope.nowProgress($scope.pointprogress);
+        if ($scope.countQues == $scope.listquiz.length) {
+          document.getElementById("succes-question").style.display = "unset";
+          document.getElementById("success-lesson").style.display = "unset";
+          document.getElementById("next").style.display = "none";
+          // document.getElementById("prev").style.display = "none";
+          document.getElementById("kiemtra").style.display = "none";
+        }
+        if ($scope.countQues > $scope.listquiz.length) {
+          document.getElementById("succes-question").style.display = "none";
+          document.getElementById("success-lesson").style.display = "none";
+        }
+        $scope.checkQuizSuccess();
+    
+  }
 
 
   $scope.checkSkipVideo = function () {

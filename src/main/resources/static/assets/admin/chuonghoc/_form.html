@@ -1,4 +1,4 @@
-<form class="row g-3 mt-2" id="formchuonghoc">
+<form class="row g-3 mt-2">
   <div class="col-md-3">
     <div class="input-group">
       <input
@@ -9,48 +9,35 @@
         onchange="angular.element(this).scope().imageChanged(this.files)"
       />
       <img
-        ng-if="ck == true"
         ng-src="{{'/assets/images/courses/'+form.chuonghocimg}}"
         width="100%"
         height="auto"
         alt=""
-        style="height: 300px;"
-      />
-      <img
-        ng-if="ck == false"
-        ng-src="{{form.chuonghocimg}}"
-        width="100%"
-        height="auto"
-        alt=""
-        style="height: 300px;"
       />
     </div>
   </div>
-  
   <div class="row g-3 col-md-9">
-    <div class="col-md-9">
+    <div class="col-md-6">
       <label for="inputName" class="form-label">Tiêu đề chương học</label>
       <input
         ng-model="form.tieude"
         type="text"
         class="form-control"
-        id="tieude"
+        id="inputName"
         placeholder="Tên sản phẩm"
       />
-      <span class="form-message invalid-feedback"></span>
     </div>
     
-    <div class="col-md-9">
+    <div class="col-md-5">
       <label for="inputCategory" class="form-label">Mã môn học</label>
       <select
         ng-model="form.product.id"
-        id="productId"
-        class="form-control"
+        id="inputProduct"
+        class="form-select"
       >
-        <option  value="">Chọn sản phẩm...</option>
+        <option  value="" ng-value="">Chọn sản phẩm...</option>
         <option ng-repeat="c in products" ng-value="c.id" >{{c.name}}</option>
       </select>
-      <span class="form-message invalid-feedback"></span>
     </div>
   </div>
     <div class="col-12">
@@ -61,19 +48,3 @@
     </div>
   
 </form>
-<script>
-
-  Validator({
-
-      // tên form cần validate
-      form : '#formchuonghoc',
-      // các thuộc tính kiểm lỗi
-      rules : [
-          //gọi hàm kiểm lỗi và kiểm tra thẻ theo yêu cầu
-          Validator.isRequired('#tieude'),
-          Validator.isRequired('#productId')
-
-      ]
-  })
-
-</script>
