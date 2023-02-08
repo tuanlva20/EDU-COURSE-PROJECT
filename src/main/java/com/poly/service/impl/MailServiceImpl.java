@@ -45,6 +45,9 @@ public class MailServiceImpl implements MailService{
     @Override
     public void sendMail() {
         String username = request.getRemoteUser();
+        if(!aDao.existsById(username)){
+            username=aDao.parseSubToUsername(username);
+        }
         Account account = aDao.findById(username).get();
         Properties props = new Properties();
         props.put("mail.smtp.host", host);

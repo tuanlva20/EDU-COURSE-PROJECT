@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.poly.bean.Order;
 import com.poly.bean.Product;
+import com.poly.dao.AccountDAO;
 import com.poly.service.OrderService;
 import com.poly.service.ProductService;
 
@@ -24,6 +25,8 @@ public class ProductController {
     ProductService pService;
     @Autowired
     OrderService oService;
+    @Autowired
+    AccountDAO accountDAO;
 
     @RequestMapping(value = "/courses")
     public String list(Model model,@RequestParam("cd") Optional<Integer> id){
@@ -42,6 +45,9 @@ public class ProductController {
         Product p=pService.getOneById(id);
         model.addAttribute("product", p);
         String username = request.getRemoteUser();
+        if(!accountDAO.existsById(username)){
+            username = accountDAO.parseSubToUsername(username);
+        }
         Order order = oService.damua(username,id);
         if(order!=null&& order.isStatus()==true){
             model.addAttribute("an", "disabled");

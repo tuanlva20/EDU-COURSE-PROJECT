@@ -50,6 +50,8 @@ public class Account implements Serializable {
 
 	private String provider;
 
+	private String sub;
+
 	private Timestamp recoveryheart;
 	@JsonIgnore
 	@OneToMany(mappedBy="account",fetch= FetchType.EAGER)

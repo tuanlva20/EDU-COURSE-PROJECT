@@ -392,7 +392,7 @@
                       ><i class="fa fa-shopping-cart" aria-hidden="true"></i
                       >&nbsp; Thêm vào giỏ hàng</a
                     > -->
-                    <a th:if="!${an}" th:href="@{/order/checkout}"  class="btn btn-danger btn-hover-dark "
+                    <a th:if="!${an}"  aria-hidden="true" th:href="@{/order/checkout}" th:attr="ng-click=@{|cart.add(*{id})|}"  class="btn btn-danger btn-hover-dark "
                       ></i
                       >Mua Ngay</a
                     >

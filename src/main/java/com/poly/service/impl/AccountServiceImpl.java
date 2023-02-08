@@ -30,7 +30,7 @@ public class AccountServiceImpl implements AccountService{
     public Account findByUsername(String username) {
         Account acc=aDAO.findById(username).get();
         // acc.setPassword(pe.encode(acc.getPassword()));
-        return acc;
+        return aDAO.findById(username).get();
     }
 
     @Override
@@ -69,17 +69,26 @@ public class AccountServiceImpl implements AccountService{
     public void processOAuthPostLogin(DefaultOidcUser account) {
         // User existUser = repo.getUserByUsername(username);
         // username = "user1";
+        Account newAccount = new Account();
         String email = account.getAttribute("email");
         Optional<Account> existUser = aDAO.findById(email);
-        if (existUser.isEmpty()) {
-            Account newAccount = new Account();
-            newAccount.setUsername(email);
-            newAccount.setFullname(account.getAttribute("name"));
-            newAccount.setPhoto(account.getAttribute("picture"));
+        newAccount.setUsername(email);
+        newAccount.setFullname(account.getAttribute("name"));
+        newAccount.setPhoto(account.getAttribute("picture"));
+        newAccount.setSub(account.getAttribute("sub"));
+        newAccount.setEmail(email);
+        if (!existUser.isPresent()) {
+            newAccount.setDiem(30);
+            newAccount.setHeart(3);
+            newAccount.setRecoveryheart(new Timestamp(System.currentTimeMillis()));
             newAccount.setProvider(PROVIDER_ENUM.GOOGLE.toString());
-            aDAO.save(newAccount);
+        }else{
+            newAccount.setDiem(existUser.get().getDiem());
+            newAccount.setHeart(existUser.get().getHeart());
+            newAccount.setRecoveryheart(existUser.get().getRecoveryheart());
+            newAccount.setPhoto(account.getAttribute("picture"));
         }
-
+        aDAO.save(newAccount);
     }
 
     private Account setAccountInfor(Object DataItem){
