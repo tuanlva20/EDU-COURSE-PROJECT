@@ -1,15 +1,16 @@
-<form class="row g-3 mt-2">
-  <div class="col-md-6">
+<form class="row g-3 mt-2" id="formbaihoc">
+  <div class="col-md-12 form-group">
     <label for="inputName" class="form-label">Tên bài học</label>
     <input
       ng-model="form.tenbh"
       type="text"
       class="form-control"
-      id="inputName"
-      placeholder="Tên baihoc"
+      id="name"
+      placeholder="Tên bài học"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <!-- <div class="col-md-6 form-group">
     <label for="inputdate" class="form-label">Ngày tạo</label>
     <input
       ng-model="form.createdate"
@@ -18,60 +19,65 @@
       id="inputdate"
       placeholder="Ngày tạo"
     />
-  </div>
-  <div class="col-md-12">
+  </div> -->
+  <div class="col-md-12 form-group">
     <label for="inputlink" class="form-label">Link</label>
     <input
       ng-model="form.link"
       type="text"
       class="form-control"
-      id="inputlink"
+      id="link"
       placeholder="Đường dẫn"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 form-group">
     <label for="inputch" class="form-label">Câu hỏi cuối bài</label>
     <input
       ng-model="form.cauhoi"
       type="text"
       class="form-control"
-      id="inputch"
+      id="test"
       placeholder="Câu hỏi"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 form-group">
     <label for="inputcontent" class="form-label">Nội dung</label>
     <input
       ng-model="form.noidung"
       type="text"
       class="form-control"
-      id="inputnoidung"
+      id="noidung"
       placeholder="Nội dung"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <!-- <div class="col-md-6 form-group">
     <label for="inputCategory" class="form-label">Mã thể loại</label>
     <select
       ng-model="form.category.id"
-      id="inputCategory"
-      class="form-select"
+      id="categoryId"
+      class="form-control"
       
     >
-      <option  value="" ng-value="">Chọn tên thể loại...</option>
+      <option  value="">Chọn tên thể loại...</option>
       <option ng-repeat="c in category" ng-value="c.id" >{{c.name}}</option>
     </select>
-  </div>
-  <div class="col-md-6">
+    <span class="form-message invalid-feedback"></span>
+  </div> -->
+  <div class="col-md-6 form-group">
     <label for="inputChuonghoc" class="form-label">Mã chương học</label>
     <select
       ng-model="form.chuonghoc.id"
-      id="inputChuonghoc"
-      class="form-select"
+      id="chuonghocId"
+      class="form-control"
       
     >
-      <option  value="" ng-value="">Chọn tên chương học...</option>
+      <option  value="">Chọn tên chương học...</option>
       <option ng-repeat="c in chuonghoc" ng-value="c.id" >{{c.tieude}}</option>
     </select>
+    <span class="form-message invalid-feedback"></span>
   </div>
     <div class="col-12">
       <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
@@ -81,3 +87,23 @@
     </div>
   
 </form>
+<script>
+
+  Validator({
+
+      // tên form cần validate
+      form : '#formbaihoc',
+      // các thuộc tính kiểm lỗi
+      rules : [
+          //gọi hàm kiểm lỗi và kiểm tra thẻ theo yêu cầu
+          Validator.isRequired('#name'),
+          Validator.isRequired('#link'),
+          Validator.isRequired('#test'),
+          Validator.isRequired('#noidung'),
+          Validator.isRequired('#categoryId'),
+          Validator.isRequired('#chuonghocId'),
+
+      ]
+  })
+
+</script>

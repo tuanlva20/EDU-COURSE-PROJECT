@@ -36,7 +36,7 @@ public class Product implements Serializable {
 
 	private double price;
 
-	private int quantity;
+	private int total_register;
 
 	@JsonIgnore
 	@OneToMany(mappedBy="product")
@@ -44,7 +44,7 @@ public class Product implements Serializable {
 
 	@JsonIgnore
 	@OneToMany(mappedBy="product")
-	private List<Orderdetail> orderdetails;
+	private List<Order> oders;
 
 	//bi-directional many-to-one association to Category
 	@ManyToOne

@@ -1,25 +1,27 @@
-<form class="row g-3 mt-2">
+<form class="row g-3 mt-2" id="formdisc">
   <div class="col-md-6">
-    <label for="inputName" class="form-label">Tên sản phẩm</label>
+    <label for="inputName" class="form-label">Tên mã giảm giá</label>
     <input
       ng-model="form.name"
       type="text"
       class="form-control"
-      id="inputName"
+      id="name"
       placeholder="Tên sản phẩm"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 form-group">
     <label for="inputSaleoff" class="form-label">Giảm giá</label>
     <input
       ng-model="form.saleoff"
       type="number"
       class="form-control"
-      id="inputSaleoff"
+      id="saleoff"
       placeholder="% giảm"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 form-group">
     <label class="form-label" for="gridCheck"> Kích hoạt </label>
     <div class="form-control" id="gridCheck">
       <div class="form-check form-check-inline">
@@ -31,38 +33,40 @@
         <label class="form-check-label" for="inlineRadio2">No</label>
       </div>
     </div>
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <!-- <div class="col-md-6 form-group">
     <label for="inputCreatedate" class="form-label">Ngày tạo</label>
     <input
       ng-model="form.createdate"
       type="text"
       class="form-control"
-      id="inputCreatedate"
+      id="createdate"
       placeholder="YYYY-MM-DD  năm-tháng-ngày"
       disabled="disabled"
     />
-  </div>
-  <div class="col-md-6">
+  </div> -->
+  <div class="col-md-6 form-group">
     <label for="inputStartdate" class="form-label">Ngày bắt đầu</label>
     <input
       ng-model="form.startdate"
-      type="text"
+      type="date"
       class="form-control"
-      id="inputStartdate"
-      placeholder="YYYY-MM-DD  năm-tháng-ngày"
-     
+      id="startdate"
+      min="2023-01-05"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 form-group">
     <label for="inputEnddate" class="form-label">Ngày kết thúc</label>
     <input
       ng-model="form.enddate"
-      type="text"
+      type="date"
       class="form-control"
-      id="inputEnddate"
-      placeholder="YYYY-MM-DD  năm-tháng-ngày"
+      id="enddate"
+      min="2023-01-05"
     />
+    <span class="form-message invalid-feedback"></span>
   </div>
   
     <div class="col-12">
@@ -72,3 +76,21 @@
       <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
     </div>
 </form>
+<script>
+
+  Validator({
+
+      // tên form cần validate
+      form : '#formdisc',
+      // các thuộc tính kiểm lỗi
+      rules : [
+          //gọi hàm kiểm lỗi và kiểm tra thẻ theo yêu cầu
+          Validator.isRequired('#name'),
+          Validator.isRequired('#saleoff'),
+          Validator.isRequired('#startdare'),
+          Validator.isRequired('#enddate')
+
+      ]
+  })
+
+</script>

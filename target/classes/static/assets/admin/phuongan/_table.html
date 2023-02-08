@@ -8,8 +8,8 @@
         <th>Edit</th>
       </tr>
     </thead>
-    <tbody>
-      <tr ng-repeat="p in pager.items">
+    <tbody id="myTbody">
+      <tr ng-repeat="p in pager.items" id="myTr">
         <td>{{p.id}}</td>
         <td>{{p.noidung}}</td>
         <td>{{p.dungsai?'Yes':'No'}}</td>

@@ -29,7 +29,7 @@ public class ChuonghocServiceImpl implements ChuonghocService {
     @Override
     public List<Chuonghoc> getAll() {
         // TODO Auto-generated method stub
-        return null;
+        return chuonghocDAO.findAll();
     }
 
     @Override

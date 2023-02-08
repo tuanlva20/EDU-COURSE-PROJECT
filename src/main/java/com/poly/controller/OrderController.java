@@ -1,5 +1,7 @@
 package com.poly.controller;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.poly.bean.Order;
@@ -37,7 +39,7 @@ public class OrderController {
 
     @RequestMapping(value = "/order/detail/{id}")
     public String orderDetail(Model model, @PathVariable("id") Integer id){
-        Order order = orderService.getById(id);
+        Optional<Order> order = orderService.getById(id);
         model.addAttribute("order", order);
         return "order/detail";
     }

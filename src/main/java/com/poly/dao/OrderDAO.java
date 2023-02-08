@@ -20,16 +20,25 @@ public interface OrderDAO extends JpaRepository<Order, Integer>{
     nativeQuery = true)
     Order damua(String username, int idProduct);
 
-
-        @Query(value = "select o.id from orders o where o.address=?1 and o.createdate=?2 and o.email=?3 and o.fullname=?4 and o.phone=?5 and"+
-        " o.status=?6 and o.username=?7", nativeQuery = true)
-        List<Integer> findidOrders(String address,Date createdate, String email, String fullname, String phone, boolean status, String username);
-
-
+    @Query(value = "select o.id from orders o where o.address=?1 and o.createdate=?2 and o.email=?3 and o.fullname=?4 and o.phone=?5 and"+
+    " o.status=?6 and o.username=?7", nativeQuery = true)
+    List<Integer> findidOrders(String address,Date createdate, String email, String fullname, String phone, boolean status, String username);
 
     @Query(value="select * from orders o, orderdetails od where o.id=od.orderid and od.price = ?1 and o.username = ?2",
     nativeQuery = true)
     Order updateStatusOrder(Integer price, String username);
 
+    @Query(value = "select sum(price) as totalprice from orders od where od.status = 1"
+    +   " and month(od.createdate) = ?1 and year(od.createdate) = ?2", nativeQuery = true)
+    Integer totalOrderByMonth(int month, int year);
+
+    @Query(value = "select sum(price) as totalprice from orders od where od.status = 1 and year(od.createdate) = ?", nativeQuery = true)
+    Integer totalOrderByYear(int year);
+
+    @Query(value = "select od.product.id  from Order od, Product p where od.product.id = p.id")
+    List<Integer> findOderByProductId();
+
+    @Query(value = "select SUM(price) as totalprice from Order od where od.status = 1 and od.product.id = ?1")
+    Integer totalOrderByProductId(int id);
 
 }

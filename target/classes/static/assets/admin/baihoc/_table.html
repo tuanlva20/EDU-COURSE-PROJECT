@@ -3,24 +3,24 @@
       <tr class="text-center">
         <th scope="col">Mã bài học</th>
         <th scope="col">Ngày tạo</th>
-        <th scope="col">Link</th>
+        <!-- <th scope="col">Link</th> -->
         <th scope="col">Nội dung</th>
         <th scope="col">Câu hỏi</th>
         <th scope="col">Tên bài học</th>
-        <th scope="col">Mã thể loại</th>
+        <!-- <th scope="col">Mã thể loại</th> -->
         <th scope="col">Mã chương học</th>
         <th>edit</th>
       </tr>
     </thead>
-    <tbody>
-      <tr ng-repeat="p in pager.items">
+    <tbody id="myTbody">
+      <tr ng-repeat="p in pager.items track by $index" id="myTr">
         <td>{{p.baihocid}}</td>
         <td>{{p.createdate}}</td>
-        <td>{{p.Link}}</td>
+        <!-- <td>{{p.Link}}</td> -->
         <td>{{p.noidung}}</td>
         <td>{{p.cauhoi}}</td>
         <td>{{p.tenbh}}</td>
-        <td>{{p.category.id}}</td>
+        <!-- <td>{{p.category.id}}</td> -->
         <td>{{p.chuonghoc.id}}</td>
         <td>
             <button class="text-warning btn-edit" style="border: none; background: none;" ng-click="edit(p)"><i class="fa fa-pencil-square-o"></i></button>

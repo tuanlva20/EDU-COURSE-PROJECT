@@ -1,4 +1,4 @@
-<table class="table table-bordered table-striped table-hover mt-2">
+<table class="table table-bordered table-striped table-hover mt-2" id="myTbl">
     <thead>
       <tr class="text-center">
       	<th scope="col">STT</th>
@@ -8,16 +8,16 @@
         <th scope="col">Địa chỉ</th>
         <th scope="col">Email</th>
         <th scope="col">Số điện thoại</th>
-        <th scope="col">Hình ảnh</th>
+        <!-- <th scope="col">Hình ảnh</th> -->
         <th scope="col">Ngày tạo</th>
-        <th scope="col">Điểm</th>
-        <th scope="col">Trái tim</th>
+        <!-- <th scope="col">Điểm</th>
+        <th scope="col">Trái tim</th> -->
         <!-- <th scope="col">Thồi gian hổi phục</th> -->
         <th>Edit</th>
       </tr>
     </thead>
-    <tbody>
-      <tr ng-repeat="u in pager.items">
+    <tbody id="myTbody">
+      <tr ng-repeat="u in pager.items track by $index"  id="myTr">
         <td>{{$index+1}}</td>
         <td>{{u.username}}</td>
         <td>{{u.password}}</td>
@@ -25,10 +25,10 @@
         <td>{{u.address}}</td>
         <td>{{u.email}}</td>
         <td>{{u.phone}}</td>
-        <td>{{u.photo}}</td>
+        <!-- <td>{{u.photo}}</td> -->
         <td>{{u.createdate}}</td>
-        <td>{{u.diem}}</td>
-        <td>{{u.heart}}</td>
+        <!-- <td>{{u.diem}}</td>
+        <td>{{u.heart}}</td> -->
         <!-- <td>{{u.recoveryheart}}</td> -->
         <td>
             <button class="text-warning btn-edit" style="border: none; background: none;" ng-click="edit(u)"><i class="fa fa-pencil-square-o"></i></button>

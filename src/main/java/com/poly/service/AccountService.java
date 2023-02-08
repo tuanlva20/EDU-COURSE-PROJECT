@@ -8,6 +8,7 @@ import com.poly.bean.Test;
 public interface AccountService {
 
     Account findByUsername(String username);
+    List<Account> findByKeyword(String key);
 
     List<Account> getAdministrators();
 
