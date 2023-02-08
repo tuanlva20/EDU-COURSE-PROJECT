@@ -25,7 +25,7 @@
                             <li>
                                 <a href="/order/list">[(#{nav.yourorder})]</a>
                             </li>
-                            <li th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+                            <li th:if="${#request.isUserInRole('DIRE')}">
                                 <a href="/admin">[(#{nav.administration})]</a>
                             </li>
                         </th:block>
@@ -51,20 +51,20 @@
                                 <li class="me-0">
                                     <th:block th:if="${#request.remoteUser}">
                                     <div class="d-flex">
-                                        <div class="col-3 pe-0">
-                                            <a href="/user"><img class="rounded-circle"
-                                                th:src="@{|${account.photo}|}" width="50" height="40"
+                                        <div class="col-3 pe-0 me-1">
+                                            <a href="/user"><img class="rounded-circle padding-image-user"
+                                                th:src="@{|${account.photo}|}" width="110" height="50"
                                                 alt="Author"/></a>
                                         </div>
                                         <div class="col-7">
-                                            <div class="fs-5 text-dark" id="username"><a href="/user">[[${account.username}]]</a></div>
+                                            <div class="fs-5 text-dark" id="username"><a href="/user">[[${account.fullname}]]</a></div>
                                             <ul class="sub-menu">
-                                                <li><a href="/logoff" class="fs-6"><i class="fa fa-sign-out" aria-hidden="true"></i>[(#{nav.logoff})]</a></li>
+                                                <li><a href="/logoff" class="" style="font-size: 12px !important;"><i class="fa fa-sign-out" aria-hidden="true"></i>[(#{nav.logoff})]</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     </th:block>
-                                        <li><a class="sign-in position-relative" th:href="@{/cart/view}"><i class="fa fa-shopping-cart fa-shopping-cart-cus"></i><span class="mount-cart badge rounded-pill bg-danger position-absolute">{{cart.count}}</span></a></li>
+                                        <!-- <li><a class="sign-in position-relative" th:href="@{/cart/view}"><i class="fa fa-shopping-cart fa-shopping-cart-cus"></i><span class="mount-cart badge rounded-pill bg-danger position-absolute">{{cart.count}}</span></a></li> -->
                                 </li>
                     </ul>
                 </div>

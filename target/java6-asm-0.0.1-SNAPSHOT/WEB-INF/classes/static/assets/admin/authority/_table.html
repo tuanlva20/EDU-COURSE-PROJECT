@@ -2,15 +2,15 @@
     <thead>
       <tr class="text-center">
         <th></th>
-        <th ng-repeat="role in roles">{{role.name}}</th>
+        <td ng-repeat="role in roles">{{role.name}}</td>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="acc in admins">
-        <th>{{acc.username}}</th>
-        <th ng-repeat="r in roles" class="text-center">
+        <td>{{acc.username}}</td>
+        <td ng-repeat="r in roles" class="text-center">
           <input class="form-check-input" ng-checked="authority_of(acc, r)" ng-click="authority_changed(acc, r)" type="checkbox" >
-        </th>
+        </td>
       </tr>
     </tbody>
   </table>

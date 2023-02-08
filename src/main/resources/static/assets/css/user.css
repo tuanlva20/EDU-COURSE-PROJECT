@@ -176,3 +176,7 @@ body{
 .sidebar-style{
     padding-top: 50px;
 }
+
+.padding-image-user{
+    padding: 5px 12px 5px 12px;
+}

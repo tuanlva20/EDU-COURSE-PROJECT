@@ -13,7 +13,10 @@ import com.poly.bean.Orderdetail;
 public interface OrderDetailDAO extends JpaRepository<Orderdetail, Integer>{
     
 
-    @Query(value="select * from orderdetails od left outer join orders o on o.id=od.orderid left outer join products p on p.id=od.productid where o.username=?1", nativeQuery = true)
+    // @Query(value="select * from orderdetails od left outer join orders o on o.id=od.orderid left outer join products p on p.id=od.productid where o.username=?1", nativeQuery = true)
+    // List<Orderdetail> getCoursePayByUsername(String username);
+
+    @Query(value="select * from orderdetails od join orders o on o.id = od.orderid where o.username = ?1 and o.status = '1'", nativeQuery = true)
     List<Orderdetail> getCoursePayByUsername(String username);
 
     @Query("select o from Orderdetail o where o.order.id=?1")

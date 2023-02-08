@@ -1,0 +1,74 @@
+<form class="row g-3 mt-2">
+  <div class="col-md-6">
+    <label for="inputName" class="form-label">Tên sản phẩm</label>
+    <input
+      ng-model="form.name"
+      type="text"
+      class="form-control"
+      id="inputName"
+      placeholder="Tên sản phẩm"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputSaleoff" class="form-label">Giảm giá</label>
+    <input
+      ng-model="form.saleoff"
+      type="number"
+      class="form-control"
+      id="inputSaleoff"
+      placeholder="% giảm"
+    />
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" for="gridCheck"> Kích hoạt </label>
+    <div class="form-control" id="gridCheck">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="form.isactive" ng-value="true">
+        <label class="form-check-label" for="inlineRadio1">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="form.isactive" ng-value="false">
+        <label class="form-check-label" for="inlineRadio2">No</label>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="inputCreatedate" class="form-label">Ngày tạo</label>
+    <input
+      ng-model="form.createdate"
+      type="text"
+      class="form-control"
+      id="inputCreatedate"
+      placeholder="YYYY-MM-DD  năm-tháng-ngày"
+      disabled="disabled"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputStartdate" class="form-label">Ngày bắt đầu</label>
+    <input
+      ng-model="form.startdate"
+      type="text"
+      class="form-control"
+      id="inputStartdate"
+      placeholder="YYYY-MM-DD  năm-tháng-ngày"
+     
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="inputEnddate" class="form-label">Ngày kết thúc</label>
+    <input
+      ng-model="form.enddate"
+      type="text"
+      class="form-control"
+      id="inputEnddate"
+      placeholder="YYYY-MM-DD  năm-tháng-ngày"
+    />
+  </div>
+  
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
+      <button ng-disabled="!status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="!status()" ng-click="delete(form)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
+    </div>
+</form>

@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import com.poly.bean.Account;
+import com.poly.dao.AccountDAO;
 import com.poly.service.AccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountRestController {
     @Autowired
     AccountService aService;
+
+    @Autowired
+    AccountDAO aDao;
     
     @GetMapping("/{id}")
     public Account getByUsername(@PathVariable("id") String username){
+        
         return aService.findByUsername(username);
+    }
+
+    @GetMapping("/user")
+    public Optional<Account> getByName(@RequestParam(name = "name") String name){
+        return aDao.getAccountByName(name);
     }
 
     @GetMapping
