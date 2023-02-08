@@ -59,7 +59,7 @@ app.config(function($routeProvider){
         controller:"thongke-ctrl"
     })
     .when("/layout", {
-        templateUrl: "/assets/admin/layout/index.html",
+        templateUrl: "/assets/admin/layout/index1.html",
         controller: "layout-ctrl"
     })
     .when("/unauthorized",{
@@ -68,6 +68,7 @@ app.config(function($routeProvider){
     })
     
     .otherwise({
-        templateUrl:"/assets/admin/layout/index.html"
+        templateUrl:"/assets/admin/layout/index1.html",
+        controller: "layout-ctrl"
     });
 })
