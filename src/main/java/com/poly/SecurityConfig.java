@@ -3,8 +3,10 @@ package com.poly;
 import com.poly.dao.AccountDAO;
 import com.poly.service.SecuriryService;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,11 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     AccountDAO accountDAO;
+    @Autowired
+    DataSource dataSource;
 
     /* Quản lý nguồn dữ liệu người dùng */
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception{
-        auth.userDetailsService(userService);
+        auth.userDetailsService(userService).passwordEncoder(getPasswordEncoder());
     }
 
     /* Phân quyền sử dụng và hình thức đăng nhập */
@@ -42,12 +46,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         //CSRF, CORS
         http.csrf().disable();
         // Phân quyền sử dụng
-        // http.authorizeRequests()
-        //     .antMatchers("/admin/**").hasAnyRole("DIRE","STAF")
-        //     .antMatchers("/home/user").hasAnyRole("DIRE","STAF")
-        //     .antMatchers("/order/**","/user").authenticated()
-        //     .antMatchers("/**").permitAll()
-        //     .anyRequest().permitAll();
+        http.authorizeRequests()
+            .antMatchers("/admin/**").hasAnyRole("DIRE","STAF")
+            .antMatchers("/home/user").hasAnyRole("DIRE","STAF")
+            .antMatchers("/order/**","/user").authenticated()
+            .antMatchers("/**").permitAll()
+            .anyRequest().permitAll();
             
         // .antMatchers("/rest/authorities","/rest/authorities/**").hasRole("DIRE")
         // http.authorizeRequests().anyRequest().permitAll();
@@ -64,6 +68,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .failureUrl("/security/login/error")
             .usernameParameter("username")
             .passwordParameter("password");
+
+
+        
 
         // http.rememberMe()
         //     .tokenValiditySeconds(86400);

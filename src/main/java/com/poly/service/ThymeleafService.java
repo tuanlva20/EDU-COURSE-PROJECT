@@ -24,6 +24,7 @@ private static final String MAIL_TEMPLATE_SUFFIX = ".html";
 private static final String UTF_8 = "UTF-8";
 
 private static final String TEMPLATE_NAME = "email";
+private static final String TEMPLATE_NAMEREGISTER = "templateRegisterMail";
 
 private static TemplateEngine templateEngine;
 
@@ -62,5 +63,11 @@ public String getContent(Account account) {
     context.setVariable("project_name", "spring-email-with-thymeleaf Demo");
 
     return templateEngine.process(TEMPLATE_NAME, context);
+}
+public String getContent1(int code) {
+    final Context context = new Context();
+    context.setVariable("project_name1", "spring-email-with-thymeleaf Demo1");
+    context.setVariable("code", code);
+    return templateEngine.process(TEMPLATE_NAMEREGISTER, context);
 }
 }
