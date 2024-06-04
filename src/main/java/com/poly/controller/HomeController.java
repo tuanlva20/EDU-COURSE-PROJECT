@@ -20,6 +20,7 @@ public class HomeController {
     public String index(Model model){
         List<Product> products = pService.getAll();
         model.addAttribute("products", products);
+        System.out.println("haha");
         return "course/index";
     }
 
@@ -27,5 +28,6 @@ public class HomeController {
     public String admin(){
         return "redirect:/assets/admin/index.html";
     }
+
     
 }

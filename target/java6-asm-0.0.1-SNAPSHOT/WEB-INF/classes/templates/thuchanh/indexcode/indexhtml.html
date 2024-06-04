@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <title>Editor HTML</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <link rel="stylesheet" th:href="@{/assets/css/csshtml/w3schools30.css}">
+        <link rel="stylesheet" th:href="@{/assets/css/csshtml/codemirror.css}">
+        <link rel="stylesheet" th:href="@{/assets/css/csshtml/index.css}">
+        <script async=""
+            th:src="@{https://www.googletagmanager.com/gtm.js?id=GTM-KTCFC3S}"></script>
+            <script
+            th:src="@{/assets/js/jsHtml/codemirror.js}"></script>
+        <script th:src="@{/assets/js/jsHtml/codemirror_jsx.js}"></script>
+        <link
+        rel="stylesheet"
+        th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css}"
+      />
+        <link rel="stylesheet"
+            th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
+            <script th:src="@{https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js}"></script>
+            <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js}"></script>
+        
+      <!-- CSS only -->
+<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css}" rel="stylesheet" crossorigin="anonymous">
+    </head>
+    <body class="" ng-app="app-ang" ng-controller="html-ctrl" th:object="${baihoc}">
+        <!-- Google Tag Manager (noscript) -->
+        <input type="hidden" id="user" th:value="${#request.remoteUser}">
+        <input type="hidden" id="idbaihoc" th:value="*{baihocid}">
+
+        <div class="trytopnav">
+            <div class="w3-bar" style="overflow:auto">
+                <a id="tryhome" href="#" target="_blank" title="w3schools.com
+                    Home" class="w3-button w3-bar-item topnav-icons fa fa-home"
+                    style="margin-top:-2px;"></a>
+                <a href="javascript:void(0);" onclick="openMenu()"
+                    id="menuButton" title="Open Menu" class="w3-dropdown-click
+                    w3-button w3-bar-item topnav-icons fa fa-menu"
+                    style="margin-top:-2px;"></a>
+
+                <!-- <a href="javascript:void(0);" onclick="spaceIt.showDialog()" title="Save code" class="w3-button w3-bar-item topnav-icons fa fa-save" style="margin-top:-2px;"></a> -->
+                <a href="javascript:void(0);" onclick="restack(currentStack)"
+                    title="Change Orientation" class="w3-button w3-bar-item
+                    w3-hide-small topnav-icons fa fa-rotate"
+                    style="margin-top:-2px;"></a>
+                <a href="javascript:void(0);" onclick="retheme()" title="Change
+                    Theme" class="w3-button w3-bar-item topnav-icons fa
+                    fa-adjust" style="margin-top:-2px;"></a>
+                
+                <button id="runbtn" class="w3-button w3-bar-item w3-hover-white
+                    w3-hover-text-green"  onclick="submitTryit(1);uic_r_p();"  ng-click="loadTestCodeByUser.savecode();">Run
+                    ❯</button>
+
+
+            </div>
+
+        </div>
+
+        <div id="shield" ></div>
+
+        <a href="javascript:void(0)" id="dragbar" style="width: 5px; top: 48px;
+            left: 669.5px; height: 265px; cursor: col-resize;"></a>
+        <div id="container">
+            <div id="navbarDropMenu" class="w3-dropdown-content w3-bar-block
+                w3-border" style="z-index:5">
+                <span onclick="openMenu()" class="w3-button w3-display-topright
+                    w3-transparent ws-hover-black" title="Close Menu"
+                    style="font-weight:bold;padding-top:10px;padding-bottom:11px;">×</span>
+                <div class="w3-bar-block">
+                    <a class="w3-bar-item w3-button" href="javascript:void(0);"
+                        title="Change Orientaton"
+                        onclick="openMenu();restack(currentStack)"><i class="fa
+                            fa-rotate"
+                            style="font-size:26px;margin-left:-4px;margin-right:8px"></i><span
+                            style="position:relative;top:-4px;left:2px;">Change
+                            Orientation</span></a>
+
+                    <!-- <a class="w3-bar-item w3-button" href="javascript:void(0);" title="Save" onclick="openMenu();spaceIt.showDialog()"><i class="fa fa-save" style="font-size:26px;margin-right:10px;"></i><span style="position:relative;top:-4px;left:2px;">Save Code</span></a> -->
+                    <a class="w3-bar-item w3-button" href="javascript:void(0);"
+                        title="Change Theme" onclick="openMenu();retheme()"><i
+                            class="fa fa-adjust"
+                            style="font-size:26px;margin-right:8px"></i><span
+                            style="position:relative;top:-4px;left:2px;">Change
+                            Theme, Dark/Light</span></a>
+                    
+                </div>
+                <footer class="w3-container w3-small ws-grey">
+                    <p>
+                        <em style="display:inline;padding:0;" 
+                        class="w3-hover-none  ws-hover-text-green">@</em> 
+                        <em style="display:inline;padding:0;"
+                            class="w3-hover-none ws-hover-text-green">Copyright 2022</em>
+                    </p>
+                </footer>
+            </div>
+            <div class="question">
+                <h6 class="text-center mt-1" id="question">
+                  <span th:if="*{cauhoi!='khongco'}" style="font-style: italic;" class="text-success">Hãy tự mình thử :</span> 
+                  <b th:if="*{cauhoi!='khongco'}">[[*{cauhoi}]]</b>
+                </h6>
+            </div>
+            <div id="menuOverlay" class="w3-overlay w3-transparent"
+                style="cursor:pointer;z-index:4"></div>
+            <div id="textareacontainer">
+                <div id="textarea">
+                    <div id="textareawrapper">
+                        <textarea th:if="${test==null}"  autocomplete="off" id="textareaCode"
+                            wrap="logical" spellcheck="false" style="display:
+                            none;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;This is a Heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </textarea>
+
+
+                        <textarea th:if="${test!=null}" autocomplete="off" id="textareaCode"
+                            wrap="logical" spellcheck="false" style="display:
+                            none;">
+                            [[${test.codes}]]
+                        </textarea>
+
+
+
+                        <div class="CodeMirror cm-s-default CodeMirror-wrap">
+                            <div style="overflow: hidden; position: relative;
+                                width: 3px; height: 0px; top: 8px; left: 8px;">
+                                <textarea autocorrect="off" autocapitalize="off"
+                                    spellcheck="false" style="position:
+                                    absolute; bottom: -1em; padding: 0px; width:
+                                    1000px; height: 1em; outline: none;"
+                                    tabindex="0">
+                                </textarea></div><div
+                                class="CodeMirror-vscrollbar"
+                                cm-not-content="true">
+                                <div style="min-width: 1px; height: 0px;">
+                                </div>
+                            </div>
+                            <div class="CodeMirror-hscrollbar"
+                                cm-not-content="true">
+                                <div style="height: 100%; min-height: 1px;
+                                    width: 0px;">
+                                </div>
+                            </div>
+                            <div class="CodeMirror-scrollbar-filler"
+                                cm-not-content="true">
+
+                            </div>
+                            <div class="CodeMirror-gutter-filler"
+                                cm-not-content="true">
+
+                            </div>
+                            <div class="CodeMirror-scroll" tabindex="-1"><div
+                                    class="CodeMirror-sizer" style="margin-left:
+                                    0px; margin-bottom: -12px;
+                                    border-right-width: 18px; min-height: 242px;
+                                    padding-right: 0px; padding-bottom: 0px;"><div
+                                        style="position: relative; top: 0px;"><div
+                                            class="CodeMirror-lines"><div
+                                                style="position: relative;
+                                                outline: none;"><div
+                                                    class="CodeMirror-measure"></div><div
+                                                    class="CodeMirror-measure"></div><div
+                                                    style="position: relative;
+                                                    z-index: 1;"></div><div
+                                                    class="CodeMirror-cursors"><div
+                                                        class="CodeMirror-cursor"
+                                                        style="left: 4px; top:
+                                                        0px; height: 18px;">&nbsp;</div></div><div
+                                                    class="CodeMirror-code"
+                                                    style="">
+                                            </div>
+                                        </div></div>
+                                    </div>
+                                </div>
+                                                    <div style="position: absolute; height: 18px; width: 1px; border-bottom: 0px solid transparent; top: 242px;"></div><div
+                                    class="CodeMirror-gutters" style="display: none; height: 260px;">
+                                </div>
+                            </div>
+                        </div>
+                        <form id="codeForm" autocomplete="off"
+                            style="margin:0px;display:none;">
+                            <input type="hidden" name="code" id="code">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div id="iframecontainer">
+                <div id="iframe">
+
+
+                    <div id="iframewrapper"><iframe frameborder="0"
+                            id="iframeResult" name="iframeResult"
+                            allowfullscreen="true"></iframe></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- index.js -->
+        <script th:src="@{/assets/js/jsHtml/index.js}"></script>
+        <!-- End index.js -->
+        <script th:src="@{/assets/js/jsHtml/common-deps.js}"></script>
+        <script th:src="@{/assets/js/jsHtml/user-session.js}"></script>
+        <script th:src="@{/assets/js/jsHtml/spaceit.js}"></script>
+        <link rel="stylesheet" type="text/css" th:href="@{/assets/css/csshtml/spaceit.css}">
+        <script th:src="@{/assets/js/jsHtml/index-ang.js}"></script>
+        <!-- JavaScript Bundle with Popper -->
+<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js}" crossorigin="anonymous"></script>
+
+    </body></html>

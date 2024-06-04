@@ -54,12 +54,20 @@ app.config(function($routeProvider){
         templateUrl:"/assets/admin/thaoluan/index.html",
         controller:"thaoluan-ctrl"
     })
+    .when("/thongke",{
+        templateUrl:"/assets/admin/thongke/index.html",
+        controller:"thongke-ctrl"
+    })
+    .when("/layout", {
+        templateUrl: "/assets/admin/layout/index1.html",
+        controller: "layout-ctrl"
+    })
     .when("/unauthorized",{
         templateUrl:"/assets/admin/authority/unauthorized.html",
         controller:"authority-ctrl"
     })
-    
     .otherwise({
-        templateUrl:"/assets/admin/layout/index.html"
+        templateUrl:"/assets/admin/layout/index1.html",
+        controller: "layout-ctrl"
     });
 })

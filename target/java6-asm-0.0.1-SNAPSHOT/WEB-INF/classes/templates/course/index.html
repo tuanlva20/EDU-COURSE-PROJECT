@@ -63,7 +63,7 @@
             <div class="box-rating">
               <div class="box-wrapper">
                 <span class="count">4.8 <i class="flaticon-star"></i></span>
-                <p>Rating (86K)</p>
+                <p>Rating (84K)</p>
               </div>
             </div>
 
@@ -111,14 +111,14 @@
             <div class="courses-tabs-menu courses-active mt-2">
               <div class="swiper-container">
                 <ul class="swiper-wrapper nav">
-                  <li class="swiper-slide" th:each="cate : ${categories}">
+                  <li class="swiper-slide" th:each="p : ${products}">
                     <div>
-                      <a href="courses-details.html"
+                      <a th:href="@{|/coursedetail/${p.id}|}"
                             ><img class="img-thumbnail"
-                              th:src="@{/assets/images/courses/courses-01.png}"
+                              th:src="@{|/assets/images/courses/${p.image}|}"
                               alt="Courses"
                           />
-                          <h5 class="title text-center mt-2"><a href="">[[${cate.name}]]</a></h5>
+                          <h5 class="title text-center mt-2"><a th:href="@{|/coursedetail/${p.id}|}">[[${p.name}]]</a></h5>
                         </a>
                     </div>
                   </li>
@@ -224,8 +224,7 @@
                     <h2 class="name mt-2">Students</h2>
                     <div class="testimonial-content">
                       <p class="fs-6 text-color1">
-                        Prepping for the big test or want to ace your first interview? Use Sololearn's real-world practice to reinforce 
-                        what you've learned and get you ready for that big moment.
+                        Khóa 
                       </p>
                     </div>
                   </div>
@@ -405,7 +404,7 @@
                     <div class="testimonial-author">
                       <div class="author-thumb">
                         <img
-                          src="assets/images/author/author-06.jpg"
+                          src="/assets/images/author/author-2.jpg"
                           alt="Author"
                         />
 
@@ -418,14 +417,9 @@
                     </div>
                     <div class="testimonial-content">
                       <p>
-                        Lorem Ipsum has been the industry's standard dummy text
-                        since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make type specimen book has
-                        survived not five centuries but also the leap into
-                        electronic.
+                        Với một người chưa biết gì về Content Website thì đây thực sự là khóa học dễ hiểu. Dù chủ đề khóa học chỉ là về nghề viết bài nhưng anh Lê Minh còn cung cấp thêm những kiến thức liên quan để người học có cái nhìn toàn diện cũng như có thể định hướng nghề nghiệp. Từ khóa học thì mình biết được sắp tới sẽ phải làm gì, học thêm cái gì, phát triền thêm như thế nào. Cảm ơn anh Minh về khóa học rất có giá trị này.
                       </p>
-                      <h4 class="name">Sara Alexander</h4>
-                      <span class="designation">Product Designer, USA</span>
+                      <h4 class="name">Đào Anh</h4>
                     </div>
                   </div>
                   <!-- Single Testimonial End -->
@@ -435,7 +429,7 @@
                     <div class="testimonial-author">
                       <div class="author-thumb">
                         <img
-                          src="assets/images/author/author-07.jpg"
+                          src="/assets/images/author/author-1.jpg"
                           alt="Author"
                         />
 
@@ -448,14 +442,9 @@
                     </div>
                     <div class="testimonial-content">
                       <p>
-                        Lorem Ipsum has been the industry's standard dummy text
-                        since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make type specimen book has
-                        survived not five centuries but also the leap into
-                        electronic.
+                        Một khoá học chứa kiến thức chuyên môn chi tiết. Ngoài ra trong khoá học, anh Minh còn chia sẻ thêm những khía cạnh khác trong ngành nghề và một số định con đường của content website. Đây là một khoá học cực kì bổ ích, là nền tảng cho các bạn mới chập chững vào ngành.
                       </p>
-                      <h4 class="name">Melissa Roberts</h4>
-                      <span class="designation">Product Designer, USA</span>
+                      <h4 class="name">Trần Thanh Trang</h4>
                     </div>
                   </div>
                   <!-- Single Testimonial End -->
@@ -465,7 +454,7 @@
                     <div class="testimonial-author">
                       <div class="author-thumb">
                         <img
-                          src="assets/images/author/author-03.jpg"
+                          src="/assets/images/author/author-1.jpg"
                           alt="Author"
                         />
 
@@ -478,14 +467,9 @@
                     </div>
                     <div class="testimonial-content">
                       <p>
-                        Lorem Ipsum has been the industry's standard dummy text
-                        since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make type specimen book has
-                        survived not five centuries but also the leap into
-                        electronic.
+                        Khóa học này thực sự rất hiệu quả và là một khóa học rất đáng học. Không màu mè, tập trung vào kiến thức thực tế mà bạn có thể áp dụng được ngay sau khi học. Ngoài ra còn có website cho bạn thực hành cùng đội ngũ hỗ trợ giúp bạn cảm thấy dễ dàng hơn. Những ngày dịch giãn cách như thế này, rất nên đầu tư để học khóa này.
                       </p>
-                      <h4 class="name">Sara Alexander</h4>
-                      <span class="designation">Product Designer, USA</span>
+                      <h4 class="name">An Nhiên</h4>
                     </div>
                   </div>
                   <!-- Single Testimonial End -->
@@ -586,162 +570,6 @@
             </div>
             <!-- Section Title End -->
 
-            <!-- Blog Wrapper Start -->
-            <div class="blog-wrapper">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <!-- Single Blog Start -->
-                  <div class="single-blog">
-                    <div class="blog-image">
-                      <a href="blog-details-left-sidebar.html"
-                        ><img src="assets/images/blog/blog-01.jpg" alt="Blog"
-                      /></a>
-                    </div>
-                    <div class="blog-content">
-                      <div class="blog-author">
-                        <div class="author">
-                          <div class="author-thumb">
-                            <a href="#"
-                              ><img
-                                src="assets/images/author/author-01.jpg"
-                                alt="Author"
-                            /></a>
-                          </div>
-                          <div class="author-name">
-                            <a class="name" href="#">Jason Williams</a>
-                          </div>
-                        </div>
-                        <div class="tag">
-                          <a href="#">Science</a>
-                        </div>
-                      </div>
-
-                      <h4 class="title">
-                        <a href="blog-details-left-sidebar.html"
-                          >Data Science and Machine Learning with Python - Hands
-                          On!</a
-                        >
-                      </h4>
-
-                      <div class="blog-meta">
-                        <span>
-                          <i class="icofont-calendar"></i> 21 March, 2021</span
-                        >
-                        <span> <i class="icofont-heart"></i> 2,568+ </span>
-                      </div>
-
-                      <a
-                        href="blog-details-left-sidebar.html"
-                        class="btn btn-secondary btn-hover-primary"
-                        >Read More</a
-                      >
-                    </div>
-                  </div>
-                  <!-- Single Blog End -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <!-- Single Blog Start -->
-                  <div class="single-blog">
-                    <div class="blog-image">
-                      <a href="blog-details-left-sidebar.html"
-                        ><img src="assets/images/blog/blog-02.jpg" alt="Blog"
-                      /></a>
-                    </div>
-                    <div class="blog-content">
-                      <div class="blog-author">
-                        <div class="author">
-                          <div class="author-thumb">
-                            <a href="#"
-                              ><img
-                                src="assets/images/author/author-02.jpg"
-                                alt="Author"
-                            /></a>
-                          </div>
-                          <div class="author-name">
-                            <a class="name" href="#">Pamela Foster</a>
-                          </div>
-                        </div>
-                        <div class="tag">
-                          <a href="#">UX Design</a>
-                        </div>
-                      </div>
-
-                      <h4 class="title">
-                        <a href="blog-details-left-sidebar.html"
-                          >Create Amazing Color Schemes for Your UX Design
-                          Projects</a
-                        >
-                      </h4>
-
-                      <div class="blog-meta">
-                        <span>
-                          <i class="icofont-calendar"></i> 21 March, 2021</span
-                        >
-                        <span> <i class="icofont-heart"></i> 2,568+ </span>
-                      </div>
-
-                      <a
-                        href="blog-details-left-sidebar.html"
-                        class="btn btn-secondary btn-hover-primary"
-                        >Read More</a
-                      >
-                    </div>
-                  </div>
-                  <!-- Single Blog End -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <!-- Single Blog Start -->
-                  <div class="single-blog">
-                    <div class="blog-image">
-                      <a href="blog-details-left-sidebar.html"
-                        ><img src="assets/images/blog/blog-03.jpg" alt="Blog"
-                      /></a>
-                    </div>
-                    <div class="blog-content">
-                      <div class="blog-author">
-                        <div class="author">
-                          <div class="author-thumb">
-                            <a href="#"
-                              ><img
-                                src="assets/images/author/author-03.jpg"
-                                alt="Author"
-                            /></a>
-                          </div>
-                          <div class="author-name">
-                            <a class="name" href="#">Patricia Collins</a>
-                          </div>
-                        </div>
-                        <div class="tag">
-                          <a href="#">Business</a>
-                        </div>
-                      </div>
-
-                      <h4 class="title">
-                        <a href="blog-details-left-sidebar.html"
-                          >Culture & Leadership: Strategies for a Successful
-                          Business</a
-                        >
-                      </h4>
-
-                      <div class="blog-meta">
-                        <span>
-                          <i class="icofont-calendar"></i> 21 March, 2021</span
-                        >
-                        <span> <i class="icofont-heart"></i> 2,568+ </span>
-                      </div>
-
-                      <a
-                        href="blog-details-left-sidebar.html"
-                        class="btn btn-secondary btn-hover-primary"
-                        >Read More</a
-                      >
-                    </div>
-                  </div>
-                  <!-- Single Blog End -->
-                </div>
-              </div>
-            </div>
-            <!-- Blog Wrapper End -->
           </div>
         </div>
         <!-- Blog End -->

@@ -1,0 +1,132 @@
+<form class="row g-3 mt-2">
+  <div class="col-md-3">
+    <div class="input-group">
+      <input
+        type="file"
+        class="form-control m-0 p-0"
+        id="avatarproduct"
+        aria-label="Upload"
+        onchange="angular.element(this).scope().imageChanged(this.files)"
+      />
+      <img
+        ng-src="{{'/assets/images/courses/'+form.photo}}"
+        width="100%"
+        height="auto"
+        alt=""
+        
+      />
+    </div>
+  </div>
+  <div class="row g-3 col-md-9">
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">Tài khoản</label>
+      <input
+        ng-model="form.username"
+        type="text"
+        class="form-control"
+        id="inputName"
+        name="username"
+        placeholder="Tài khoản"
+        ng-disabled="status()"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputPrice" class="form-label">Mật khẩu</label>
+      <input
+        ng-model="form.password"
+        type="text"
+        class="form-control"
+        id="inputPrice"
+        placeholder="Mật khẩu"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputFullName" class="form-label">Họ và Tên</label>
+      <input
+        ng-model="form.fullname"
+        type="text"
+        class="form-control"
+        id="inputFullName"
+        placeholder="Họ và tên"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputAddress" class="form-label">Địa chỉ</label>
+      <input
+        ng-model="form.address"
+        type="text"
+        class="form-control"
+        id="inputAddress"
+        placeholder="Địa chỉ"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail" class="form-label">Emai</label>
+      <input
+        ng-model="form.email"
+        type="email"
+        class="form-control"
+        id="inputEmail"
+        placeholder="Email"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputPhone" class="form-label">Số điện thoại</label>
+      <input
+        ng-model="form.phone"
+        type="text"
+        class="form-control"
+        id="inputPhone"
+        placeholder="Số điện thoại"
+      />
+    </div>
+    
+
+    <div class="col-6">
+      <label for="inputCreateDate" class="form-label">Ngày tạo</label>
+      <input
+        ng-model="form.createdate"
+        type="text"
+        class="form-control"
+        id="inputCreateDate"
+        placeholder="Ngày tạo YYYY/MM/DD"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputF" class="form-label">Điểm</label>
+      <input
+        ng-model="form.diem"
+        type="text"
+        class="form-control"
+        id="inputF"
+        placeholder="Điểm"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputFull" class="form-label">Heart</label>
+      <input
+        ng-model="form.heart"
+        type="text"
+        class="form-control"
+        id="inputFull"
+        placeholder="số trái tim"
+      />
+    </div>
+    <!-- <div class="col-md-6">
+      <label for="inputFullName" class="form-label">Thời gian hồi phục</label>
+      <input
+        ng-model="form.recoveryheart"
+        type="text"
+        class="form-control"
+        id="inputFullName"
+        placeholder="YYYY-MM-DD hh-mm-ss"
+      />
+    </div> -->
+    <div class="col-12">
+      <button ng-disabled="status()" ng-click="create()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-plus"></i> Create</button>
+      <button ng-disabled="!status()" ng-click="update()" type="button" class="btn btn-primary btn-hover-primary lh-lg"><i class="fa fa-list-alt"></i> Update</button>
+      <button ng-disabled="!status()" ng-click="delete(form)" type="button" class="btn btn-danger btn-hover-danger lh-lg"><i class="fa fa-trash-o"></i> Delete</button>
+      <button ng-click="reset()" type="button" class="btn btn-dark btn-hover-dark lh-lg"><i class="fa fa-refresh"></i> Reset</button>
+    </div>
+  </div>
+</form>

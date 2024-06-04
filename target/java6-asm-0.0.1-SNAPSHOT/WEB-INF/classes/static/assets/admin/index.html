@@ -27,6 +27,7 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin-main.css">
+    
 </head>
 
 <body ng-app="admin-app" >
@@ -87,9 +88,9 @@
         <!-- Courses Admin Start -->
         <div class="section overflow-hidden position-relative" id="wrapper">
 
-            <div ng-include="'/assets/admin/_menu.html'"></div>
+            <div ng-include="'/assets/admin/_menu.html'"  ></div>
 
-            <div class="ng-view"></div>
+            <div class="ng-view" ></div>
 
         </div>
         <!-- Courses Admin End -->
@@ -258,11 +259,23 @@
     <script src="../js/plugins/ajax-contact.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- Main JS -->
     <script src="/assets/admin/js/admin-app.js"></script>
     <script src="/assets/admin/js/product-ctrl.js"></script>
+    <script src="/assets/admin/js/donhang-ctrl.js"></script>
+    <script src="/assets/admin/js/accounts-ctrl.js"></script>
     <script src="/assets/admin/js/authority-ctrl.js"></script>
+    <script src="/assets/admin/js/discount-ctrl.js"></script>
+    <script src="/assets/admin/js/category-ctrl.js"></script>
+    <script src="/assets/admin/js/chuonghoc-ctrl.js"></script>
+    <script src="/assets/admin/js/baihoc-ctrl.js"></script>
+    <script src="/assets/admin/js/role-ctrl.js"></script>
+    <script src="/assets/admin/js/quiz-ctrl.js"></script>
+    <script src="/assets/admin/js/phuongan-ctrl.js"></script>
+    <script src="/assets/admin/js/test-ctrl.js"></script>
+    <script src="/assets/admin/js/thaoluan-ctrl.js"></script>
     <script src="../js/main.js"></script>
 
 </body>

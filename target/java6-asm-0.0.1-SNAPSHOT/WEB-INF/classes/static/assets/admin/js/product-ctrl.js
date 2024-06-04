@@ -6,6 +6,11 @@ app.controller("product-ctrl",function($scope,$http){
     };
     $scope.categories=[];
 
+    // Config account Cloud
+    var CLOUDINARY_URL= 'https://api.cloudinary.com/v1_1/otakukayn/upload'; // url
+    var CLOUDINARY_UPLOAD_PRESET = 'iy0pkiy7'; // key
+    var formData = new FormData();
+
     $scope.initialize=function(){
         // load products
         $http.get("/rest/products").then(resp =>{
@@ -31,29 +36,78 @@ app.controller("product-ctrl",function($scope,$http){
     }
     //Tạo mới
     $scope.create=function(){
+
+        // Config account Cloud
+    	var fileUpload = document.getElementById("avatarproduct"); // get input type file
+    	// var imgPreview = document.getElementById("blah"); // xem trước hình ảnh
+    	// var uploadFiles_imganhmau = document.getElementById("uploadFiles");
+    	var file = fileUpload.files[0]; //  lấy ra hình ảnh
+        		 // tạo form data
+        formData.append('file',file); 		 // key : value 
+        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET); // Chọn khóa
+
         $scope.form.discount.id=1;
         item = angular.copy($scope.form);
         console.log(item);
-        $http.post(`/rest/products`,item).then(resp =>{
-            $scope.items.push(resp.data);
-            this.reset();
-            alert('Thêm mới thành công!')
-        }).catch(error =>{
-            alert('Thêm mới thất bại')
-            console.log('Error: ',error);
-        })
+
+        axios({
+            url : CLOUDINARY_URL,
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/x-www-form-urlencoded'
+            },
+            data : formData
+            
+        }).then(function(res){
+            $http.post(`/rest/products`,item).then(resp =>{
+                $scope.items.push(resp.data);
+                alert('Thêm mới thành công!');
+                $scope.reset();
+            }).catch(error =>{
+                alert('Thêm mới thất bại')
+                console.log('Error: ',error);
+            })
+        }).catch(function(err){
+            console.log(err);
+        });
+        
     }
     //Cập nhật
     $scope.update=function(){
+
+         // Config account Cloud
+    	var fileUpload = document.getElementById("avatarproduct"); // get input type file
+    	// var imgPreview = document.getElementById("blah"); // xem trước hình ảnh
+    	// var uploadFiles_imganhmau = document.getElementById("uploadFiles");
+    	var file = fileUpload.files[0]; //  lấy ra hình ảnh
+        		 // tạo form data
+        formData.append('file',file); 		 // key : value 
+        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET); // Chọn khóa
+
         item=angular.copy($scope.form);
-        $http.put(`/rest/products/${item.id}`,item).then(resp =>{
-            var index=$scope.items.findIndex(p => p.id == item.id);
-            $scope.items[index]=item;
-            alert('Cập nhật thành công');
-        }).catch(error =>{
-            alert('Cập nhật thất bại');
-            console.log('Error: ',error);
-        })
+
+        axios({
+            url : CLOUDINARY_URL,
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/x-www-form-urlencoded'
+            },
+            data : formData
+            
+        }).then(function(res){
+            $http.put(`/rest/products/${item.id}`,item).then(resp =>{
+                var index=$scope.items.findIndex(p => p.id == item.id);
+                $scope.items[index]=item;
+                alert('Cập nhật thành công');
+                $scope.reset();
+            }).catch(error =>{
+                alert('Cập nhật thất bại');
+                console.log('Error: ',error);
+            })
+        }).catch(function(err){
+            console.log(err);
+        });
+        
     }
     //Xóa
     $scope.delete=function(item){
@@ -86,6 +140,7 @@ app.controller("product-ctrl",function($scope,$http){
 
     $scope.status=function(){
         var item=angular.copy($scope.form)
+        // console.log(item);
         if(item.id != null){
             return true;
         }else return false;

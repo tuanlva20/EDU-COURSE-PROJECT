@@ -168,29 +168,3 @@
 .header-menu .sub-menu li a {
   padding: 6px 10px;
 }
-
-.courses-tabs-menu {
-  padding: 25px 100px;
-}
-
-.single-work {
-  padding: 0px;
-  min-height: 450px;
-}
-
-.single-work .work-content {
-  text-align: center;
-  padding: 33px;
-}
-
-.single-work .work-content p {
-  font-size: 18px;
-}
-
-.single-testimonial::before {
-  background-image: none;
-}
-
-.text-color1{
-  color: rgb(111	126	151	) !important;
-}

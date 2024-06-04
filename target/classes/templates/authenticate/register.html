@@ -22,13 +22,11 @@
 
                             <!-- Register & Login Images Start -->
                             <div class="register-login-images">
-                                <div class="shape-1">
-                                    <img src="assets/images/shape/shape-26.png" alt="Shape">
-                                </div>
+                               
 
 
                                 <div class="images">
-                                    <img src="assets/images/register-login.png" alt="Register Login">
+                                    <img src="https://png.pngtree.com/background/20210710/original/pngtree-software-training-software-development-picture-image_1042526.jpg" alt="">
                                 </div>
                             </div>
                             <!-- Register & Login Images End -->
@@ -41,28 +39,29 @@
                                 <h3 class="title">Registration <span>Now</span></h3>
 
                                 <div class="form-wrapper">
-                                    <form action="#">
+                                    <form th:action="@{/security/register/form}" th:object="${userData}"  method="post">
                                         <!-- Single Form Start -->
                                         <div class="single-form">
-                                            <input type="text" placeholder="Name">
+                                            <input type="text" name="username" th:value="*{username}"  placeholder="Name">
+                                            <div th:if="${errorUsername}" class="text-center text-danger mt-1">[[${errorUsername}]]</div>
+                                        </div>
+                                       
+                                        <div class="single-form">
+                                            <input type="email" name="email" th:value="*{email}"  placeholder="Email">
+                                            <div th:if="${errorEmail}" class="text-center text-danger mt-1">[[${errorEmail}]]</div>
                                         </div>
                                         <!-- Single Form End -->
                                         <!-- Single Form Start -->
                                         <div class="single-form">
-                                            <input type="email" placeholder="Email">
+                                            <input type="password" name="password" th:value="*{password}" placeholder="Password">
+                                            <div th:if="${errorPassword}" class="text-center text-danger mt-1">[[${errorPassword}]]</div>
                                         </div>
-                                        <!-- Single Form End -->
-                                        <!-- Single Form Start -->
+                                       
                                         <div class="single-form">
-                                            <input type="password" placeholder="Password">
+                                            <input type="password" name="confirm" th:value="*{confirm}" placeholder="Confirm Password">
+                                            <div th:if="${errorConfirm}" class="text-center text-danger mt-1">[[${errorConfirm}]]</div>
                                         </div>
-                                        <!-- Single Form End -->
-                                        <!-- Single Form Start -->
-                                        <div class="single-form">
-                                            <input type="password" placeholder="Confirm Password">
-                                        </div>
-                                        <!-- Single Form End -->
-                                        <!-- Single Form Start -->
+                                       
                                         <div class="single-form">
                                             <button class="btn btn-primary btn-hover-dark w-100">Create an account</button>
                                             <a class="btn btn-secondary btn-outline w-100" href="#">Sign up with Google</a>

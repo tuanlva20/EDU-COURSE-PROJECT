@@ -2,6 +2,7 @@ var app=angular.module("shopping-cart-app",[]);
 app.controller("shopping-cart-ctrl",function($scope,$http,$window){
     // QUẢN LÝ GIỎ HÀNG
     var payAmount=0;
+    $scope.usernameString;
 
     $scope.cart={
         items: [],
@@ -64,11 +65,17 @@ app.controller("shopping-cart-ctrl",function($scope,$http,$window){
 
     $scope.account={
         loadInfoAccount(username){
-            $http.get('/rest/accounts/'+username).then(resp =>{
+            $http.get('/rest/accounts/user?name='+username).then(resp =>{
                 $scope.account = resp.data;   
             })
+            if($scope.account == null){
+                $http.get('/rest/accounts/'+username).then(resp =>{
+                    $scope.account = resp.data;   
+                })
+            }
         },
     }
+
     $scope.account.loadInfoAccount($('#username').text());
 
     $scope.order={
@@ -77,7 +84,8 @@ app.controller("shopping-cart-ctrl",function($scope,$http,$window){
         email:"",
         address:"",
         phone:"",
-        account:{username:$("#username").text()},
+        account:{username:""},
+        // account:{username:$('#username').text()},
 
         get orderdetails(){
             return $scope.cart.items.map(item =>{
@@ -94,6 +102,7 @@ app.controller("shopping-cart-ctrl",function($scope,$http,$window){
             this.email=$scope.account.email;
             this.address=$scope.account.address;
             this.phone=$scope.account.phone;
+            this.account.username=$scope.account.username;
             var order=angular.copy(this);
             var amount=$scope.cart.amount;
             // Thực hiện đặt hàng
@@ -112,7 +121,7 @@ app.controller("shopping-cart-ctrl",function($scope,$http,$window){
                     console.log(error);
                 })
             }).catch(error =>{
-                alert('Đặt hàng lỗi!');
+                alert('Thanh toán không thành công!');
                 console.log("Error: "+error);
             })
         },
